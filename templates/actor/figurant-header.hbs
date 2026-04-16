@@ -1,0 +1,17 @@
+{{!-- FIGURANT HEADER --}}
+<header class="sheet-header">
+  <img class="profile-img" src="{{actor.img}}" data-edit="img"
+       title="{{actor.name}}" height="100" width="100" />
+  <div class="header-fields">
+    <h1 class="actor-name">{{actor.name}}</h1>
+    <div class="header-details">
+      <span class="figurant-profil">{{system.profil}}</span>
+      <span class="figurant-type">{{localize (concat "LAMES.FigurantTypes." system.typeFigurant)}}</span>
+      <span class="figurant-modificateur">{{localize (concat "LAMES.Figurant." system.modificateur)}}</span>
+    </div>
+    <div class="header-combat-resume">
+      {{resumeCombat}}
+      {{#if horsComba}}<span class="hors-combat">{{localize "LAMES.Figurant.horsComba"}}</span>{{/if}}
+    </div>
+  </div>
+</header>

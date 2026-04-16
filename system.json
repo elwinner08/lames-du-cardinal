@@ -1,0 +1,127 @@
+{
+  "id": "lames-du-cardinal",
+  "title": "Les Lames du Cardinal",
+  "description": "Système de jeu officieux pour le JDR Les Lames du Cardinal v2, par Elder Craft. France du XVIIe siècle uchronique, cape et épée draconique.",
+  "version": "0.2.0",
+  "compatibility": {
+    "minimum": "14",
+    "verified": "14.359",
+    "maximum": "14"
+  },
+  "authors": [
+    {
+      "name": "Thomas",
+      "flags": {}
+    }
+  ],
+  "esmodules": [
+    "module/lames-du-cardinal.mjs"
+  ],
+  "styles": [
+    "styles/lames.css"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English (Français)",
+      "path": "lang/en.json",
+      "flags": {}
+    },
+    {
+      "lang": "fr",
+      "name": "Français",
+      "path": "lang/fr.json",
+      "flags": {}
+    }
+  ],
+  "packs": [
+    {
+      "name": "profils",
+      "label": "Profils",
+      "path": "packs/profils",
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
+    },
+    {
+      "name": "arcanes",
+      "label": "Arcanes du Tarot des Ombres",
+      "path": "packs/arcanes",
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
+    },
+    {
+      "name": "ecoles",
+      "label": "Écoles d'escrime",
+      "path": "packs/ecoles",
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
+    },
+    {
+      "name": "epees",
+      "label": "Épées",
+      "path": "packs/epees",
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
+    }
+  ],
+  "documentTypes": {
+    "Actor": {
+      "lame": {
+        "htmlFields": ["description", "habillement", "notes"]
+      },
+      "figurant": {
+        "htmlFields": ["description", "notes"]
+      }
+    },
+    "Item": {
+      "arme": {
+        "htmlFields": ["description", "notes"]
+      },
+      "armure": {
+        "htmlFields": ["description"]
+      },
+      "feinte": {
+        "htmlFields": ["description"]
+      },
+      "botte": {
+        "htmlFields": ["description"]
+      },
+      "arcane": {
+        "htmlFields": ["description", "descriptionMarque"]
+      },
+      "profil": {
+        "htmlFields": ["description"]
+      },
+      "possession": {
+        "htmlFields": ["description", "effets"]
+      },
+      "equipement": {
+        "htmlFields": ["description"]
+      },
+      "ecole": {
+        "htmlFields": ["description"]
+      }
+    }
+  },
+  "socket": true,
+  "primaryTokenAttribute": "vitalite",
+  "secondaryTokenAttribute": "tenacite",
+  "background": "systems/lames-du-cardinal/assets/background.webp",
+  "flags": {}
+}

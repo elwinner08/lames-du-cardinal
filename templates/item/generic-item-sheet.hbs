@@ -1,0 +1,96 @@
+{{!-- GENERIC ITEM SHEET (armure, feinte, botte, possession, equipement) --}}
+<div class="generic-sheet-body">
+<header class="sheet-header">
+  <img class="item-img" src="{{item.img}}" data-edit="img"
+       title="{{item.name}}" height="40" width="40" />
+  <h1 class="item-name">{{item.name}}</h1>
+</header>
+
+<section class="sheet-body">
+
+  {{!-- Armure --}}
+  {{#if (eq item.type "armure")}}
+  <div class="form-group">
+    <label>{{localize "LAMES.Armure.protection"}}</label>
+    <input type="number" name="system.protection" value="{{system.protection}}" min="0" max="10" />
+  </div>
+  <div class="form-group">
+    <label>{{localize "LAMES.Armure.complete"}}</label>
+    <a class="toggle-btn" data-action="toggleBoolean" data-field="system.complete" title="{{localize 'LAMES.Armure.complete'}}">
+      <i class="fa-solid {{#if system.complete}}fa-toggle-on toggle-on{{else}}fa-toggle-off toggle-off{{/if}}"></i>
+    </a>
+  </div>
+  <div class="form-group">
+    <label>{{localize "LAMES.Armure.equipe"}}</label>
+    <a class="toggle-btn" data-action="toggleBoolean" data-field="system.equipe" title="{{localize 'LAMES.Armure.equipe'}}">
+      <i class="fa-solid {{#if system.equipe}}fa-toggle-on toggle-on{{else}}fa-toggle-off toggle-off{{/if}}"></i>
+    </a>
+  </div>
+  {{/if}}
+
+  {{!-- Feinte --}}
+  {{#if (eq item.type "feinte")}}
+  <div class="form-group">
+    <label>{{localize "LAMES.Feinte.source"}}</label>
+    <select name="system.source">
+      <option value="ecole" {{#if (eq system.source "ecole")}}selected{{/if}}>{{localize "LAMES.Feinte.ecole"}}</option>
+      <option value="epee" {{#if (eq system.source "epee")}}selected{{/if}}>{{localize "LAMES.Feinte.epee"}}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>{{localize "LAMES.Feinte.ecole"}}</label>
+    <input type="text" name="system.ecole" value="{{system.ecole}}" />
+  </div>
+  <div class="form-group">
+    <label>{{localize "LAMES.Feinte.epee"}}</label>
+    <input type="text" name="system.epee" value="{{system.epee}}" />
+  </div>
+  {{/if}}
+
+  {{!-- Botte --}}
+  {{#if (eq item.type "botte")}}
+  <div class="form-group">
+    <label>{{localize "LAMES.Botte.ecole"}}</label>
+    <input type="text" name="system.ecole" value="{{system.ecole}}" />
+  </div>
+  <div class="form-group">
+    <label>{{localize "LAMES.Botte.figuresRequises"}}</label>
+    <input type="number" name="system.figuresRequises" value="{{system.figuresRequises}}" min="2" max="4" />
+  </div>
+  {{/if}}
+
+  {{!-- Possession --}}
+  {{#if (eq item.type "possession")}}
+  <div class="form-group">
+    <label>{{localize "LAMES.Possession.cout"}}</label>
+    <input type="number" name="system.cout" value="{{system.cout}}" min="1" max="5" />
+  </div>
+  {{/if}}
+
+  {{!-- Equipement --}}
+  {{#if (eq item.type "equipement")}}
+  <div class="form-group">
+    <label>{{localize "LAMES.Equipement.quantite"}}</label>
+    <input type="number" name="system.quantite" value="{{system.quantite}}" min="0" />
+  </div>
+  <div class="form-group">
+    <label>{{localize "LAMES.Equipement.prix"}}</label>
+    <input type="text" name="system.prix" value="{{system.prix}}" />
+  </div>
+  {{/if}}
+
+  {{!-- Description --}}
+  <div class="form-group full-width">
+    <label>{{localize "LAMES.Divers.description"}}</label>
+    <textarea name="system.description" rows="5" {{#if isFromCompendium}}readonly{{/if}}>{{system.description}}</textarea>
+  </div>
+
+  {{!-- Effets (possession) --}}
+  {{#if (eq item.type "possession")}}
+  <div class="form-group full-width">
+    <label>{{localize "LAMES.Possession.effets"}}</label>
+    <textarea name="system.effets" rows="4" {{#if isFromCompendium}}readonly{{/if}}>{{system.effets}}</textarea>
+  </div>
+  {{/if}}
+</section>
+</div>

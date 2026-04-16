@@ -1,0 +1,46 @@
+{{!-- ÉCOLE D'ESCRIME ITEM SHEET --}}
+<div class="ecole-sheet-body">
+  <header class="sheet-header">
+    <img class="item-img" src="{{item.img}}" data-edit="img"
+         title="{{item.name}}" height="50" width="50" />
+    <div class="header-info">
+      <h1 class="item-name">{{item.name}}</h1>
+      <div class="ecole-meta">
+        <span class="ecole-tag"><i class="fas fa-fist-raised"></i> {{localize (concat "LAMES.Caracteristiques." system.caracteristique)}}</span>
+        <span class="ecole-tag"><i class="fas fa-star"></i> {{localize (concat "LAMES.Signes." system.signe)}}</span>
+        <span class="ecole-tag"><i class="fas fa-sword"></i> {{system.competence}}</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="sheet-body">
+    {{!-- Description --}}
+    {{#if descriptionEnriched}}
+    <div class="ecole-description">
+      {{{descriptionEnriched}}}
+    </div>
+    {{/if}}
+
+    {{!-- Feintes --}}
+    <div class="ecole-section">
+      <h2><i class="fas fa-hand-sparkles"></i> {{localize "LAMES.Ecole.feintes"}}</h2>
+      {{#each feintesEnriched}}
+      <div class="ecole-technique {{#if this.signature}}ecole-signature{{/if}}">
+        <h3>{{#if this.signature}}<i class="fas fa-star"></i> {{/if}}{{this.nom}}</h3>
+        <div class="technique-description">{{{this.descriptionEnriched}}}</div>
+      </div>
+      {{/each}}
+    </div>
+
+    {{!-- Bottes --}}
+    <div class="ecole-section">
+      <h2><i class="fas fa-bolt"></i> {{localize "LAMES.Ecole.bottes"}}</h2>
+      {{#each bottesEnriched}}
+      <div class="ecole-technique">
+        <h3>{{this.nom}} <span class="botte-figures">({{this.figuresRequises}} figures)</span></h3>
+        <div class="technique-description">{{{this.descriptionEnriched}}}</div>
+      </div>
+      {{/each}}
+    </div>
+  </section>
+</div>

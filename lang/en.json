@@ -1,0 +1,357 @@
+{
+  "LAMES": {
+    "System": "Les Lames du Cardinal",
+
+    "ActorTypes": {
+      "lame": "Lame",
+      "figurant": "Figurant"
+    },
+    "ItemTypes": {
+      "arme": "Arme",
+      "armure": "Armure",
+      "feinte": "Feinte",
+      "botte": "Botte",
+      "arcane": "Arcane",
+      "profil": "Profil",
+      "possession": "Possession",
+      "equipement": "Équipement",
+      "ecole": "École d'escrime"
+    },
+
+    "Tabs": {
+      "identite": "Identité",
+      "competences": "Compétences",
+      "combat": "Combat",
+      "arcanes": "Arcanes",
+      "inventaire": "Inventaire",
+      "relations": "Relations",
+      "notes": "Notes"
+    },
+
+    "Identite": {
+      "profil1": "Premier profil",
+      "profil1Variation": "Variation",
+      "profil2": "Second profil",
+      "profil2Variation": "Variation",
+      "origine": "Origine",
+      "race": "Race",
+      "age": "Âge",
+      "sexe": "Sexe",
+      "description": "Description",
+      "habillement": "Habillement",
+      "niveauDeVie": "Niveau de vie"
+    },
+
+    "Races": {
+      "humain": "Humain",
+      "drac": "Drac",
+      "sangmele": "Sang-mêlé"
+    },
+
+    "Categories": {
+      "combattant": "Combattant",
+      "courtisan": "Courtisan",
+      "lettre": "Lettré",
+      "roturier": "Roturier"
+    },
+
+    "Caracteristiques": {
+      "titre": "Caractéristiques",
+      "puissance": "Puissance",
+      "vivacite": "Vivacité",
+      "galanterie": "Galanterie",
+      "finesse": "Finesse",
+      "qualificatif": "Qualificatif",
+      "consommes": "Consommés",
+      "valeur": "Valeur"
+    },
+
+    "Signes": {
+      "griffe": "Griffe",
+      "souffle": "Souffle",
+      "sang": "Sang",
+      "ecaille": "Écaille"
+    },
+
+    "Couleurs": {
+      "noir": "Noir",
+      "rouge": "Rouge"
+    },
+
+    "Competences": {
+      "titre": "Compétences",
+      "succesAuto": "Succès auto.",
+      "athletisme": "Athlétisme",
+      "autorite": "Autorité",
+      "bagarre": "Bagarre",
+      "equitation": "Équitation",
+      "volonte": "Volonté",
+      "creation": "Création",
+      "debrouille": "Débrouille",
+      "duperie": "Duperie",
+      "furtivite": "Furtivité",
+      "vigilance": "Vigilance",
+      "intrigue": "Intrigue",
+      "negoce": "Négoce",
+      "persuasion": "Persuasion",
+      "seduction": "Séduction",
+      "strategie": "Stratégie",
+      "erudition": "Érudition",
+      "investigation": "Investigation",
+      "medecine": "Médecine",
+      "technique": "Technique",
+      "tir": "Tir",
+      "escrime": "Escrime",
+      "occultisme": "Occultisme",
+      "inhabituelles": "Compétences inhabituelles"
+    },
+
+    "Epee": {
+      "titre": "Épée de Vitalité",
+      "vierge": "Vierge",
+      "cochee": "Cochée (Ténacité)",
+      "barree": "Barrée (Vitalité)",
+      "tenacite": "Ténacité",
+      "vitalite": "Vitalité",
+      "evanoui": "Évanoui",
+      "mort": "Mort",
+      "faible": "Faible",
+      "fort": "Fort"
+    },
+
+    "Escrime": {
+      "titre": "Escrime",
+      "ecole": "École d'escrime",
+      "epee": "Épée",
+      "feintes": "Feintes",
+      "bottes": "Bottes",
+      "germanique": "Germanique (Griffe)",
+      "drac": "Drac (Griffe)",
+      "francaise": "Française (Souffle)",
+      "pirate": "Pirate (Souffle)",
+      "italienne": "Italienne (Sang)",
+      "suedoise": "Suédoise (Sang)",
+      "espagnole": "Espagnole (Écaille)",
+      "anglaise": "Anglaise (Écaille)",
+      "soudard": "Soudard (Griffe)"
+    },
+
+    "Ecole": {
+      "feintes": "Feintes",
+      "bottes": "Bottes",
+      "signature": "Feinte signature"
+    },
+
+    "Arcanes": {
+      "titre": "Arcanes",
+      "benis": "Arcanes bénis",
+      "ephemere": "Arcane éphémère",
+      "oppose": "Arcane opposé",
+      "numero": "Numéro",
+      "marque": "Marque draconique",
+      "valeurDraconique": "Valeur draconique",
+      "meteorologie": "Météorologie",
+      "competenceAssociee": "Compétence associée",
+      "utilise": "Utilisé",
+      "aucun": "Aucun"
+    },
+
+    "ContactsRessources": {
+      "titre": "Contacts & Ressources",
+      "ressources": "Ressources",
+      "contacts": "Contacts",
+      "possessions": "Possessions",
+      "relations": "Relations",
+      "liens": "Liens entre Lames",
+      "importance": "Importance",
+      "milieu": "Milieu",
+      "niveau": "Niveau"
+    },
+
+    "Experience": {
+      "titre": "Expérience",
+      "pex": "Points d'Expérience",
+      "pu": "Points d'Unité"
+    },
+
+    "Figurant": {
+      "profil": "Profil",
+      "modificateur": "Modificateur",
+      "normal": "Normal",
+      "competent": "Compétent (+1)",
+      "elite": "Élite (+2)",
+      "difficulte": "Difficulté",
+      "potentielAttaque": "Attaque",
+      "potentielDefense": "Défense",
+      "resistance": "Résistance",
+      "resistanceActuelle": "Résistance actuelle",
+      "arme": "Armé",
+      "armure": "Armure",
+      "armureComplete": "Armure complète",
+      "taille": "Taille",
+      "reserve": "Réserve",
+      "puissanceMagique": "Puissance magique",
+      "volonte": "Volonté",
+      "horsComba": "Hors combat",
+      "resumeCombat": "Résumé combat",
+      "type": "Type",
+      "combatTracker": "Suivi de combat"
+    },
+
+    "FigurantTypes": {
+      "humain": "Humain",
+      "drac": "Drac",
+      "sangmele": "Sang-mêlé",
+      "dragon": "Dragon",
+      "creature": "Créature"
+    },
+
+    "Arme": {
+      "categorie": "Catégorie",
+      "melee": "Corps-à-corps",
+      "distance": "Distance",
+      "explosif": "Explosif",
+      "sousType": "Type d'arme",
+      "equipe": "Équipée",
+      "degats": "Dégâts",
+      "portees": "Portées",
+      "boutPortant": "Bout portant",
+      "courte": "Courte",
+      "moyenne": "Moyenne",
+      "longue": "Longue"
+    },
+
+    "Armure": {
+      "protection": "Protection",
+      "complete": "Complète",
+      "equipe": "Équipée"
+    },
+
+    "Feinte": {
+      "source": "Source",
+      "ecole": "École",
+      "epee": "Épée",
+      "cout": "Coût"
+    },
+
+    "Botte": {
+      "ecole": "École",
+      "figuresRequises": "Figures requises",
+      "cout": "Coût"
+    },
+
+    "Profil": {
+      "variations": "Variations",
+      "categorie": "Catégorie",
+      "niveauDeVie": "Niveau de vie"
+    },
+
+    "Possession": {
+      "cout": "Coût (points)",
+      "effets": "Effets"
+    },
+
+    "Equipement": {
+      "quantite": "Quantité",
+      "prix": "Prix"
+    },
+
+    "Tests": {
+      "eclair": "Test éclair !",
+      "dramatique": "Test dramatique !",
+      "reussites": "Réussites",
+      "succesAutomatique": "Succès automatique",
+      "difficulte": "Difficulté",
+      "panache": "Panache"
+    },
+
+    "Tarot": {
+      "titre": "Tarot des Ombres",
+      "paquetLames": "Paquet des Lames",
+      "paquetArcanes": "Paquet des Arcanes",
+      "defausse": "Défausse",
+      "pioche": "Pioche",
+      "riviere": "Rivière draconique",
+      "piocher": "Piocher",
+      "remelanger": "Remélanger",
+      "reinitialiser": "Réinitialiser le Tarot",
+      "reinitialiserRiviere": "Vider la rivière draconique",
+      "catalogue": "Catalogue du Tarot",
+      "catalogueOuvrir": "Ouvrir le catalogue du Tarot",
+      "donnerCarte": "Donner une carte",
+      "donnerA": "Donner à",
+      "carteIndisponible": "Cette carte n'est pas disponible (déjà en main ou dans la rivière).",
+      "carteDonnee": "Carte donnée",
+      "jusquiame": "Jusquiame",
+      "ouvrir": "Ouvrir le Tarot des Ombres",
+      "cartesTirees": "Cartes tirées",
+      "continuer": "Continuer à tirer ?",
+      "maMain": "Ma Main",
+      "mainVide": "Aucune carte en main. Piochez !",
+      "jouer": "Jouer une carte",
+      "jouerConfirm": "Jouer",
+      "jouee": "jouée",
+      "melangerDefausse": "Mélanger la défausse",
+      "melangerToutes": "Mélanger toutes les cartes",
+      "tests": "Tests",
+      "defausser": "Défausser une carte",
+      "defausserConfirm": "Défausser",
+      "defaussee": "défaussée",
+      "envoyerA": "Envoyer à",
+      "envoyee": "envoyée à",
+      "meteo": "Météo",
+      "arcaneEphemere": "Arcane éphémère",
+      "ephMaxAtteint": "Ce joueur a déjà 2 arcanes éphémères (maximum).",
+      "pasDePersonnage": "Aucun personnage assigné.",
+      "plusDeTenacite": "Plus de Ténacité disponible !",
+      "joueArcaneEph": "joue l'arcane éphémère",
+      "reste": "reste",
+      "piocheVide": "La pioche est vide !",
+      "cartePiochee": "Carte piochée",
+      "joueUneCarte": "joue une carte",
+      "arcanePiochee": "Arcane piochée !",
+      "arcaneGrave": "Un arcane surgit de la pioche des Lames…",
+      "arcanePiocheeDesc": "pioche un arcane du paquet des Lames ! La carte est immédiatement jouée et remélangée dans la pioche."
+    },
+
+    "Token": {
+      "pj": "Personnage Joueur",
+      "pnj": "Personnage Non-Joueur"
+    },
+
+    "Combat": {
+      "assaut": "Assaut",
+      "ronde": "Ronde",
+      "attaque": "Attaque",
+      "defense": "Défense",
+      "main": "A la main",
+      "distance": "Distance",
+      "contact": "Contact",
+      "proche": "Proche",
+      "moyenneDist": "Moyenne",
+      "eloignee": "Éloignée",
+      "tresEloignee": "Très éloignée"
+    },
+
+    "Divers": {
+      "ajouter": "Ajouter",
+      "supprimer": "Supprimer",
+      "modifier": "Modifier",
+      "envoyer": "Envoyer",
+      "nom": "Nom",
+      "description": "Description",
+      "notes": "Notes",
+      "valeur": "Valeur",
+      "oui": "Oui",
+      "non": "Non",
+      "utiliser": "Utiliser",
+      "tester": "Tester",
+      "figures": "figures",
+      "commun": "commun",
+      "totalDepenses": "Total dépensés",
+      "aucunLien": "Aucun lien. Glissez un acteur ici ou cliquez +",
+      "reset": "Réinitialiser",
+      "annuler": "Annuler"
+    }
+  }
+}

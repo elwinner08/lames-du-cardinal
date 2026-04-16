@@ -1,0 +1,18 @@
+{{!-- Partial: competences grouped under a characteristic --}}
+<div class="competences-group" data-carac="{{carac}}">
+  <h4 class="comp-group-header signe-{{config.caracteristiques.[carac].signe}}">
+    {{localize (concat "LAMES.Caracteristiques." carac)}}
+    <span class="comp-signe">({{localize (concat "LAMES.Signes." config.caracteristiques.[carac].signe)}} / {{localize (concat "LAMES.Couleurs." config.caracteristiques.[carac].couleur)}})</span>
+  </h4>
+  {{#each comps}}
+  <div class="competence-row" data-comp="{{this.key}}">
+    <a data-action="compRoll" data-competence="{{this.key}}" title="{{localize 'LAMES.Tests.eclair'}}">
+      <i class="fas fa-dice"></i>
+    </a>
+    <span class="comp-label">{{this.label}}</span>
+    <span class="comp-succes-auto">({{this.succesAuto}})</span>
+    <input type="number" name="system.competences.{{this.key}}.valeur"
+           value="{{this.valeur}}" min="0" max="10" class="comp-input" />
+  </div>
+  {{/each}}
+</div>

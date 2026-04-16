@@ -1,0 +1,11 @@
+{{!-- TAB: COMPETENCES (Figurant - pour figurants importants) --}}
+<section class="tab {{tab.cssClass}}" data-group="primary" data-tab="competences">
+  <div class="figurant-competences-grid">
+    {{#each system.competences}}
+    <div class="form-group comp-row">
+      <label>{{localize (concat "LAMES.Competences." @key)}}</label>
+      <input type="number" name="system.competences.{{@key}}" value="{{this}}" min="0" max="10" class="comp-input" />
+    </div>
+    {{/each}}
+  </div>
+</section>

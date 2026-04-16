@@ -1,0 +1,46 @@
+{{!-- PROFIL ITEM SHEET --}}
+<div class="profil-sheet-body">
+<header class="sheet-header">
+  <img class="item-img" src="{{item.img}}" data-edit="img"
+       title="{{item.name}}" height="40" width="40" />
+  <h1 class="item-name">{{item.name}}</h1>
+</header>
+
+<section class="sheet-body">
+  <div class="profil-info-grid">
+    <div class="form-group">
+      <label>{{localize "LAMES.Profil.categorie"}}</label>
+      <select name="system.categorie">
+        <option value="combattant" {{#if (eq system.categorie "combattant")}}selected{{/if}}>{{localize "LAMES.Categories.combattant"}}</option>
+        <option value="courtisan" {{#if (eq system.categorie "courtisan")}}selected{{/if}}>{{localize "LAMES.Categories.courtisan"}}</option>
+        <option value="lettre" {{#if (eq system.categorie "lettre")}}selected{{/if}}>{{localize "LAMES.Categories.lettre"}}</option>
+        <option value="roturier" {{#if (eq system.categorie "roturier")}}selected{{/if}}>{{localize "LAMES.Categories.roturier"}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>{{localize "LAMES.Profil.niveauDeVie"}} (min)</label>
+      <input type="number" name="system.niveauDeVieMin" value="{{system.niveauDeVieMin}}" min="0" max="6" />
+    </div>
+    <div class="form-group">
+      <label>{{localize "LAMES.Profil.niveauDeVie"}} (max)</label>
+      <input type="number" name="system.niveauDeVieMax" value="{{system.niveauDeVieMax}}" min="0" max="6" />
+    </div>
+  </div>
+
+  {{!-- Compétences du profil --}}
+  <h3>{{localize "LAMES.Competences.titre"}}</h3>
+  <div class="profil-competences-grid">
+    {{#each system.competences}}
+    <div class="form-group comp-row">
+      <label>{{localize (concat "LAMES.Competences." @key)}}</label>
+      <input type="number" name="system.competences.{{@key}}" value="{{this}}" min="0" max="6" class="comp-input" />
+    </div>
+    {{/each}}
+  </div>
+
+  <div class="form-group full-width">
+    <label>{{localize "LAMES.Divers.description"}}</label>
+    <textarea name="system.description" rows="5" {{#if isFromCompendium}}readonly{{/if}}>{{system.description}}</textarea>
+  </div>
+</section>
+</div>

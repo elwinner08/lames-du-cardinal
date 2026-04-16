@@ -1,0 +1,31 @@
+<div class="catalogue-panel">
+
+  {{!-- Arcanes --}}
+  <section class="catalogue-section">
+    <h2><i class="fa-solid fa-star"></i> {{localize "LAMES.Tarot.paquetArcanes"}} ({{arcanes.length}})</h2>
+    <div class="catalogue-list">
+      {{#each arcanes}}
+      <div class="catalogue-item {{#unless this.available}}unavailable{{/unless}}"
+           data-action="selectCard" data-card-id="{{this.id}}">
+        <span class="catalogue-item-label">{{this.label}}</span>
+        {{#unless this.available}}<i class="fa-solid fa-hand catalogue-item-taken"></i>{{/unless}}
+      </div>
+      {{/each}}
+    </div>
+  </section>
+
+  {{!-- Lames --}}
+  <section class="catalogue-section">
+    <h2><i class="fa-solid fa-layer-group"></i> {{localize "LAMES.Tarot.paquetLames"}} ({{lames.length}})</h2>
+    <div class="catalogue-list">
+      {{#each lames}}
+      <div class="catalogue-item {{#unless this.available}}unavailable{{/unless}}"
+           data-action="selectCard" data-card-id="{{this.id}}">
+        <span class="catalogue-item-label">{{this.label}}</span>
+        {{#unless this.available}}<i class="fa-solid fa-hand catalogue-item-taken"></i>{{/unless}}
+      </div>
+      {{/each}}
+    </div>
+  </section>
+
+</div>

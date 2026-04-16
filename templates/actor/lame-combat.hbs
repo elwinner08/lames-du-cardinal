@@ -1,0 +1,84 @@
+{{!-- TAB: COMBAT --}}
+<section class="tab {{tab.cssClass}}" data-group="primary" data-tab="combat">
+  <div class="combat-section">
+    <h3>{{localize "LAMES.Escrime.titre"}}</h3>
+    {{#if escrimeInfo}}
+    <p>{{localize "LAMES.Escrime.ecole"}} : <strong>{{localize escrimeInfo.label}}</strong></p>
+    <p>{{localize "LAMES.Escrime.epee"}} :
+      <input type="text" name="system.escrime.epee" value="{{system.escrime.epee}}" />
+    </p>
+    {{/if}}
+
+    {{!-- Feintes --}}
+    <h4>{{localize "LAMES.Escrime.feintes"}}
+      <a data-action="itemCreate" data-type="feinte"><i class="fas fa-plus"></i></a>
+    </h4>
+    <div class="item-list">
+      {{#each feintes}}
+      <div class="item has-tooltip" data-item-id="{{this._id}}">
+        <span class="item-name">{{this.name}}</span>
+        {{#if this.system.signature}}<span class="picker-signature">{{localize "LAMES.Ecole.signature"}}</span>{{/if}}
+        <div class="item-controls">
+          <a data-action="useFeinte" title="{{localize 'LAMES.Divers.utiliser'}}"><i class="fas fa-play"></i></a>
+          <a data-action="itemEdit"><i class="fas fa-edit"></i></a>
+          <a data-action="itemDelete"><i class="fas fa-trash"></i></a>
+        </div>
+        <div class="item-tooltip">{{{this.enrichedDescription}}}</div>
+      </div>
+      {{/each}}
+    </div>
+
+    {{!-- Bottes --}}
+    <h4>{{localize "LAMES.Escrime.bottes"}}
+      <a data-action="itemCreate" data-type="botte"><i class="fas fa-plus"></i></a>
+    </h4>
+    <div class="item-list">
+      {{#each bottes}}
+      <div class="item has-tooltip" data-item-id="{{this._id}}">
+        <span class="item-name">{{this.name}}</span>
+        <span class="item-detail">{{this.system.figuresRequises}} {{localize "LAMES.Divers.figures"}}</span>
+        <div class="item-controls">
+          <a data-action="useBotte" title="{{localize 'LAMES.Divers.utiliser'}}"><i class="fas fa-play"></i></a>
+          <a data-action="itemEdit"><i class="fas fa-edit"></i></a>
+          <a data-action="itemDelete"><i class="fas fa-trash"></i></a>
+        </div>
+        <div class="item-tooltip">{{{this.enrichedDescription}}}</div>
+      </div>
+      {{/each}}
+    </div>
+
+    {{!-- Armes --}}
+    <h4>{{localize "LAMES.ItemTypes.arme"}}
+      <a data-action="itemCreate" data-type="arme"><i class="fas fa-plus"></i></a>
+    </h4>
+    <div class="item-list">
+      {{#each armes}}
+      <div class="item" data-item-id="{{this._id}}">
+        <span class="item-name">{{this.name}}</span>
+        <span class="item-detail">{{this.system.sousType}}</span>
+        <div class="item-controls">
+          <a data-action="itemEdit"><i class="fas fa-edit"></i></a>
+          <a data-action="itemDelete"><i class="fas fa-trash"></i></a>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+
+    {{!-- Armures --}}
+    <h4>{{localize "LAMES.ItemTypes.armure"}}
+      <a data-action="itemCreate" data-type="armure"><i class="fas fa-plus"></i></a>
+    </h4>
+    <div class="item-list">
+      {{#each armures}}
+      <div class="item" data-item-id="{{this._id}}">
+        <span class="item-name">{{this.name}}</span>
+        <span class="item-detail">{{localize "LAMES.Armure.protection"}} {{this.system.protection}}</span>
+        <div class="item-controls">
+          <a data-action="itemEdit"><i class="fas fa-edit"></i></a>
+          <a data-action="itemDelete"><i class="fas fa-trash"></i></a>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</section>

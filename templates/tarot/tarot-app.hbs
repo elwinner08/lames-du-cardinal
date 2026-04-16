@@ -1,0 +1,132 @@
+<div class="tarot-panel">
+
+  {{!-- Ma Main --}}
+  <section class="tarot-main-section">
+    <h2><i class="fa-solid fa-hand"></i> {{localize "LAMES.Tarot.maMain"}} ({{mainCount}})</h2>
+    <div class="tarot-main-cards">
+      {{#each main}}
+      <div class="tarot-main-card" title="{{this.label}}">
+        <img src="{{this.img}}" alt="{{this.label}}" class="tarot-card-img-hand" />
+        <div class="tarot-main-card-actions">
+          <button type="button" class="tarot-card-action jouer" data-action="jouerCarte" data-card-id="{{this.id}}" title="{{localize 'LAMES.Tarot.jouer'}}">
+            <i class="fa-solid fa-play"></i>
+          </button>
+          <button type="button" class="tarot-card-action defausser" data-action="defausserCarte" data-card-id="{{this.id}}" title="{{localize 'LAMES.Tarot.defausse'}}">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </div>
+      </div>
+      {{else}}
+      <p class="tarot-main-empty"><em>{{localize "LAMES.Tarot.mainVide"}}</em></p>
+      {{/each}}
+    </div>
+  </section>
+
+  {{!-- Paquets: Lames + Arcanes côte à côte --}}
+  <section class="tarot-decks-row">
+    <div class="tarot-deck-section">
+      <h2><i class="fa-solid fa-layer-group"></i> {{localize "LAMES.Tarot.paquetLames"}}</h2>
+      <div class="tarot-deck-info">
+        <div class="tarot-pile">
+          <img src="{{dos}}" alt="{{localize 'LAMES.Tarot.pioche'}}" class="tarot-pile-img" />
+          <span class="tarot-pile-count">{{lames.piocheCount}}</span>
+          <span class="tarot-pile-label">{{localize "LAMES.Tarot.pioche"}}</span>
+        </div>
+        <div class="tarot-pile defausse">
+          <div class="tarot-pile-placeholder"><i class="fa-solid fa-layer-group"></i></div>
+          <span class="tarot-pile-count">{{lames.defausseCount}}</span>
+          <span class="tarot-pile-label">{{localize "LAMES.Tarot.defausse"}}</span>
+        </div>
+      </div>
+      <div class="tarot-deck-actions">
+        <button type="button" data-action="piocherLame"><i class="fa-solid fa-hand"></i> {{localize "LAMES.Tarot.piocher"}}</button>
+        {{#if isGM}}
+        <button type="button" data-action="remelangeLames"><i class="fa-solid fa-shuffle"></i> {{localize "LAMES.Tarot.melangerDefausse"}}</button>
+        <button type="button" data-action="rappelerToutesLames"><i class="fa-solid fa-arrows-rotate"></i> {{localize "LAMES.Tarot.melangerToutes"}}</button>
+        {{/if}}
+      </div>
+    </div>
+
+    <div class="tarot-deck-section">
+      <h2><i class="fa-solid fa-star"></i> {{localize "LAMES.Tarot.paquetArcanes"}}</h2>
+      <div class="tarot-deck-info">
+        <div class="tarot-pile">
+          <img src="{{dos}}" alt="{{localize 'LAMES.Tarot.pioche'}}" class="tarot-pile-img" />
+          <span class="tarot-pile-count">{{arcanes.piocheCount}}</span>
+          <span class="tarot-pile-label">{{localize "LAMES.Tarot.pioche"}}</span>
+        </div>
+        <div class="tarot-pile defausse">
+          <div class="tarot-pile-placeholder"><i class="fa-solid fa-layer-group"></i></div>
+          <span class="tarot-pile-count">{{arcanes.defausseCount}}</span>
+          <span class="tarot-pile-label">{{localize "LAMES.Tarot.defausse"}}</span>
+        </div>
+      </div>
+      <div class="tarot-deck-actions">
+        <button type="button" data-action="piocherArcane"><i class="fa-solid fa-hand"></i> {{localize "LAMES.Tarot.piocher"}}</button>
+        {{#if isGM}}
+        <button type="button" data-action="remelangeArcanes"><i class="fa-solid fa-shuffle"></i> {{localize "LAMES.Tarot.remelanger"}}</button>
+        {{/if}}
+      </div>
+    </div>
+  </section>
+
+  {{!-- Tests --}}
+  <section class="tarot-tests-section">
+    <h2><i class="fa-solid fa-dice"></i> {{localize "LAMES.Tarot.tests"}}</h2>
+    <div class="tarot-deck-actions">
+      <button type="button" data-action="testEclair"><i class="fa-solid fa-bolt"></i> {{localize "LAMES.Tests.eclair"}}</button>
+      <button type="button" data-action="testDramatique"><i class="fa-solid fa-theater-masks"></i> {{localize "LAMES.Tests.dramatique"}}</button>
+    </div>
+  </section>
+
+  {{!-- Rivière draconique --}}
+  <section class="tarot-riviere-section">
+    <h2><i class="fa-solid fa-water"></i> {{localize "LAMES.Tarot.riviere"}}</h2>
+    {{#if isGM}}
+    <div class="tarot-deck-actions">
+      <button type="button" data-action="ajouterRiviere"><i class="fa-solid fa-plus"></i> {{localize "LAMES.Divers.ajouter"}}</button>
+    </div>
+    {{/if}}
+    <div class="tarot-riviere-cards">
+      {{#each riviere}}
+      <div class="tarot-riviere-card">
+        <img src="{{this.img}}" alt="{{this.label}}" class="tarot-card-img-small" title="{{this.label}}" />
+        <div class="tarot-riviere-details">
+          <span class="tarot-riviere-label">{{this.nom}}</span>
+          <span class="tarot-riviere-vd"><i class="fa-solid fa-dragon"></i> {{this.vd}}</span>
+          <span class="tarot-riviere-comp"><i class="fa-solid fa-book"></i> {{this.comp}}</span>
+        </div>
+        {{#if ../isGM}}
+        <a class="tarot-riviere-remove" data-action="retirerRiviere" data-card-id="{{this.id}}" title="{{localize 'LAMES.Divers.supprimer'}}">
+          <i class="fa-solid fa-xmark"></i>
+        </a>
+        {{/if}}
+      </div>
+      {{else}}
+      <p class="tarot-riviere-empty"><em>{{localize "LAMES.Arcanes.aucun"}}</em></p>
+      {{/each}}
+    </div>
+
+    {{!-- Météo draconique --}}
+    {{#if riviere.length}}
+    <div class="tarot-meteo-section">
+      <h3><i class="fa-solid fa-cloud-bolt"></i> {{localize "LAMES.Arcanes.meteorologie"}}</h3>
+      <ul class="tarot-meteo-list">
+        {{#each riviere}}
+        <li><strong>{{this.nom}}</strong> — {{this.meteo}}</li>
+        {{/each}}
+      </ul>
+    </div>
+    {{/if}}
+  </section>
+
+  {{!-- Reset --}}
+  {{#if isGM}}
+  <section class="tarot-reset-section">
+    <button type="button" data-action="resetAll" class="tarot-reset-btn">
+      <i class="fa-solid fa-arrows-rotate"></i> {{localize "LAMES.Tarot.reinitialiser"}}
+    </button>
+  </section>
+  {{/if}}
+
+</div>

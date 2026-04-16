@@ -1,0 +1,63 @@
+{{!-- TAB: ARCANES --}}
+<section class="tab {{tab.cssClass}}" data-group="primary" data-tab="arcanes">
+  <div class="arcanes-section">
+    <h3>{{localize "LAMES.Arcanes.benis"}}
+      <a data-action="arcaneBeniAdd"><i class="fas fa-plus"></i></a>
+    </h3>
+    {{#each system.arcanesBenis}}
+    <div class="arcane-beni" data-index="{{@index}}">
+      <div class="arcane-header">
+        <strong>{{this.numero}} — {{this.nom}}</strong>
+        <a data-action="arcaneBeniDelete" data-index="{{@index}}"><i class="fas fa-trash"></i></a>
+      </div>
+      <div class="arcane-details">
+        <div class="form-group">
+          <label>{{localize "LAMES.Arcanes.numero"}}</label>
+          <select class="arcane-beni-select" data-index="{{@index}}">
+            {{#each @root.arcanesChoices}}
+            <option value="{{this.numero}}" {{#if (eq this.numero ../numero)}}selected{{/if}}>{{this.numero}} — {{this.nom}}</option>
+            {{/each}}
+          </select>
+        </div>
+        <div class="form-group">
+          <label>{{localize "LAMES.Arcanes.competenceAssociee"}}</label>
+          <span class="arcane-readonly">{{this.competenceAssociee}}</span>
+        </div>
+        <div class="form-group">
+          <label>{{localize "LAMES.Arcanes.marque"}}</label>
+          <span class="arcane-readonly">{{this.marque}}</span>
+        </div>
+        <div class="form-group">
+          <label>{{localize "LAMES.Arcanes.oppose"}}</label>
+          <span class="arcane-readonly">{{this.arcaneOppose.numero}} — {{this.arcaneOppose.nom}}</span>
+        </div>
+      </div>
+    </div>
+    {{else}}
+    <p><em>{{localize "LAMES.Arcanes.aucun"}}</em></p>
+    {{/each}}
+
+    <h3>{{localize "LAMES.Arcanes.ephemere"}}</h3>
+    <div class="arcane-ephemere">
+      <div class="form-group">
+        <label>{{localize "LAMES.Arcanes.numero"}}</label>
+        <select class="arcane-ephemere-select">
+          <option value="" {{#unless system.arcaneEphemere.numero}}selected{{/unless}}>—</option>
+          {{#each arcanesChoices}}
+          <option value="{{this.numero}}" {{#if (eq this.numero @root.system.arcaneEphemere.numero)}}selected{{/if}}>{{this.numero}} — {{this.nom}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class="form-group">
+        <label>{{localize "LAMES.Divers.nom"}}</label>
+        <span class="arcane-readonly">{{system.arcaneEphemere.nom}}</span>
+      </div>
+      <div class="form-group">
+        <label>{{localize "LAMES.Arcanes.utilise"}}</label>
+        <a class="toggle-btn" data-action="toggleBoolean" data-field="system.arcaneEphemere.utilise">
+          <i class="fa-solid {{#if system.arcaneEphemere.utilise}}fa-toggle-on toggle-on{{else}}fa-toggle-off toggle-off{{/if}}"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

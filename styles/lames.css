@@ -1,0 +1,2758 @@
+/* ============================================= */
+/*  Les Lames du Cardinal - Foundry VTT System   */
+/*  Cape-et-épée theme: parchment, crimson, gold  */
+/*  ApplicationV2 compatible (Foundry v14)        */
+/* ============================================= */
+
+/* --- Google Fonts: Cinzel (titres), Crimson Text (corps) --- */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+/* --- CSS Variables --- */
+:root {
+  --lames-bg: #f5ebe0;
+  --lames-bg-dark: #e8d8c4;
+  --lames-bg-header: #2c1810;
+  --lames-text: #2c1810;
+  --lames-text-light: #f5ebe0;
+  --lames-text-muted: #666;
+  --lames-crimson: #8b1a1a;
+  --lames-crimson-light: #b22222;
+  --lames-gold: #c9a84c;
+  --lames-gold-dark: #a07c2e;
+  --lames-noir: #1a1a2e;
+  --lames-rouge: #8b1a1a;
+  --lames-border: #a0855c;
+  --lames-border-light: #c9a84c;
+  --lames-shadow: rgba(44, 24, 16, 0.3);
+  --lames-input-bg: rgba(255, 255, 255, 0.6);
+  --lames-tab-active: #8b1a1a;
+  --lames-tab-hover: #c9a84c;
+  /* Semantic accent colors */
+  --lames-success: #2d8a4e;
+  --lames-success-light: #3aaf63;
+  --lames-success-bg: rgba(45, 138, 78, 0.1);
+  --lames-danger: #cc0000;
+  --lames-danger-light: #ff4444;
+  --lames-arcane: #6a3d9a;
+  --lames-arcane-bg: rgba(106, 61, 154, 0.08);
+  --lames-arcane-border: rgba(106, 61, 154, 0.2);
+  --lames-crimson-bg: rgba(139, 26, 26, 0.05);
+  --lames-crimson-bg-strong: rgba(139, 26, 26, 0.1);
+}
+
+/* ============================================= */
+/*  GENERAL SHEET STYLES                         */
+/* ============================================= */
+
+/* ApplicationV2: keep window-content as a constrained flex parent */
+.app.window-app .window-content:has(.lames-du-cardinal),
+.app.window-app .window-content:has(.tarot-app),
+.app.window-app .window-content:has(.tarot-catalogue) {
+  overflow: hidden;
+  padding: 0;
+}
+
+/* ApplicationV2: the <form> element IS the application root */
+.lames-du-cardinal.sheet {
+  display: block;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background: var(--lames-bg);
+  background-image:
+    linear-gradient(135deg, rgba(201, 168, 76, 0.05) 25%, transparent 25%),
+    linear-gradient(225deg, rgba(201, 168, 76, 0.05) 25%, transparent 25%);
+  color: var(--lames-text);
+  font-family: "Crimson Text", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+  border: 3px solid var(--lames-border);
+  border-radius: 4px;
+  box-shadow: 0 0 12px var(--lames-shadow);
+}
+
+.lames-du-cardinal.sheet input,
+.lames-du-cardinal.sheet select,
+.lames-du-cardinal.sheet textarea {
+  font-family: inherit;
+  color: var(--lames-text);
+  background: var(--lames-input-bg);
+  border: 1px solid var(--lames-border);
+  border-radius: 2px;
+  padding: 2px 4px;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+/* Hover affordance for editable text fields */
+.lames-du-cardinal.sheet input[type="text"]:hover,
+.lames-du-cardinal.sheet input[type="number"]:hover,
+.lames-du-cardinal.sheet textarea:hover {
+  cursor: text;
+  background: var(--lames-input-bg);
+  border-color: var(--lames-gold);
+}
+
+.lames-du-cardinal.sheet select:hover {
+  cursor: pointer;
+  border-color: var(--lames-gold);
+}
+
+.lames-du-cardinal.sheet input:focus,
+.lames-du-cardinal.sheet select:focus,
+.lames-du-cardinal.sheet textarea:focus {
+  border-color: var(--lames-gold);
+  outline: none;
+  box-shadow: 0 0 4px var(--lames-gold);
+}
+
+/* Textareas (description, notes, etc.) — inline editable */
+.lames-du-cardinal.sheet textarea {
+  width: 100%;
+  resize: vertical;
+  font-family: "Crimson Text", Georgia, serif;
+  line-height: 1.4;
+  min-height: 60px;
+}
+
+.lames-du-cardinal.sheet textarea[readonly] {
+  background: rgba(139, 116, 84, 0.08);
+  border-color: rgba(139, 116, 84, 0.3);
+  cursor: default;
+  color: var(--lames-text);
+}
+
+.lames-du-cardinal.sheet textarea[readonly]:hover {
+  cursor: default;
+  border-color: rgba(139, 116, 84, 0.3);
+}
+
+.lames-du-cardinal.sheet input[type="number"] {
+  width: 48px;
+  text-align: center;
+}
+
+.lames-du-cardinal.sheet input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--lames-crimson);
+}
+
+/* Toggle buttons (replace checkboxes for AppV2 compatibility) */
+.lames-du-cardinal .toggle-btn {
+  cursor: pointer;
+  font-size: 1.4em;
+  line-height: 1;
+}
+.lames-du-cardinal .toggle-btn .toggle-on {
+  color: var(--lames-crimson);
+}
+.lames-du-cardinal .toggle-btn .toggle-off {
+  color: #999;
+}
+.lames-du-cardinal .toggle-btn:hover .toggle-on {
+  color: var(--lames-crimson-light);
+}
+.lames-du-cardinal .toggle-btn:hover .toggle-off {
+  color: #666;
+}
+
+/* ============================================= */
+/*  SHEET HEADER                                 */
+/* ============================================= */
+
+.lames-du-cardinal .sheet-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  background: var(--lames-bg-header);
+  color: var(--lames-text-light);
+  border-bottom: 3px solid var(--lames-gold);
+  min-height: 80px;
+}
+
+.lames-du-cardinal .profile-img,
+.lames-du-cardinal .item-img {
+  border: 2px solid var(--lames-gold);
+  border-radius: 4px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.lames-du-cardinal .header-fields {
+  flex: 1;
+  min-width: 0;
+}
+
+.lames-du-cardinal .actor-name input,
+.lames-du-cardinal .item-name input {
+  font-family: "Cinzel", Georgia, serif;
+  font-size: 1.4em;
+  font-weight: bold;
+  color: var(--lames-text-light);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--lames-gold-dark);
+  width: 100%;
+  padding: 2px 0;
+}
+
+.lames-du-cardinal .actor-name input:focus,
+.lames-du-cardinal .item-name input:focus {
+  border-bottom-color: var(--lames-gold);
+  box-shadow: none;
+}
+
+.lames-du-cardinal .header-details {
+  display: flex;
+  gap: 12px;
+  font-size: 0.9em;
+  opacity: 0.9;
+  margin-top: 2px;
+}
+
+.lames-du-cardinal .header-profils {
+  font-style: italic;
+}
+
+.lames-du-cardinal .header-combat-resume {
+  font-size: 0.85em;
+  margin-top: 2px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.lames-du-cardinal .hors-combat {
+  color: var(--lames-danger-light);
+  font-weight: bold;
+  margin-left: 8px;
+  text-transform: uppercase;
+  font-size: 0.9em;
+}
+
+/* ============================================= */
+/*  TABS                                         */
+/* ============================================= */
+
+.lames-du-cardinal .sheet-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  background: var(--lames-bg-header);
+  border-bottom: 2px solid var(--lames-gold);
+  padding: 0;
+}
+
+.lames-du-cardinal .sheet-tabs .item {
+  padding: 6px 12px;
+  font-family: "Cinzel", Georgia, serif;
+  font-size: 0.8em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--lames-gold);
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.lames-du-cardinal .sheet-tabs .item:hover {
+  color: var(--lames-text-light);
+  border-bottom-color: var(--lames-gold);
+}
+
+.lames-du-cardinal .sheet-tabs .item.active {
+  color: var(--lames-text-light);
+  border-bottom-color: var(--lames-crimson-light);
+}
+
+/* ============================================= */
+/*  SHEET BODY                                   */
+/* ============================================= */
+
+.lames-du-cardinal .sheet-body {
+  padding: 8px 12px;
+  overflow: auto;
+  flex: 1;
+  min-height: 0;
+}
+
+/* AppV2 tabs: cssClass handles visibility */
+.lames-du-cardinal .tab {
+  display: none;
+}
+
+.lames-du-cardinal .tab.active {
+  display: block;
+  padding: 8px 12px;
+}
+
+/* ============================================= */
+/*  FORM GROUPS                                  */
+/* ============================================= */
+
+.lames-du-cardinal .form-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.lames-du-cardinal .form-group label {
+  font-weight: bold;
+  font-size: 0.85em;
+  min-width: 100px;
+  color: var(--lames-text);
+}
+
+.lames-du-cardinal .form-group.full-width {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.lames-du-cardinal .form-group.full-width label {
+  margin-bottom: 4px;
+}
+
+/* ============================================= */
+/*  GRIDS                                        */
+/* ============================================= */
+
+.lames-du-cardinal .identite-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 12px;
+  margin-bottom: 12px;
+}
+
+.lames-du-cardinal .caracteristiques-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.lames-du-cardinal .competences-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.lames-du-cardinal .figurant-identity-grid,
+.lames-du-cardinal .figurant-combat-grid,
+.lames-du-cardinal .figurant-equip-grid,
+.lames-du-cardinal .figurant-interactions {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 4px 12px;
+  margin-bottom: 10px;
+}
+
+.lames-du-cardinal .figurant-competences-grid,
+.lames-du-cardinal .profil-competences-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px 16px;
+}
+
+.lames-du-cardinal .arcane-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 12px;
+  margin-bottom: 12px;
+}
+
+/* ============================================= */
+/*  CARACTERISTIQUES                             */
+/* ============================================= */
+
+.lames-du-cardinal .caracteristique {
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid var(--lames-border);
+  border-radius: 4px;
+  padding: 6px 8px;
+  text-align: center;
+}
+
+.lames-du-cardinal .carac-label {
+  font-family: "Cinzel", Georgia, serif;
+  margin: 0 0 4px 0;
+  font-size: 0.85em;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.lames-du-cardinal .carac-label.signe-griffe,
+.lames-du-cardinal .carac-label.signe-souffle {
+  color: var(--lames-noir);
+}
+
+.lames-du-cardinal .carac-label.signe-sang,
+.lames-du-cardinal .carac-label.signe-ecaille {
+  color: var(--lames-rouge);
+}
+
+.lames-du-cardinal .carac-signe {
+  font-size: 0.8em;
+  font-weight: normal;
+  font-style: italic;
+}
+
+.lames-du-cardinal .carac-values {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.lames-du-cardinal .carac-input {
+  width: 40px !important;
+  font-size: 1.3em;
+  font-weight: bold;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.lames-du-cardinal .carac-pips {
+  display: flex;
+  gap: 4px;
+}
+
+.lames-du-cardinal .carac-pips .pip {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--lames-gold-dark);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+}
+
+.lames-du-cardinal .carac-pips .pip.consumed {
+  background: var(--lames-gold);
+}
+
+.lames-du-cardinal .carac-qualificatif {
+  width: 100%;
+  font-style: italic;
+  font-size: 0.85em;
+  text-align: center;
+}
+
+/* ============================================= */
+/*  COMPETENCES                                  */
+/* ============================================= */
+
+.lames-du-cardinal .competences-group {
+  background: rgba(255, 255, 255, 0.3);
+  border: 1px solid var(--lames-border);
+  border-radius: 4px;
+  padding: 6px;
+}
+
+.lames-du-cardinal .comp-group-header {
+  font-family: "Cinzel", Georgia, serif;
+  margin: 0 0 6px 0;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--lames-border);
+  padding-bottom: 3px;
+}
+
+.lames-du-cardinal .comp-group-header.signe-griffe,
+.lames-du-cardinal .comp-group-header.signe-souffle {
+  color: var(--lames-noir);
+  border-bottom-color: var(--lames-noir);
+}
+
+.lames-du-cardinal .comp-group-header.signe-sang,
+.lames-du-cardinal .comp-group-header.signe-ecaille {
+  color: var(--lames-rouge);
+  border-bottom-color: var(--lames-rouge);
+}
+
+.lames-du-cardinal .comp-signe {
+  font-size: 0.8em;
+  font-weight: normal;
+  font-style: italic;
+}
+
+.lames-du-cardinal .competence-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 0;
+}
+
+.lames-du-cardinal .competence-row:hover {
+  background: rgba(201, 168, 76, 0.1);
+}
+
+.lames-du-cardinal .comp-roll {
+  cursor: pointer;
+  color: var(--lames-gold-dark);
+  width: 20px;
+  text-align: center;
+  transition: color 0.15s, transform 0.15s;
+}
+
+.lames-du-cardinal .comp-roll:hover {
+  color: var(--lames-crimson);
+  transform: scale(1.2);
+}
+
+.lames-du-cardinal .comp-label {
+  flex: 1;
+  font-size: 0.85em;
+}
+
+.lames-du-cardinal .comp-succes-auto {
+  font-size: 0.75em;
+  color: var(--lames-gold-dark);
+  min-width: 24px;
+  text-align: center;
+}
+
+.lames-du-cardinal .comp-input {
+  width: 36px !important;
+  text-align: center;
+  font-weight: bold;
+}
+
+.lames-du-cardinal .comp-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ============================================= */
+/*  ÉPÉE DE VITALITÉ                             */
+/* ============================================= */
+
+.lames-du-cardinal .epee-vitalite {
+  text-align: center;
+  min-width: 180px;
+}
+
+.lames-du-cardinal .epee-vitalite h4 {
+  font-family: "Cinzel", Georgia, serif;
+  margin: 0 0 4px 0;
+  font-size: 0.75em;
+  color: var(--lames-text-light);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.lames-du-cardinal .epee-stats {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  font-size: 0.8em;
+  margin-bottom: 4px;
+}
+
+.lames-du-cardinal .tenacite-stat {
+  color: var(--lames-gold);
+}
+
+.lames-du-cardinal .vitalite-stat {
+  color: var(--lames-danger-light);
+}
+
+.lames-du-cardinal .epee-cases {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: center;
+}
+
+.lames-du-cardinal .epee-section {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.lames-du-cardinal .epee-section-label {
+  font-size: 0.65em;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  width: 36px;
+  text-align: right;
+  color: var(--lames-gold);
+  opacity: 0.7;
+}
+
+.lames-du-cardinal .epee-case {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: 2px solid var(--lames-gold);
+  border-radius: 2px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.9em;
+  transition: all 0.15s;
+  user-select: none;
+}
+
+.lames-du-cardinal .epee-case:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 6px var(--lames-gold);
+}
+
+.lames-du-cardinal .epee-case.state-vierge {
+  background: rgba(255, 255, 255, 0.3);
+  color: transparent;
+}
+
+.lames-du-cardinal .epee-case.state-cochee {
+  background: var(--lames-gold);
+  color: var(--lames-bg-header);
+}
+
+.lames-du-cardinal .epee-case.state-barree {
+  background: var(--lames-crimson);
+  color: var(--lames-text-light);
+}
+
+.lames-du-cardinal .epee-status {
+  margin-top: 4px;
+  font-size: 0.75em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.lames-du-cardinal .epee-status.evanoui {
+  color: var(--lames-gold);
+}
+
+.lames-du-cardinal .epee-status.mort {
+  color: var(--lames-danger-light);
+}
+
+/* ============================================= */
+/*  ESCRIME / OCCULTISME / INHABITUELLES         */
+/* ============================================= */
+
+.lames-du-cardinal .escrime-section,
+.lames-du-cardinal .occultisme-section,
+.lames-du-cardinal .comp-inhabituelles-section {
+  margin-top: 12px;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.3);
+  border: 1px solid var(--lames-border);
+  border-radius: 4px;
+}
+
+.lames-du-cardinal .escrime-section h3,
+.lames-du-cardinal .occultisme-section h3,
+.lames-du-cardinal .comp-inhabituelles-section h3 {
+  margin: 0 0 6px 0;
+  font-size: 0.95em;
+  color: var(--lames-crimson);
+}
+
+.lames-du-cardinal .escrime-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lames-du-cardinal .escrime-row select {
+  flex: 1;
+}
+
+.lames-du-cardinal .comp-inhab-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 2px;
+}
+
+.lames-du-cardinal .comp-inhab-row input[type="text"] {
+  flex: 1;
+}
+
+.lames-du-cardinal .comp-inhab-row select {
+  width: 120px;
+}
+
+.lames-du-cardinal .comp-inhab-add,
+.lames-du-cardinal .comp-inhab-delete {
+  cursor: pointer;
+  color: var(--lames-gold-dark);
+}
+
+.lames-du-cardinal .comp-inhab-add:hover {
+  color: var(--lames-crimson);
+}
+
+.lames-du-cardinal .comp-inhab-delete:hover {
+  color: var(--lames-danger);
+}
+
+/* ============================================= */
+/*  COMBAT SECTION                               */
+/* ============================================= */
+
+.lames-du-cardinal .combat-section h3,
+.lames-du-cardinal .combat-section h4 {
+  color: var(--lames-crimson);
+  margin: 8px 0 4px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lames-du-cardinal .combat-section h4 {
+  font-size: 0.9em;
+  border-bottom: 1px solid var(--lames-border);
+  padding-bottom: 2px;
+}
+
+/* ============================================= */
+/*  ITEM LISTS                                   */
+/* ============================================= */
+
+.lames-du-cardinal .item-list {
+  margin-bottom: 8px;
+}
+
+.lames-du-cardinal .item-list .item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 3px 6px;
+  border-bottom: 1px solid rgba(160, 133, 92, 0.3);
+  transition: background 0.15s;
+}
+
+.lames-du-cardinal .item-list .item:hover {
+  background: rgba(201, 168, 76, 0.1);
+}
+
+.lames-du-cardinal .item-name {
+  flex: 1;
+  font-size: 0.9em;
+}
+
+.lames-du-cardinal .item-detail {
+  font-size: 0.8em;
+  color: var(--lames-gold-dark);
+  font-style: italic;
+}
+
+.lames-du-cardinal .item-controls {
+  display: flex;
+  gap: 6px;
+}
+
+.lames-du-cardinal .item-controls a {
+  cursor: pointer;
+  color: var(--lames-gold-dark);
+  font-size: 0.85em;
+  transition: color 0.15s;
+}
+
+.lames-du-cardinal .item-controls a:hover {
+  color: var(--lames-crimson);
+}
+
+.lames-du-cardinal .item-create {
+  cursor: pointer;
+  color: var(--lames-gold-dark);
+  font-size: 0.85em;
+}
+
+.lames-du-cardinal .item-create:hover {
+  color: var(--lames-crimson);
+}
+
+/* ============================================= */
+/*  ARCANES                                      */
+/* ============================================= */
+
+.lames-du-cardinal .arcanes-section h3 {
+  color: var(--lames-crimson);
+  margin: 8px 0 6px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lames-du-cardinal .arcane-beni {
+  background: var(--lames-crimson-bg);
+  border: 1px solid var(--lames-crimson);
+  border-radius: 4px;
+  padding: 6px 8px;
+  margin-bottom: 8px;
+}
+
+.lames-du-cardinal .arcane-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+  color: var(--lames-crimson);
+}
+
+.lames-du-cardinal .arcane-header a {
+  cursor: pointer;
+  color: var(--lames-gold-dark);
+}
+
+.lames-du-cardinal .arcane-header a:hover {
+  color: var(--lames-danger);
+}
+
+.lames-du-cardinal .arcane-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 8px;
+}
+
+.lames-du-cardinal .arcane-ephemere {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 6px;
+  background: rgba(201, 168, 76, 0.08);
+  border: 1px solid var(--lames-gold);
+  border-radius: 4px;
+}
+
+.lames-du-cardinal .arcane-beni-add {
+  cursor: pointer;
+  color: var(--lames-gold-dark);
+}
+
+.lames-du-cardinal .arcane-beni-add:hover {
+  color: var(--lames-crimson);
+}
+
+.lames-du-cardinal .arcane-readonly {
+  font-style: italic;
+  color: var(--lames-text);
+  padding: 2px 4px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+
+/* ============================================= */
+/*  RESISTANCE TRACKER (Figurant)                */
+/* ============================================= */
+
+.lames-du-cardinal .resistance-tracker {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px;
+  background: var(--lames-crimson-bg);
+  border: 1px solid var(--lames-crimson);
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.lames-du-cardinal .resistance-tracker label {
+  font-weight: bold;
+  font-size: 0.9em;
+}
+
+.lames-du-cardinal .resistance-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lames-du-cardinal .resistance-controls a {
+  cursor: pointer;
+  color: var(--lames-crimson);
+  font-size: 1em;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--lames-crimson);
+  border-radius: 2px;
+}
+
+.lames-du-cardinal .resistance-controls a:hover {
+  background: var(--lames-crimson);
+  color: white;
+}
+
+.lames-du-cardinal .resistance-current {
+  font-size: 1.1em;
+  font-weight: bold;
+  min-width: 50px;
+  text-align: center;
+}
+
+.lames-du-cardinal .resistance-max-input {
+  width: 48px !important;
+}
+
+/* ============================================= */
+/*  COMBAT TRACKER (Figurant)                    */
+/* ============================================= */
+
+.lames-du-cardinal .combat-tracker {
+  padding: 6px 8px;
+  background: rgba(201, 168, 76, 0.08);
+  border: 1px solid var(--lames-gold);
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+.lames-du-cardinal .combat-tracker h4 {
+  margin: 0 0 4px 0;
+  color: var(--lames-gold-dark);
+  font-size: 0.85em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lames-du-cardinal .combat-tracker-stats {
+  display: flex;
+  gap: 16px;
+  font-size: 0.85em;
+}
+
+.lames-du-cardinal .combat-tracker-reset {
+  cursor: pointer;
+  color: var(--lames-gold-dark);
+}
+
+.lames-du-cardinal .combat-tracker-reset:hover {
+  color: var(--lames-crimson);
+}
+
+/* ============================================= */
+/*  FIGURANT ESCRIME                             */
+/* ============================================= */
+
+.lames-du-cardinal .figurant-escrime {
+  margin-bottom: 10px;
+}
+
+/* ============================================= */
+/*  ITEM SHEETS                                  */
+/* ============================================= */
+
+.lames-du-cardinal.sheet.item .sheet-header {
+  gap: 8px;
+  padding: 6px 10px;
+  min-height: 50px;
+}
+
+.lames-du-cardinal.sheet.item .sheet-body {
+  padding: 8px 10px;
+  flex: 1;
+  min-height: 0;
+}
+
+.lames-du-cardinal .portees-fieldset {
+  border: 1px solid var(--lames-border);
+  border-radius: 4px;
+  padding: 6px 10px;
+  margin: 8px 0;
+}
+
+.lames-du-cardinal .portees-fieldset legend {
+  font-weight: bold;
+  color: var(--lames-crimson);
+  font-size: 0.9em;
+  padding: 0 4px;
+}
+
+.lames-du-cardinal .arcane-oppose-value {
+  font-weight: bold;
+  color: var(--lames-crimson);
+}
+
+/* ============================================= */
+/*  PROFIL SHEET                                 */
+/* ============================================= */
+
+.lames-du-cardinal .profil-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 4px 12px;
+  margin-bottom: 12px;
+}
+
+/* ============================================= */
+/*  SECTION HEADERS                              */
+/* ============================================= */
+
+.lames-du-cardinal h3 {
+  font-family: "Cinzel", Georgia, serif;
+  color: var(--lames-crimson);
+  margin: 10px 0 6px 0;
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid var(--lames-border);
+  padding-bottom: 3px;
+}
+
+.lames-du-cardinal h4 {
+  color: var(--lames-text);
+  margin: 6px 0 4px 0;
+  font-size: 0.9em;
+}
+
+/* ============================================= */
+/*  RICH TEXT EDITOR                             */
+/* ============================================= */
+
+.lames-du-cardinal .editor {
+  border: 1px solid var(--lames-border);
+  border-radius: 2px;
+  min-height: 80px;
+}
+
+/* ============================================= */
+/*  CHAT MESSAGES                                */
+/* ============================================= */
+
+.lames-roll {
+  font-family: "Crimson Text", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+  background: var(--lames-bg);
+  border: 2px solid var(--lames-gold);
+  border-radius: 4px;
+  padding: 8px;
+}
+
+.lames-roll h3 {
+  font-family: "Cinzel", Georgia, serif;
+  margin: 0 0 4px 0;
+  color: var(--lames-crimson);
+  font-size: 1em;
+  border-bottom: 1px solid var(--lames-gold);
+  padding-bottom: 3px;
+}
+
+.lames-roll p {
+  margin: 2px 0;
+  font-size: 0.9em;
+}
+
+/* ============================================= */
+/*  SCROLLBAR                                    */
+/* ============================================= */
+
+.lames-du-cardinal .sheet-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.lames-du-cardinal .sheet-body::-webkit-scrollbar-track {
+  background: var(--lames-bg-dark);
+}
+
+.lames-du-cardinal .sheet-body::-webkit-scrollbar-thumb {
+  background: var(--lames-gold-dark);
+  border-radius: 3px;
+}
+
+.lames-du-cardinal .sheet-body::-webkit-scrollbar-thumb:hover,
+.lames-du-cardinal .ecole-sheet-body::-webkit-scrollbar-thumb:hover {
+  background: var(--lames-gold);
+}
+
+.lames-du-cardinal .ecole-sheet-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.lames-du-cardinal .ecole-sheet-body::-webkit-scrollbar-track {
+  background: var(--lames-bg-dark);
+}
+
+.lames-du-cardinal .ecole-sheet-body::-webkit-scrollbar-thumb {
+  background: var(--lames-gold-dark);
+  border-radius: 3px;
+}
+
+/* ============================================= */
+/*  ÉCOLE D'ESCRIME SHEET                        */
+/* ============================================= */
+
+.lames-du-cardinal .ecole-sheet-body {
+  padding: 8px;
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+}
+
+.lames-du-cardinal .ecole-sheet-body .sheet-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.lames-du-cardinal .ecole-sheet-body .header-info {
+  flex: 1;
+}
+
+.lames-du-cardinal .ecole-meta {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.lames-du-cardinal .ecole-tag {
+  background: var(--lames-crimson);
+  color: var(--lames-text-light);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.85em;
+  font-weight: bold;
+}
+
+.lames-du-cardinal .ecole-description {
+  margin-bottom: 12px;
+  padding: 8px;
+  background: var(--lames-crimson-bg);
+  border-left: 3px solid var(--lames-crimson);
+  border-radius: 3px;
+  font-style: italic;
+}
+
+.lames-du-cardinal .ecole-section h2 {
+  color: var(--lames-crimson);
+  border-bottom: 2px solid var(--lames-gold);
+  padding-bottom: 4px;
+  margin: 12px 0 8px 0;
+  font-size: 1.1em;
+}
+
+.lames-du-cardinal .ecole-technique {
+  margin-bottom: 8px;
+  padding: 6px 8px;
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid var(--lames-border);
+  border-radius: 4px;
+}
+
+.lames-du-cardinal .ecole-technique h3 {
+  margin: 0 0 4px 0;
+  font-size: 0.95em;
+  color: var(--lames-text);
+}
+
+.lames-du-cardinal .ecole-signature {
+  border-left: 3px solid var(--lames-gold);
+  background: rgba(201, 168, 76, 0.1);
+}
+
+.lames-du-cardinal .botte-figures {
+  font-weight: normal;
+  font-size: 0.85em;
+  color: var(--lames-crimson);
+}
+
+.lames-du-cardinal .technique-description {
+  font-size: 0.9em;
+  line-height: 1.4;
+}
+
+.lames-du-cardinal .technique-description p {
+  margin: 0;
+}
+
+/* ============================================= */
+/*  TAROT — Chat Sidebar Button                  */
+/* ============================================= */
+
+/* Floating Tarot button — bottom-left above hotbar */
+.tarot-floating-button {
+  position: fixed;
+  bottom: 68px;
+  left: 12px;
+  z-index: 70;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--lames-bg-header) 0%, var(--lames-noir) 100%);
+  color: var(--lames-gold);
+  border: 2px solid var(--lames-gold);
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2em;
+  transition: all 0.2s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.tarot-floating-button:hover {
+  background: linear-gradient(135deg, #3d2517 0%, #2a2a4e 100%);
+  color: var(--lames-text-light);
+  border-color: var(--lames-text-light);
+  box-shadow: 0 0 12px rgba(201, 168, 76, 0.6);
+  transform: scale(1.1);
+}
+
+/* ============================================= */
+/*  TAROT DES OMBRES — APP                       */
+/* ============================================= */
+
+.tarot-app {
+  background: var(--lames-bg);
+  font-family: "Crimson Text", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+  color: var(--lames-text);
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+}
+
+.tarot-panel {
+  padding: 10px;
+}
+
+.tarot-panel h2 {
+  font-family: "Cinzel", Georgia, serif;
+  color: var(--lames-crimson);
+  font-size: 1em;
+  margin: 0 0 6px 0;
+  border-bottom: 2px solid var(--lames-gold);
+  padding-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Deck sections */
+.tarot-deck-section,
+.tarot-tests-section,
+.tarot-riviere-section,
+.tarot-main-section {
+  background: rgba(255, 255, 255, 0.3);
+  border: 1px solid var(--lames-border);
+  border-radius: 4px;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+/* Hand section — prominent styling */
+.tarot-main-section {
+  background: var(--lames-crimson-bg);
+  border: 2px solid var(--lames-gold);
+}
+
+.tarot-main-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.tarot-main-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.15s;
+}
+
+.tarot-main-card:hover {
+  transform: translateY(-6px);
+}
+
+.tarot-card-img-hand {
+  width: 90px;
+  height: auto;
+  border-radius: 4px;
+  border: 2px solid var(--lames-gold);
+  box-shadow: 0 2px 6px var(--lames-shadow);
+  cursor: default;
+}
+
+.tarot-main-card:hover .tarot-card-img-hand {
+  border-color: var(--lames-crimson);
+  box-shadow: 0 4px 12px var(--lames-shadow);
+}
+
+.tarot-main-card-actions {
+  display: flex;
+  gap: 4px;
+  margin-top: 4px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.tarot-main-card:hover .tarot-main-card-actions {
+  opacity: 1;
+}
+
+.tarot-card-action {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid var(--lames-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.75em;
+  transition: all 0.15s;
+  padding: 0;
+}
+
+.tarot-card-action.jouer {
+  background: var(--lames-success);
+  color: white;
+  border-color: var(--lames-success);
+}
+
+.tarot-card-action.jouer:hover {
+  background: var(--lames-success-light);
+  transform: scale(1.15);
+}
+
+.tarot-card-action.defausser {
+  background: var(--lames-crimson);
+  color: white;
+  border-color: var(--lames-crimson);
+}
+
+.tarot-card-action.defausser:hover {
+  background: var(--lames-crimson-light);
+  transform: scale(1.15);
+}
+
+.tarot-main-empty {
+  color: var(--lames-gold-dark);
+  font-size: 0.85em;
+  margin: 0;
+}
+
+/* Decks side by side */
+.tarot-decks-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.tarot-decks-row .tarot-deck-section {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.tarot-deck-info {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.tarot-pile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.tarot-pile-img {
+  width: 60px;
+  height: auto;
+  border-radius: 4px;
+  border: 2px solid var(--lames-gold);
+  box-shadow: 0 2px 6px var(--lames-shadow);
+}
+
+.tarot-pile-placeholder {
+  width: 60px;
+  height: 104px;
+  border: 2px dashed var(--lames-border);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--lames-border);
+  font-size: 1.4em;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.tarot-pile-count {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: var(--lames-crimson);
+}
+
+.tarot-pile-label {
+  font-size: 0.75em;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--lames-gold-dark);
+}
+
+/* Action buttons */
+.tarot-deck-actions {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.tarot-deck-actions button {
+  font-family: inherit;
+  font-size: 0.85em;
+  padding: 4px 12px;
+  border: 1px solid var(--lames-border);
+  border-radius: 4px;
+  background: var(--lames-bg-dark);
+  color: var(--lames-text);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tarot-deck-actions button:hover {
+  background: var(--lames-gold);
+  color: var(--lames-bg-header);
+  border-color: var(--lames-gold-dark);
+}
+
+/* Rivière draconique */
+.tarot-riviere-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.tarot-riviere-remove {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--lames-crimson);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7em;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.tarot-riviere-card:hover .tarot-riviere-remove {
+  opacity: 1;
+}
+
+.tarot-riviere-empty {
+  color: var(--lames-gold-dark);
+  font-size: 0.85em;
+  margin: 0;
+}
+
+/* Reset button */
+.tarot-reset-section {
+  text-align: center;
+  margin-top: 8px;
+}
+
+.tarot-reset-btn {
+  font-family: inherit;
+  font-size: 0.8em;
+  padding: 4px 16px;
+  border: 1px solid var(--lames-crimson);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--lames-crimson);
+  cursor: pointer;
+}
+
+.tarot-reset-btn:hover {
+  background: var(--lames-crimson);
+  color: white;
+}
+
+/* ============================================= */
+/*  TAROT — CARD IMAGES (chat & UI)              */
+/* ============================================= */
+
+.tarot-card-img {
+  width: 120px;
+  height: auto;
+  border-radius: 4px;
+  border: 2px solid var(--lames-gold);
+  box-shadow: 0 2px 8px var(--lames-shadow);
+}
+
+.tarot-card-img-small {
+  width: 80px;
+  height: auto;
+  border-radius: 3px;
+  border: 1px solid var(--lames-gold);
+  box-shadow: 0 1px 4px var(--lames-shadow);
+}
+
+.tarot-card-display {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 6px 0;
+}
+
+.tarot-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.tarot-card-info .card-label {
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.tarot-card-info .card-signe {
+  font-style: italic;
+  color: var(--lames-gold-dark);
+}
+
+.tarot-card-info .card-result {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.tarot-card-info .card-result.success {
+  color: var(--lames-success);
+}
+
+.tarot-card-info .card-result.failure {
+  color: var(--lames-crimson);
+}
+
+/* Test dramatique — drawn cards */
+.tarot-drawn-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 6px 0;
+}
+
+.tarot-drawn-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  font-size: 0.8em;
+}
+
+.tarot-drawn-card.reussite {
+  color: var(--lames-success);
+  font-weight: bold;
+}
+
+.tarot-drawn-card.oppose {
+  color: var(--lames-crimson);
+  font-weight: bold;
+}
+
+.tarot-drawn-card.arcane {
+  color: var(--lames-arcane);
+  font-weight: bold;
+}
+
+/* Test result badges */
+.tarot-drawn-card .badge {
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 0.75em;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.tarot-drawn-card .badge.success {
+  background: var(--lames-success-bg);
+  color: var(--lames-success);
+}
+
+.tarot-drawn-card .badge.failure {
+  background: var(--lames-crimson-bg-strong);
+  color: var(--lames-crimson);
+}
+
+.tarot-drawn-card .badge.figure {
+  background: rgba(201, 168, 76, 0.2);
+  color: var(--lames-gold-dark);
+}
+
+.tarot-drawn-card .badge.arcane {
+  background: var(--lames-arcane-bg);
+  color: var(--lames-arcane);
+}
+
+/* Ténacité loss warning */
+.tenacite-loss {
+  color: var(--lames-arcane);
+  font-weight: bold;
+  font-size: 0.95em;
+  margin-top: 4px;
+  padding: 4px 8px;
+  background: var(--lames-arcane-bg);
+  border-left: 3px solid var(--lames-arcane);
+  border-radius: 2px;
+}
+
+/* Test éclair result (reuse dramatique styles) */
+.lames-test-eclair .test-result,
+.lames-test-dramatique .test-result {
+  font-size: 1.1em;
+  margin-top: 6px;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.lames-test-eclair .test-result.success,
+.lames-test-dramatique .test-result.success {
+  background: var(--lames-success-bg);
+  color: var(--lames-success);
+}
+
+.lames-test-eclair .test-result.failure,
+.lames-test-dramatique .test-result.failure {
+  background: var(--lames-crimson-bg-strong);
+  color: var(--lames-crimson);
+}
+
+/* Token hover tooltip */
+.lames-token-tooltip {
+  position: fixed;
+  z-index: 200;
+  pointer-events: none;
+  transform: translate(-50%, -100%);
+  background: rgba(20, 15, 10, 0.95);
+  border: 1px solid var(--lames-gold, #c9a84c);
+  border-radius: 4px;
+  padding: 6px 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+  font-family: "Crimson Text", Georgia, serif;
+  color: #eaddb5;
+  white-space: nowrap;
+}
+
+.lames-token-tooltip .tooltip-name {
+  font-family: "Cinzel", serif;
+  font-weight: bold;
+  font-size: 0.95em;
+  color: var(--lames-gold, #c9a84c);
+}
+
+.lames-token-tooltip .tooltip-status {
+  font-size: 0.8em;
+  font-style: italic;
+  margin-top: 2px;
+}
+
+/* Arcane alert when drawn from Lames deck */
+.lames-arcane-alert {
+  border-left: 4px solid var(--lames-arcane-border, #7b5ea7);
+  background: rgba(123, 94, 167, 0.08);
+}
+
+.lames-arcane-alert h3 {
+  color: var(--lames-arcane, #7b5ea7);
+}
+
+.arcane-warning {
+  color: var(--lames-arcane, #7b5ea7);
+  font-style: italic;
+}
+
+/* Tarot panel scrollbar */
+.tarot-panel::-webkit-scrollbar {
+  width: 6px;
+}
+
+.tarot-panel::-webkit-scrollbar-track {
+  background: var(--lames-bg-dark);
+}
+
+.tarot-panel::-webkit-scrollbar-thumb {
+  background: var(--lames-gold-dark);
+  border-radius: 3px;
+}
+
+.tarot-panel::-webkit-scrollbar-thumb:hover {
+  background: var(--lames-gold);
+}
+
+/* ============================================= */
+/*  PHASE 4 — Rivière enrichie & Arcanes        */
+/* ============================================= */
+
+/* Rivière card with details */
+.tarot-riviere-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 6px;
+  background: var(--lames-arcane-bg);
+  border: 1px solid var(--lames-arcane-border);
+  border-radius: 4px;
+  margin-bottom: 6px;
+}
+
+.tarot-riviere-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 0.85em;
+  flex: 1;
+}
+
+.tarot-riviere-details .tarot-riviere-label {
+  font-weight: bold;
+  color: var(--lames-arcane);
+  font-size: 1em;
+}
+
+.tarot-riviere-details .tarot-riviere-vd {
+  color: var(--lames-crimson);
+  font-style: italic;
+}
+
+.tarot-riviere-details .tarot-riviere-comp {
+  color: var(--lames-gold-dark);
+  font-size: 0.9em;
+}
+
+/* Météo draconique */
+.tarot-meteo-section {
+  margin-top: 6px;
+  padding: 8px;
+  background: var(--lames-arcane-bg);
+  border-left: 3px solid var(--lames-arcane);
+  border-radius: 2px;
+}
+
+.tarot-meteo-section h3 {
+  margin: 0 0 4px 0;
+  font-size: 0.9em;
+  color: var(--lames-arcane);
+}
+
+.tarot-meteo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.85em;
+}
+
+.tarot-meteo-list li {
+  padding: 2px 0;
+  color: var(--lames-text);
+}
+
+/* Arcane marque in chat test results */
+.arcane-marque {
+  font-size: 0.8em;
+  padding: 4px 6px;
+  margin-top: 2px;
+  background: var(--lames-arcane-bg);
+  border-left: 2px solid var(--lames-arcane);
+  border-radius: 2px;
+  line-height: 1.3;
+}
+
+.arcane-marque strong {
+  color: var(--lames-arcane);
+}
+
+.arcane-marque em {
+  display: block;
+  margin-top: 2px;
+  color: var(--lames-text-muted);
+  font-size: 0.9em;
+}
+
+/* Rivière warning in tests */
+.riviere-warning {
+  color: var(--lames-arcane);
+  font-size: 0.9em;
+  padding: 3px 6px;
+  background: var(--lames-arcane-bg);
+  border-left: 3px solid var(--lames-arcane);
+  border-radius: 2px;
+  margin: 4px 0;
+}
+
+/* ============================================= */
+/*  PHASE 5 — Feintes, Bottes, Arcanes bénis    */
+/* ============================================= */
+
+/* Feinte chat message */
+.lames-feinte h3,
+.lames-botte h3 {
+  margin: 0 0 4px 0;
+}
+
+.tenacite-cost {
+  color: var(--lames-crimson);
+  font-weight: bold;
+  font-size: 0.9em;
+}
+
+.feinte-description,
+.botte-description {
+  font-size: 0.9em;
+  padding: 4px 6px;
+  margin-top: 4px;
+  background: rgba(0, 0, 0, 0.03);
+  border-left: 2px solid var(--lames-gold);
+  border-radius: 2px;
+}
+
+/* Botte dialog figure choices */
+.botte-figures {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 6px 0;
+}
+
+.botte-figure-choice {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 4px;
+  background: rgba(201, 168, 76, 0.1);
+  border-radius: 3px;
+}
+
+/* Arcane béni bonus in test results */
+.beni-bonus {
+  color: var(--lames-gold-dark);
+  font-weight: bold;
+}
+
+/* Arcane éphémère bonus in test results */
+.ephemere-bonus {
+  color: var(--lames-arcane);
+  font-weight: bold;
+}
+
+/* Use button in combat tab */
+.item-controls a[data-action="useFeinte"],
+.item-controls a[data-action="useBotte"] {
+  color: var(--lames-crimson);
+}
+
+.item-controls a[data-action="useFeinte"]:hover,
+.item-controls a[data-action="useBotte"]:hover {
+  color: var(--lames-crimson-light);
+}
+
+/* Feinte/Botte picker dialog */
+.lames-picker-dialog {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.picker-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 6px;
+}
+
+.picker-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  background: var(--lames-bg);
+  border: 2px solid var(--lames-border);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.picker-item:hover {
+  border-color: var(--lames-gold);
+  background: var(--lames-bg-dark);
+}
+
+.picker-item.selected {
+  border-color: var(--lames-crimson);
+  background: var(--lames-crimson-bg);
+}
+
+.picker-name {
+  font-weight: bold;
+  color: var(--lames-text);
+  flex: 1;
+}
+
+.picker-signature {
+  font-size: 0.75em;
+  padding: 1px 5px;
+  background: var(--lames-gold);
+  color: var(--lames-bg-header);
+  border-radius: 3px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.picker-figures {
+  font-size: 0.8em;
+  color: var(--lames-crimson);
+  font-weight: bold;
+}
+
+/* Tooltip on hover */
+.picker-tooltip {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  z-index: 100;
+  width: 100%;
+  padding: 8px;
+  margin-top: 2px;
+  background: var(--lames-bg);
+  border: 1px solid var(--lames-gold);
+  border-radius: 4px;
+  box-shadow: 0 2px 8px var(--lames-shadow);
+  font-size: 0.85em;
+  font-weight: normal;
+  color: var(--lames-text);
+  line-height: 1.4;
+}
+
+.picker-item:hover .picker-tooltip {
+  display: block;
+}
+
+/* Item tooltip on actor sheet (feintes/bottes) */
+.item.has-tooltip {
+  position: relative;
+}
+
+.item-tooltip {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  z-index: 100;
+  width: 100%;
+  min-width: 250px;
+  padding: 8px;
+  margin-top: 2px;
+  background: var(--lames-bg);
+  border: 1px solid var(--lames-gold);
+  border-radius: 4px;
+  box-shadow: 0 2px 8px var(--lames-shadow);
+  font-size: 0.85em;
+  font-weight: normal;
+  color: var(--lames-text);
+  line-height: 1.4;
+  pointer-events: none;
+}
+
+.item.has-tooltip:hover .item-tooltip {
+  display: block;
+}
+
+/* ============================================= */
+/*  PHASE 6 — Relations, Liens, XP              */
+/* ============================================= */
+
+/* Ressources & Contacts pips */
+.ressources-contacts-section {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 12px;
+}
+
+.rc-block {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.rc-block label {
+  font-weight: bold;
+  color: var(--lames-text);
+}
+
+.rc-pips {
+  display: flex;
+  gap: 4px;
+}
+
+.rc-pip {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid var(--lames-gold-dark);
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.rc-pip.active {
+  background: var(--lames-gold);
+}
+
+.rc-pip:hover {
+  border-color: var(--lames-crimson);
+}
+
+.rc-label {
+  font-size: 0.85em;
+  color: #666;
+  font-style: italic;
+}
+
+/* Niveau de vie display */
+.ndv-section {
+  text-align: center;
+  padding: 6px;
+  margin-bottom: 12px;
+  background: rgba(201, 168, 76, 0.1);
+  border-radius: 4px;
+}
+
+.ndv-section label {
+  font-weight: bold;
+  margin-right: 6px;
+}
+
+.ndv-label {
+  color: var(--lames-gold-dark);
+  font-weight: bold;
+}
+
+/* Liens between Lames */
+.liens-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-height: 40px;
+  padding: 4px;
+  border: 1px dashed var(--lames-border);
+  border-radius: 4px;
+  margin-bottom: 12px;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.liens-list.drag-over {
+  border-color: var(--lames-gold);
+  background: rgba(201, 168, 76, 0.08);
+}
+
+.liens-empty {
+  text-align: center;
+  color: #999;
+  margin: 8px 0;
+}
+
+.lien-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 6px;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 4px;
+}
+
+.lien-portrait {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid var(--lames-gold);
+  object-fit: cover;
+}
+
+.lien-portrait-placeholder {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid var(--lames-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa;
+  background: var(--lames-bg-dark);
+}
+
+.lien-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.lien-nom {
+  border: none;
+  background: transparent;
+  font-weight: bold;
+  padding: 0;
+  font-size: 0.95em;
+}
+
+.lien-valeur-pips {
+  display: flex;
+  gap: 3px;
+}
+
+.lien-pip {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid var(--lames-crimson);
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.lien-pip.active {
+  background: var(--lames-crimson);
+}
+
+.lien-pip:hover {
+  border-color: var(--lames-gold);
+}
+
+.lien-delete {
+  color: #999;
+}
+
+.lien-delete:hover {
+  color: var(--lames-crimson);
+}
+
+/* Experience section */
+.experience-section {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.xp-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.xp-block label {
+  font-weight: bold;
+}
+
+.xp-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.xp-controls a {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--lames-bg-dark);
+  border: 1px solid var(--lames-border);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.xp-controls a:hover {
+  background: var(--lames-gold);
+  color: var(--lames-bg-header);
+}
+
+.xp-value {
+  font-size: 1.3em;
+  font-weight: bold;
+  min-width: 30px;
+  text-align: center;
+  color: var(--lames-crimson);
+}
+
+.xp-block-shared {
+  border-left: 2px solid var(--lames-gold);
+  padding-left: 16px;
+}
+
+.pu-spent {
+  font-size: 0.85em;
+  color: var(--lames-crimson-light);
+  font-style: italic;
+  margin-top: 2px;
+}
+
+/* ============================================= */
+/*  RIVIERE DRACONIQUE — HUD OVERLAY            */
+/* ============================================= */
+
+.riviere-overlay {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 60;
+  display: none;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 16px;
+  background: linear-gradient(180deg, rgba(44, 24, 16, 0.92) 0%, rgba(26, 26, 46, 0.88) 100%);
+  border-bottom: 2px solid var(--lames-gold);
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  pointer-events: auto;
+}
+
+.riviere-overlay.visible {
+  display: flex;
+}
+
+.riviere-hud-label {
+  font-family: "Cinzel", Georgia, serif;
+  font-size: 0.75em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--lames-gold);
+  white-space: nowrap;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  padding: 4px 0;
+}
+
+.riviere-hud-cards {
+  display: flex;
+  gap: 6px;
+  align-items: flex-start;
+}
+
+.riviere-hud-card {
+  position: relative;
+  cursor: default;
+  transition: transform 0.2s;
+}
+
+.riviere-hud-card:hover {
+  transform: translateY(4px);
+}
+
+.riviere-hud-img {
+  width: 52px;
+  height: auto;
+  border-radius: 3px;
+  border: 2px solid var(--lames-gold-dark);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.riviere-hud-card:hover .riviere-hud-img {
+  border-color: var(--lames-gold);
+  box-shadow: 0 0 8px rgba(201, 168, 76, 0.5);
+}
+
+/* Tooltip */
+.riviere-hud-tooltip {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 6px;
+  width: 240px;
+  padding: 10px 12px;
+  background: linear-gradient(135deg, var(--lames-bg) 0%, var(--lames-bg-dark) 100%);
+  border: 2px solid var(--lames-gold);
+  border-radius: 6px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  font-family: "Crimson Text", Georgia, serif;
+  font-size: 0.9em;
+  color: var(--lames-text);
+  z-index: 100;
+  pointer-events: none;
+}
+
+.riviere-hud-card:hover .riviere-hud-tooltip {
+  display: block;
+}
+
+/* Tooltip arrow */
+.riviere-hud-tooltip::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid var(--lames-gold);
+}
+
+.riviere-hud-name {
+  font-family: "Cinzel", Georgia, serif;
+  font-size: 1.1em;
+  font-weight: bold;
+  color: var(--lames-arcane);
+  margin-bottom: 6px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--lames-border);
+}
+
+.riviere-hud-row {
+  padding: 2px 0;
+  line-height: 1.4;
+}
+
+.riviere-hud-row i {
+  width: 16px;
+  text-align: center;
+  color: var(--lames-gold-dark);
+  margin-right: 2px;
+}
+
+/* GM reset button */
+.riviere-hud-reset {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 2px solid var(--lames-gold-dark);
+  border-radius: 50%;
+  color: var(--lames-gold);
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-left: 4px;
+  flex-shrink: 0;
+}
+
+.riviere-hud-reset:hover {
+  background: var(--lames-crimson);
+  border-color: var(--lames-crimson);
+  color: var(--lames-text-light);
+}
+
+/* The icon spins only on hover */
+.riviere-hud-reset i {
+  animation: none;
+}
+
+.riviere-hud-reset:hover i {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ============================================= */
+/*  TAROT CATALOGUE — GM Card Browser           */
+/* ============================================= */
+
+.tarot-catalogue {
+  background: var(--lames-bg);
+  font-family: "Crimson Text", Georgia, serif;
+}
+
+.catalogue-panel {
+  padding: 10px;
+  overflow-y: auto;
+  height: 100%;
+}
+
+.catalogue-panel::-webkit-scrollbar {
+  width: 6px;
+}
+
+.catalogue-panel::-webkit-scrollbar-track {
+  background: var(--lames-bg-dark);
+}
+
+.catalogue-panel::-webkit-scrollbar-thumb {
+  background: var(--lames-gold-dark);
+  border-radius: 3px;
+}
+
+.catalogue-section {
+  margin-bottom: 16px;
+}
+
+.catalogue-section h2 {
+  font-family: "Cinzel", Georgia, serif;
+  color: var(--lames-crimson);
+  font-size: 1em;
+  margin: 0 0 8px 0;
+  border-bottom: 2px solid var(--lames-gold);
+  padding-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.catalogue-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.catalogue-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 8px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.catalogue-item:hover {
+  background: rgba(201, 168, 76, 0.12);
+}
+
+.catalogue-item.unavailable {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.catalogue-item.unavailable:hover {
+  background: var(--lames-crimson-bg);
+}
+
+.catalogue-item-label {
+  flex: 1;
+  font-size: 0.9em;
+  color: var(--lames-bg-header);
+}
+
+.catalogue-item-taken {
+  color: var(--lames-crimson);
+  font-size: 0.8em;
+}
+
+/* Catalogue floating button */
+.catalogue-floating-button {
+  position: fixed;
+  bottom: 118px;
+  left: 12px;
+  z-index: 70;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--lames-bg-header) 0%, var(--lames-noir) 100%);
+  color: var(--lames-gold);
+  border: 2px solid var(--lames-gold);
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2em;
+  transition: all 0.2s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.catalogue-floating-button:hover {
+  background: linear-gradient(135deg, #3d2517 0%, #2a2a4e 100%);
+  color: var(--lames-text-light);
+  border-color: var(--lames-text-light);
+  box-shadow: 0 0 12px rgba(201, 168, 76, 0.6);
+  transform: scale(1.1);
+}
+
+/* ============================================= */
+/*  PILES OVERLAY — Draw & Discard piles on HUD */
+/* ============================================= */
+
+.piles-overlay {
+  position: fixed;
+  top: 8px;
+  left: 100px;
+  z-index: 60;
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: flex-start;
+  pointer-events: auto;
+}
+
+.pile-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.pile-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+
+.pile-stack:hover {
+  transform: translateY(-4px);
+}
+
+.pile-card-img {
+  width: 64px;
+  height: auto;
+  border-radius: 4px;
+  border: 2px solid var(--lames-gold-dark);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.pile-stack:hover .pile-card-img {
+  border-color: var(--lames-gold);
+  box-shadow: 0 0 12px rgba(201, 168, 76, 0.4);
+}
+
+/* Stacked card effect for pioche */
+.pile-stack:not(.pile-defausse) {
+  position: relative;
+}
+
+.pile-stack:not(.pile-defausse)::before,
+.pile-stack:not(.pile-defausse)::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  width: 60px;
+  height: 90px;
+  border-radius: 4px;
+  border: 1px solid var(--lames-gold-dark);
+  background: var(--lames-bg-header);
+  z-index: -1;
+}
+
+.pile-stack:not(.pile-defausse)::before {
+  left: 50%;
+  transform: translateX(-50%) rotate(2deg);
+  opacity: 0.6;
+}
+
+.pile-stack:not(.pile-defausse)::after {
+  left: 50%;
+  transform: translateX(-50%) rotate(-1.5deg);
+  opacity: 0.3;
+}
+
+/* Smaller arcane piles */
+.pile-stack.pile-small .pile-card-img {
+  width: 50px;
+}
+
+.pile-stack.pile-small::before,
+.pile-stack.pile-small::after {
+  width: 46px;
+  height: 72px;
+}
+
+/* Empty placeholder */
+.pile-placeholder {
+  width: 64px;
+  height: 100px;
+  border: 2px dashed var(--lames-border);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--lames-border);
+  font-size: 1.2em;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.pile-small .pile-placeholder {
+  width: 50px;
+  height: 78px;
+  font-size: 1em;
+}
+
+.pile-stack.pile-empty {
+  opacity: 0.5;
+}
+
+.pile-count {
+  font-family: "Cinzel", Georgia, serif;
+  font-size: 0.85em;
+  font-weight: bold;
+  color: var(--lames-gold);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.pile-label {
+  font-family: "Crimson Text", Georgia, serif;
+  font-size: 0.7em;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--lames-text-light);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+  white-space: nowrap;
+}
+
+/* Arcanes group sits to the right of lames (row layout) */
+.pile-group-arcanes {
+  padding-left: 12px;
+  border-left: 1px solid rgba(201, 168, 76, 0.3);
+}
+
+/* Defausse dialog list */
+.piles-defausse-list {
+  list-style: none;
+  padding: 0;
+  margin: 4px 0;
+  max-height: 300px;
+  overflow-y: auto;
+  font-family: "Crimson Text", Georgia, serif;
+}
+
+.piles-defausse-list li {
+  padding: 3px 6px;
+  border-bottom: 1px solid rgba(160, 133, 92, 0.2);
+  font-size: 0.95em;
+}
+
+/* ============================================================ */
+/*  Hand Overlay — player's Lame cards in fan/arc layout        */
+/* ============================================================ */
+
+.hand-overlay {
+  position: fixed;
+  /* Push the fan origin well below the viewport bottom so cards are ~half hidden */
+  bottom: -70px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 60;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.hand-overlay.has-cards {
+  pointer-events: auto;
+}
+
+.hand-fan {
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+.hand-card {
+  position: absolute;
+  width: 100px;
+  /* Horizontal position via left (uses --fan-tx), so hover keeps it in place */
+  left: calc(-50px + var(--fan-tx, 0px));
+  bottom: 0;
+  transform-origin: center bottom;
+  transform:
+    rotate(var(--fan-angle, 0deg))
+    translateY(var(--fan-ty, 0px));
+  transition: transform 0.3s ease, filter 0.25s ease;
+  cursor: pointer;
+  z-index: 1;
+  filter: brightness(0.88);
+}
+
+.hand-card:hover {
+  /* Straighten (no rotation), rise up — stays in its own horizontal position */
+  transform: rotate(0deg) translateY(-80px) scale(1.6);
+  z-index: 100;
+  filter: brightness(1) drop-shadow(0 6px 16px rgba(0, 0, 0, 0.6));
+}
+
+.hand-card-img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ============================================================ */
+/*  Ephemeral Arcanes — public, beside the hand                 */
+/* ============================================================ */
+
+.eph-container {
+  position: fixed;
+  bottom: 100px;
+  left: 16px;
+  z-index: 61;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+  pointer-events: auto;
+}
+
+.eph-player-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.eph-player-name {
+  font-family: "Cinzel", serif;
+  font-size: 0.7em;
+  color: var(--lames-gold, #c9a84c);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+  white-space: nowrap;
+}
+
+.eph-cards {
+  display: flex;
+  gap: 6px;
+}
+
+.eph-card {
+  width: 70px;
+  transition: transform 0.25s ease, filter 0.25s ease;
+  filter: brightness(0.92);
+  border-radius: 4px;
+  border: 2px solid var(--lames-arcane-border, #7b5ea7);
+  box-shadow: 0 0 8px rgba(123, 94, 167, 0.4);
+}
+
+.eph-card.eph-owner {
+  cursor: pointer;
+}
+
+.eph-card.eph-owner:hover {
+  transform: translateY(-20px) scale(1.3);
+  filter: brightness(1) drop-shadow(0 4px 12px rgba(123, 94, 167, 0.6));
+  z-index: 10;
+}
+
+.eph-card-img {
+  width: 100%;
+  height: auto;
+  border-radius: 3px;
+  pointer-events: none;
+  user-select: none;
+}

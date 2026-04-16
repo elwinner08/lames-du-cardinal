@@ -1,0 +1,69 @@
+{{!-- ARME ITEM SHEET --}}
+<div class="arme-sheet-body">
+<header class="sheet-header">
+  <img class="item-img" src="{{item.img}}" data-edit="img"
+       title="{{item.name}}" height="40" width="40" />
+  <h1 class="item-name">{{item.name}}</h1>
+</header>
+
+<section class="sheet-body">
+  <div class="form-group">
+    <label>{{localize "LAMES.Arme.categorie"}}</label>
+    <select name="system.categorie">
+      <option value="melee" {{#if (eq system.categorie "melee")}}selected{{/if}}>{{localize "LAMES.Arme.melee"}}</option>
+      <option value="distance" {{#if (eq system.categorie "distance")}}selected{{/if}}>{{localize "LAMES.Arme.distance"}}</option>
+      <option value="explosif" {{#if (eq system.categorie "explosif")}}selected{{/if}}>{{localize "LAMES.Arme.explosif"}}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>{{localize "LAMES.Arme.sousType"}}</label>
+    <input type="text" name="system.sousType" value="{{system.sousType}}" />
+  </div>
+
+  <div class="form-group">
+    <label>{{localize "LAMES.Arme.degats"}}</label>
+    <input type="number" name="system.degats" value="{{system.degats}}" min="0" />
+  </div>
+
+  <div class="form-group">
+    <label>{{localize "LAMES.Arme.equipe"}}</label>
+    <a class="toggle-btn" data-action="toggleEquipe" title="{{localize 'LAMES.Arme.equipe'}}">
+      <i class="fa-solid {{#if system.equipe}}fa-toggle-on toggle-on{{else}}fa-toggle-off toggle-off{{/if}}"></i>
+    </a>
+  </div>
+
+  {{!-- Portées (armes à distance) --}}
+  {{#if (ne system.categorie "melee")}}
+  <fieldset class="portees-fieldset">
+    <legend>{{localize "LAMES.Arme.portees"}}</legend>
+    <div class="form-group">
+      <label>{{localize "LAMES.Arme.boutPortant"}}</label>
+      <input type="text" name="system.portees.boutPortant" value="{{system.portees.boutPortant}}" />
+    </div>
+    <div class="form-group">
+      <label>{{localize "LAMES.Arme.courte"}}</label>
+      <input type="text" name="system.portees.courte" value="{{system.portees.courte}}" />
+    </div>
+    <div class="form-group">
+      <label>{{localize "LAMES.Arme.moyenne"}}</label>
+      <input type="text" name="system.portees.moyenne" value="{{system.portees.moyenne}}" />
+    </div>
+    <div class="form-group">
+      <label>{{localize "LAMES.Arme.longue"}}</label>
+      <input type="text" name="system.portees.longue" value="{{system.portees.longue}}" />
+    </div>
+  </fieldset>
+  {{/if}}
+
+  <div class="form-group full-width">
+    <label>{{localize "LAMES.Divers.description"}}</label>
+    <textarea name="system.description" rows="5" {{#if isFromCompendium}}readonly{{/if}}>{{system.description}}</textarea>
+  </div>
+
+  <div class="form-group full-width">
+    <label>{{localize "LAMES.Divers.notes"}}</label>
+    <textarea name="system.notes" rows="4">{{system.notes}}</textarea>
+  </div>
+</section>
+</div>

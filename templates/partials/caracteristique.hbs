@@ -1,0 +1,20 @@
+{{!-- Partial: single characteristic block --}}
+<div class="caracteristique carac-{{key}}" data-signe="{{signe}}">
+  <h4 class="carac-label signe-{{signe}}">
+    {{localize (concat "LAMES.Caracteristiques." key)}}
+    <span class="carac-signe">({{localize (concat "LAMES.Signes." signe)}})</span>
+  </h4>
+  <div class="carac-values">
+    <input type="number" name="system.caracteristiques.{{key}}.valeur"
+           value="{{carac.valeur}}" min="0" max="4" class="carac-input" />
+    <div class="carac-pips" title="{{localize 'LAMES.Caracteristiques.consommes'}}">
+      {{#times carac.valeur}}
+        <span class="pip {{#if (lt this ../carac.consommes)}}consumed{{/if}}"
+              data-carac="{{../key}}" data-index="{{this}}"></span>
+      {{/times}}
+    </div>
+  </div>
+  <input type="text" name="system.caracteristiques.{{key}}.qualificatif"
+         value="{{carac.qualificatif}}"
+         placeholder="{{localize 'LAMES.Caracteristiques.qualificatif'}}" class="carac-qualificatif" />
+</div>

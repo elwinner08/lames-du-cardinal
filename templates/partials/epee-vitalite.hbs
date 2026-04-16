@@ -1,0 +1,39 @@
+{{!-- Partial: Épée de Vitalité / Ténacité (8 cases) --}}
+<div class="epee-vitalite">
+  <h4>{{localize "LAMES.Epee.titre"}}</h4>
+  <div class="epee-stats">
+    <span class="epee-stat tenacite-stat">
+      {{localize "LAMES.Epee.tenacite"}} : <strong>{{tenacite}}</strong>
+    </span>
+    <span class="epee-stat vitalite-stat">
+      {{localize "LAMES.Epee.vitalite"}} : <strong>{{vitalite}}</strong>
+    </span>
+  </div>
+  <div class="epee-cases">
+    {{!-- Case 0 = fort (bas de l'épée, vitalité), Case 7 = faible (pointe, ténacité) --}}
+    <div class="epee-section epee-faible">
+      <span class="epee-section-label">{{localize "LAMES.Epee.faible"}}</span>
+      {{#each system.epee}}
+        {{#if (gte @index 4)}}
+        <div class="epee-case state-{{this}}" data-index="{{@index}}"
+             title="{{#if (eq this 'vierge')}}{{localize 'LAMES.Epee.vierge'}}{{else if (eq this 'cochee')}}{{localize 'LAMES.Epee.cochee'}}{{else}}{{localize 'LAMES.Epee.barree'}}{{/if}}">
+          {{#if (eq this "cochee")}}/{{else if (eq this "barree")}}X{{/if}}
+        </div>
+        {{/if}}
+      {{/each}}
+    </div>
+    <div class="epee-section epee-fort">
+      <span class="epee-section-label">{{localize "LAMES.Epee.fort"}}</span>
+      {{#each system.epee}}
+        {{#if (lt @index 4)}}
+        <div class="epee-case state-{{this}}" data-index="{{@index}}"
+             title="{{#if (eq this 'vierge')}}{{localize 'LAMES.Epee.vierge'}}{{else if (eq this 'cochee')}}{{localize 'LAMES.Epee.cochee'}}{{else}}{{localize 'LAMES.Epee.barree'}}{{/if}}">
+          {{#if (eq this "cochee")}}/{{else if (eq this "barree")}}X{{/if}}
+        </div>
+        {{/if}}
+      {{/each}}
+    </div>
+  </div>
+  {{#if evanoui}}<div class="epee-status evanoui">{{localize "LAMES.Epee.evanoui"}}</div>{{/if}}
+  {{#if mort}}<div class="epee-status mort">{{localize "LAMES.Epee.mort"}}</div>{{/if}}
+</div>

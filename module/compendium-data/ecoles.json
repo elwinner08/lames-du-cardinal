@@ -1,0 +1,326 @@
+[
+  {
+    "name": "École germanique (Griffe)",
+    "type": "ecole",
+    "img": "icons/skills/melee/strike-polearm-glowing-orange.webp",
+    "system": {
+      "cle": "germanique",
+      "caracteristique": "puissance",
+      "signe": "griffe",
+      "competence": "escrime",
+      "description": "<p>L'escrime allemande est compilée dans les <em>Fechtbücher</em>, des traités écrits entre le XIV<sup>e</sup> et le XVII<sup>e</sup> siècle. Ces techniques ont été les premières à être mises à jour. C'est une escrime brutale, qui s'appuie sur l'art médiéval du combat. Les escrimeurs de l'École germanique hébergeant par et battent à mains nues, à cheval, avec une épée longue, votre une arme d'hast et un gladius, en armure. C'est l'escrime des soldats et des spadassins, même si un bretteur ou un bréteur de se déclarer en l'École de Liechtenauer et les épées allemands sont réputées.</p><p>Les bretteurs germaniques utilisent des épées longues, parmi lesquelles un trésor de pappierbénois chers au capitaine <em>Las Furpas</em>, des épées plus encombrantes et lourdes que le rapière et le fleuret, dont le poids fait toute son arme et son tranchant. Il est armé avec une main-gauche, une dague, ou des armes plus traditionnelles telles que les masses ou des hallebardes.</p>",
+      "feintes": [
+        { "nom": "Bagarre", "signature": true,
+          "description": "<p>Vous enchaînez les coups d'épée, les coups de poing, de pied et de tête. Vous pouvez poser deux cartes Griffe en enchaînements même si elles ne se suivent pas. Vous perdez la main quelle que soit leur valeur.</p>" },
+        { "nom": "Charge", "signature": false,
+          "description": "<p>Vous vous ruez à l'assaut comme un taureau furieux, surprenant votre adversaire. Au début d'un assaut, vous pouvez défausser une carte Griffe (quelle que soit sa valeur).</p>" },
+        { "nom": "Tactique", "signature": false,
+          "description": "<p>Vous savez temporiser pour préparer vos coups les plus puissants. Au lieu de la poser ou de la défausser, vous pouvez conserver une carte Griffe pour le prochain assaut. Elle s'ajoutera à votre main.</p>" },
+        { "nom": "Main gauche", "signature": false,
+          "description": "<p>Vous êtes expert dans l'utilisation de votre mauvaise main, qui vous sert à arrêter les attaques. Vous pouvez poser une carte Écaille comme une carte Griffe de même valeur.</p>" },
+        { "nom": "Northung", "signature": false,
+          "description": "<p>Enchaîner les coups vous donne une énergie nouvelle. Si vous posez deux cartes Griffe consécutives, vous pouvez piocher une carte.</p>" }
+      ],
+      "bottes": [
+        { "nom": "Botte de Ringeck", "figuresRequises": 2,
+          "description": "<p>Vous accablez votre adversaire d'attaques puissantes qui le forcent à reculer. Votre adversaire perd F attaques.</p>" },
+        { "nom": "Botte de Kal", "figuresRequises": 2,
+          "description": "<p>Vous effectuez une puissante poussée, d'adversaire en mobilier. Tous les adversaires à distance Proche ou Contact perdent une défense pour cet assaut, et vous avez la main.</p>" },
+        { "nom": "Botte de Talhoffer", "figuresRequises": 3,
+          "description": "<p>Vous donnez un coup surprenant à un adversaire. Vous infligez à votre adversaire F points de dégâts en ignorant l'armure et sans qu'il puisse se défendre.</p>" },
+        { "nom": "Botte de Liechtenauer", "figuresRequises": 3,
+          "description": "<p>Vous effectuez un coup de taille de grande amplitude, balayant tout ce qui rencontre votre arme. Vous infligez F points de dégâts, répartis comme vous le souhaitez entre vos adversaires à distance Proche ou Contact.</p>" },
+        { "nom": "Botte de Von Danzig", "figuresRequises": 4,
+          "description": "<p>Vous portez un coup surprenant à la tête. Vous assommez ou tuez immédiatement l'un de vos adversaires.</p>" }
+      ]
+    }
+  },
+  {
+    "name": "École drac (Griffe)",
+    "type": "ecole",
+    "img": "icons/creatures/claws/claw-bear-brown-red.webp",
+    "system": {
+      "cle": "drac",
+      "caracteristique": "puissance",
+      "signe": "griffe",
+      "competence": "escrime",
+      "description": "<p>Les dracs sont des combattants-nés. Au fil des siècles, ils ont su se constituer un style martial qui se nourrit à la fois de la parole et de l'héritage génétique. Les humains ont ainsi plus de mal à en percer les arcanes et à s'y préparer ; les arts des quelques rares bretteurs humains ont entrepris de courageux entraînements pour en expérimenter des techniques dans des duels afin de diffuser le formidable potentiel de l'École drac auprès des fines Lames du monde entier ; mais les drac s'y prêtent férocement, laissant tous ceux qui s'y essayaient devoir en perdre le souffle restant autant de bras légendes dans le monde des duellistes.</p><p>L'escrime drac est particulièrement brutale. Bâtie sur l'exploitation naturelle de la puissance physique et de la rudesse du combattant, elle fait un usage permanent sur et du fait des lunges, les échanges de postures et de coups d'armes sont aussi attirants que dévastateurs. Elle permet d'allier à cet art de combattre la ressource moindre dans le combat, la pratique de l'ensemble décuplera dans le combat, sans un échange transe brutale qui avoisine la douleur et la sensation de fatigue. La consommation de jaquantine en préambule de façon significative les performances des pratiquants de cet art.</p>",
+      "feintes": [
+        { "nom": "Impact", "signature": true,
+          "description": "<p>Vous concentrez votre rage dans votre coup. Une attaque réussie inflige 1 point de dommage supplémentaire.</p>" },
+        { "nom": "Fracasso", "signature": false,
+          "description": "<p>Vous portez un coup certes maladroit, mais potentiellement dévastateur. Mixez des cartes Griffe avant de poser votre attaque. Si l'attaque n'est pas défendue, chaque carte Griffe mixée provoque 2 dégâts au lieu d'un.</p>" },
+        { "nom": "Fournée", "signature": false,
+          "description": "<p>Face à l'adversité, vous en rajoutez d'un bon poids de pouce. Vous pouvez ignorer l'utilisation de 1 point de jauge/piste par le MJ s'il vous contredit une action. Le point est rendu dans la réserve du MJ.</p>" },
+        { "nom": "Résistance", "signature": false,
+          "description": "<p>Vous savez comment protéger vos vitales des coups d'épée et de dents. Au moment où vous recevez une blessure, vous transformez la perte de 1 point de Vitalité en perte de 1 point de Ténacité. Cela ne fonctionne qu'une fois par blessure.</p>" },
+        { "nom": "Moulinets", "signature": false,
+          "description": "<p>Vous puisez dans votre rage intérieure pour repousser vos adversaires. Défaussez n'importe quelle figure. Vous prenez la main immédiatement et pouvez poser une carte attaque.</p>" }
+      ],
+      "bottes": [
+        { "nom": "Botte de Grunke", "figuresRequises": 2,
+          "description": "<p>Vous lacérez le visage de votre adversaire, avec vos griffes ou votre épée. Votre opposant subit F points de dégât. Ignorez son armure. S'il survit, il garde une cicatrice visible sur le visage, qui indiquera à tous les drac qu'il s'agit de votre proie.</p>" },
+        { "nom": "Botte de Drazika", "figuresRequises": 2,
+          "description": "<p>Vous mordez dans la chair de l'un de vos adversaires. Cela vous redonne du courage. Vous récupérez 1 point de Ténacité, ou 1 point de Vitalité si vous avez consommé de la jaquantine avant le combat.</p>" },
+        { "nom": "Botte de Saz'raaken", "figuresRequises": 3,
+          "description": "<p>Vous déployez les forces draconiques d'autrefois. Piochez et répartissez entre les Lames autant de cartes qu'il y a de points de jaquantine dans la jauge du MJ (dans la Rivière).</p>" },
+        { "nom": "Botte d'Irkaad", "figuresRequises": 3,
+          "description": "<p>Vos prouesses déclenchent une vague de terreur. Tous les figurants ayant une valeur de Résistance inférieure ou égale à la moitié de votre valeur d'Autorité fuient immédiatement le combat ou se rendent.</p>" },
+        { "nom": "Botte de Roksaan", "figuresRequises": 4,
+          "description": "<p>La force de votre coup arrache un membre de votre adversaire. Votre adversaire est hors d'état de nuire et vous obtenez un trophée.</p>" }
+      ]
+    }
+  },
+  {
+    "name": "École française (Souffle)",
+    "type": "ecole",
+    "img": "icons/weapons/swords/sword-guard-blue.webp",
+    "system": {
+      "cle": "francaise",
+      "caracteristique": "vivacite",
+      "signe": "souffle",
+      "competence": "escrime",
+      "description": "<p>En 1643, cette escrime naissante commence à trouver des adeptes. Elle se veut révolutionnaire par rapport à l'escrime italienne. On y pratique notamment des mouvements de saisie, considérés comme obsolètes par la méthode italienne. Dans cette école, on se bat au fleuret. Comme cette arme n'est pas faite de tranchant, le coup de taille est ici remplacé par l'attaque. De plus, les déplacements (effets en léger, faisant des Français des bretteurs au sol très légers). Par contre, les déplacements sont maîtrisés et fort d'une pratique au sein invincible longue, une pratique souvent rapide et efficace. Toute la technique consiste à placer une attaque en force, rapide et brutale, aussi allongée que possible, en préparant un corps à corps possible, en préparant un corps à corps et une parade contre l'adversaire. La technique française consiste à frapper au plus fort, au plus juste, et à gérer leur dépense d'énergie.</p>",
+      "feintes": [
+        { "nom": "Fente", "signature": true,
+          "description": "<p>Vous vous projetez vers l'avant, tenant votre adversaire à distance. Posez n'importe quelle carte Souffle, prenez/gardez la main, quelle que soit sa valeur.</p>" },
+        { "nom": "Battement", "signature": false,
+          "description": "<p>Vous frappez sur la lame de votre adversaire avant d'attaquer. Si vous posez deux cartes Souffle consécutives, vous pouvez piocher une carte.</p>" },
+        { "nom": "Économie", "signature": false,
+          "description": "<p>Vous savez gérer votre exposition avec efficacité. Au lieu de la poser ou de la défausser, vous pouvez conserver une carte Souffle pour l'assaut suivant. Elle s'ajoutera à votre main.</p>" },
+        { "nom": "Glissez", "signature": false,
+          "description": "<p>Votre efficacité en mouvement virevoltant. Vous pouvez donner cette carte à un compagnon grâce à un Lien lors d'une même ronde (au lieu d'un seul).</p>" },
+        { "nom": "Flèches", "signature": false,
+          "description": "<p>Vous piquez, bras tendu, avec précision. Modifiez la valeur d'une carte Souffle de 1 ou 2 points.</p>" }
+      ],
+      "bottes": [
+        { "nom": "Botte de Le Perche", "figuresRequises": 2,
+          "description": "<p>Vous neutralisez l'arme de votre adversaire avec la vôtre. Votre adversaire n'est plus considéré comme armé pendant F assauts.</p>" },
+        { "nom": "Botte de Desbordes", "figuresRequises": 2,
+          "description": "<p>Vous gérez si bien votre combat que vous trouvez un second souffle. Vous gagnez 1 point de Ténacité, que vous pouvez dépenser immédiatement, même si vous en avez déjà dépensé un.</p>" },
+        { "nom": "Botte de Besnard", "figuresRequises": 3,
+          "description": "<p>Vous touchez une artère. Votre adversaire se vide de son sang. Votre adversaire subit immédiatement 1 point de dégâts, puis perd 1 point de Résistance à chaque assaut suivant.</p>" },
+        { "nom": "Botte de Sainct-Didier", "figuresRequises": 3,
+          "description": "<p>Vous êtes d'une rapidité fulgurante. Vous obtenez F attaques gratuites sur un ou plusieurs adversaires, ou à distance sur un seul (vous perdez alors votre épée, qui reste plantée dans l'adversaire ciblé).</p>" },
+        { "nom": "Botte de La Touche", "figuresRequises": 4,
+          "description": "<p>Vous placez une feinte au cœur ou à la tête. Vous tuez un adversaire sur le coup.</p>" }
+      ]
+    }
+  },
+  {
+    "name": "École pirate (Souffle)",
+    "type": "ecole",
+    "img": "icons/skills/trades/profession-sailing-pirate.webp",
+    "system": {
+      "cle": "pirate",
+      "caracteristique": "vivacite",
+      "signe": "souffle",
+      "competence": "escrime",
+      "description": "<p>Cette escrime est utilisée par les marins, corsaires, flibustiers, boucaniers, forbans et filous de tout poil. Si le rapière n'en sera pas exclu, elle se pratique surtout avec un sabre d'abordage, une arme à lame courte, épaisse et curvée, plutôt lourde et très robuste. La canaille de escrime pirate sont peu officiels : couper le fromage et la viande séchée, c'est un peu pareil après tout. L'on est ici préparé et robuste, technique plus ou moins, aucun manuel n'est écrit sur le sujet — un express apprentissage en mer, sous le fouet, à la liane. Particulièrement en mer, cet Art de l'Abordage est très spectaculaire. Ce qui la pratiquent en faisant aussi en mer, sont ses routines qui les ramènent dans les auberges des ports, sous bonsaïd de rhum, d'autant plus la main à la main. Ce qui la pratiquent en faisant pas en mer, les répliques, leurs imaginaires plein de gros conflits et maltaises. La maîtrise du sabre qui utilise les bons fondements de la harangue, la cruauté et la tonalité sont les trois principaux principes de sa réussite.</p>",
+      "feintes": [
+        { "nom": "Embrouille", "signature": true,
+          "description": "<p>Vous virevoltez comme un acrobate. Posez une carte Souffle qui n'est pas une figure : vous avez droit à un mouvement spectaculaire en plus de vos actions normales de la carte.</p>" },
+        { "nom": "Les deux verres", "signature": false,
+          "description": "<p>Vous laissez une ouverture à votre adversaire pour être sûr de le toucher. Posez une carte Souffle. Votre attaque ignore la défense et touche votre adversaire. Cette attaque ne peut être poussée. Vous pouvez également porter une attaque que vous ne pouvez pas défendre.</p>" },
+        { "nom": "Engagement", "signature": false,
+          "description": "<p>Vous improvisez un enchaînement déroutant. Vous posez vos deux cartes de signe différent, mais à leur valeur identique en enchaînement. Vous perdez la main quelle que soit leur valeur.</p>" },
+        { "nom": "Leurre", "signature": false,
+          "description": "<p>Vous déclenchez une contre-attaque foudroyante. Si vous maintenez à placer une défense qui vous permet de reprendre la main, vous pouvez immédiatement poser une carte attaque. Cela est considéré lors de la même ronde.</p>" },
+        { "nom": "Tour d'épée", "signature": false,
+          "description": "<p>Vous vous déplacez avec grâce au milieu de vos ennemis, qui peinent à se coordonner. Un seul adversaire peut vous attaquer durant cette ronde.</p>" }
+      ],
+      "bottes": [
+        { "nom": "Botte de Weus", "figuresRequises": 2,
+          "description": "<p>Vous tirez immédiatement avec votre pistolet avec votre main libre. Ce n'est une action simple sans malus, en plus de vos autres actions. Vous continuez à vous battre avec votre main d'épée en même temps.</p>" },
+        { "nom": "Botte du Terrible Pirate Roberts", "figuresRequises": 2,
+          "description": "<p>« Moi non plus, je ne suis pas gaucher. » Vous changez votre épée de main et reconstituez intégralement votre main d'escrime (défaussez ce qui reste de première main).</p>" },
+        { "nom": "Botte de Sparrow", "figuresRequises": 3,
+          "description": "<p>Vos mouvements renforcent l'admiration de vos compagnons et votre esprit de corps c'en est magnifiquement subtile. Placez F points d'Unité dans la réserve du groupe.</p>" },
+        { "nom": "Botte de Drake", "figuresRequises": 3,
+          "description": "<p>Vous submergez un adversaire et le piquez ou le défendez par le col avec votre main libre. Votre adversaire est immobilisé, perd toutes ses attaques et va servir de bouclier humain, qui vous rapporte F défenses pour cet assaut.</p>" },
+        { "nom": "Botte de Dauteker", "figuresRequises": 4,
+          "description": "<p>Vous jouez la carte de l'embrouille pour démoraliser vos opposants. Pour chaque mouvement spectaculaire posé précédemment durant l'assaut, retirez 1 point de Résistance à tous vos adversaires impliqués dans le combat. Ils sont démoralisés.</p>" }
+      ]
+    }
+  },
+  {
+    "name": "École italienne (Sang)",
+    "type": "ecole",
+    "img": "icons/weapons/swords/sword-guard-red.webp",
+    "system": {
+      "cle": "italienne",
+      "caracteristique": "galanterie",
+      "signe": "sang",
+      "competence": "escrime",
+      "description": "<p>C'est l'École dont le style est le plus varié. Adaptes à la fois des passements (corps portés en marchant) et des bottes portées qu'elle profère (sur une position stable), les palettes italiennes alternent les coups d'estoc offensifs et les voltes aériennes. L'air est dynamique, vif et très reconnaissable. Il implique une défensive d'énergie qui produit une escrime très portée dont il est souvent très difficile de percer les positions. Les duellistes italiens donnent autant de leur adversaire, rendant leur défense plus difficile à percer. Cette escrime très concentrée est souvent mise en concurrence avec l'escrime française, qui se veut progressive. Les Italiens favorisent l'épée ou la rapière et se battent très souvent avec une main-gauche, un accessoire que les autres escrimeurs abandonnent volontiers.</p>",
+      "feintes": [
+        { "nom": "La quartata", "signature": true,
+          "description": "<p>Vous esquivez et contre-attaquez. Si vous posez une figure de Sang, vous pouvez choisir d'obtenir une défense et une attaque (utilisable immédiatement) plutôt que deux défenses.</p>" },
+        { "nom": "Coup de pointe", "signature": false,
+          "description": "<p>Vous touchez un point sensible de la pointe de votre épée. Vous pouvez pousser une attaque avec une carte Sang en seule, en plus d'éventuelles cartes noires.</p>" },
+        { "nom": "Jaillissement", "signature": false,
+          "description": "<p>Vous amorcez une esquive avant d'attaquer brusquement. Vous pouvez poser une carte Sang comme une carte Souffle de même valeur.</p>" },
+        { "nom": "Esquive", "signature": false,
+          "description": "<p>Vous esquivez une attaque tout en vous plaçant. Si vous posez une carte Sang, vous pouvez prendre la main quelle que soit sa valeur.</p>" },
+        { "nom": "Passement", "signature": false,
+          "description": "<p>Vous enchaînez les fausses attaques afin de vous organiser. Au lieu de la défausser ou de la poser, vous pouvez conserver une carte Sang pour un prochain assaut. Elle s'ajoutera à votre main.</p>" }
+      ],
+      "bottes": [
+        { "nom": "Botte d'Agrippa", "figuresRequises": 2,
+          "description": "<p>Vos mouvements sont suivis d'une volte puissante, qui touche plusieurs adversaires. Vous bénéficiez de F attaques gratuites à répartir sur vos adversaires.</p>" },
+        { "nom": "Botte de Fabris", "figuresRequises": 2,
+          "description": "<p>Vous effectuez une somptueuse volte défensive. Le combat est rompu. Vous êtes hors de portée de vos adversaires actuels. Vous avez l'initiative.</p>" },
+        { "nom": "Botte de Viggiani", "figuresRequises": 3,
+          "description": "<p>Vous découragez et épuisez vos assaillants par votre habileté. Retirez 1 point de Résistance à chacun de vos adversaires à distance Proche ou Contact.</p>" },
+        { "nom": "Botte de Silvei", "figuresRequises": 3,
+          "description": "<p>Vous tourbillonnez et vous retrouvez dans le dos de l'un de vos adversaires. Vous pouvez poser des cartes Griffe ou Souffle. Chaque carte inflige 1 point de dégâts à votre adversaire, sans qu'il puisse se défendre et sans armure.</p>" },
+        { "nom": "Botte de Marozzo", "figuresRequises": 4,
+          "description": "<p>Vous placez une superbe volte, qui frappe ou disqualifie l'un de vos adversaires. Votre adversaire est vaincu (définitivement).</p>" }
+      ]
+    }
+  },
+  {
+    "name": "École suédoise (Sang)",
+    "type": "ecole",
+    "img": "icons/weapons/swords/sword-viking-grey.webp",
+    "system": {
+      "cle": "suedoise",
+      "caracteristique": "galanterie",
+      "signe": "sang",
+      "competence": "escrime",
+      "description": "<p>Cette école fut fondée grâce à la connivence entre certains maîtres d'armes suédois et des dragons. La maîtrise des arcanes y est ainsi plus profonde. De plus en plus de dragons et de sang-mêlé la pratiquent. Certains humains, portés par les dragons, participèrent au combat et comprirent la maîtrise, la patience et les arts d'un enrichissement achevé. Le principe, pour le bretteur, est de puiser dans la force vive d'un arcane neutre ou opposé dans le paquet des Lames. La puisera ses souffles vers sa propre création de ses capacités : perception, son agilité, sa force, etc. Le combattant évolue alors dans une forme de lignification surnaturelle et fascinante dans l'escrime doit être suffisamment risqué mais l'œil du spectateur. Il fait appel aux forces draconiques que n'est son allié et de la réalité pour faire jouer la chance à son avantage.</p>",
+      "feintes": [
+        { "nom": "Sang riche", "signature": true,
+          "description": "<p>Vous savez optimiser vos forces et votre énergie. Vous pouvez piocher vos cartes au lieu de devoir en tirer dépense de point de Ténacité.</p>" },
+        { "nom": "Sang draconique", "signature": false,
+          "description": "<p>Vous n'êtes jamais désarçonné par l'imprévu. Ignorez la perte de Ténacité due à la pioche d'un arcane neutre ou opposé du paquet des Lames. Lucane est non de même défini.</p>" },
+        { "nom": "Second souffle", "signature": false,
+          "description": "<p>Vous maîtrisez votre souffle à merveille. Vous pouvez effectuer une reprise de souffle gratuitement, sans contrepartie.</p>" },
+        { "nom": "Sang délicat", "signature": false,
+          "description": "<p>Vos réflexes vous permettent des esquives inattendues. Une carte mixée dont la valeur est de 7 ou moins devient une carte Sang de même valeur.</p>" },
+        { "nom": "Sang régénéré", "signature": false,
+          "description": "<p>Vous savez puiser dans vos réserves au-delà de la fatigue. Vous pouvez dépenser 2 points de Ténacité au lieu d'un même assaut, pour deux effets différents.</p>" }
+      ],
+      "bottes": [
+        { "nom": "Botte du Pèlerin", "figuresRequises": 2,
+          "description": "<p>Face à une créature draconique, vous trouvez un point faible. Vous annulez pour le reste du combat la différence de Taille entre vous et la créature. Note : cette botte ne requiert que 2 figures quelle que soit la Taille de la créature.</p>" },
+        { "nom": "Botte de Gustave Adolphe", "figuresRequises": 2,
+          "description": "<p>Vos manœuvres courbent le destin et inspirent vos compagnons. Transférez 1 point de jaquantine de la réserve en point d'Unité.</p>" },
+        { "nom": "Botte de Christine", "figuresRequises": 3,
+          "description": "<p>Votre maîtrise déchaîne les forces draconiques. Chaque Lame à distance Proche peut (au choix du joueur) piocher et mettre dans sa main un arcane du paquet des arcanes. Cet arcane ne peut être utilisé pour placer une botte, et retourne dans le paquet des arcanes à la fin de l'assaut.</p>" },
+        { "nom": "Botte de la Danseuse", "figuresRequises": 3,
+          "description": "<p>Votre charisme et votre raffinement fascinent vos adversaires. Tous les figurants ayant une valeur de Résistance inférieure à la moitié de votre valeur de Séduction fuient immédiatement le combat ou se rendent.</p>" },
+        { "nom": "Botte d'Oxenstierna", "figuresRequises": 4,
+          "description": "<p>Les dragons sont avec vous. Vous pouvez récupérer un arcane du paquet des Lames comme arcane éphémère. Il est remplacé par une carte du paquet des arcanes.</p>" }
+      ]
+    }
+  },
+  {
+    "name": "École espagnole (Écaille)",
+    "type": "ecole",
+    "img": "icons/weapons/swords/sword-guard-brass-worn.webp",
+    "system": {
+      "cle": "espagnole",
+      "caracteristique": "finesse",
+      "signe": "ecaille",
+      "competence": "escrime",
+      "description": "<p>C'est Jerónimo de Carranza qui a codifié les principales règles de cette escrime fondée sur le cercle magique, allias les règles de la géométrie propre, qui est un outil et une technique de géométrie d'escrime rudimentaire. Ce cercle est à la fois celui de la lame que maitrise l'escrimeur et celui de la botte qui circule autour de son adversaire. Pour être un bon escrimeur, il faut paraître, selon Carranza et son disciple Narvaes, la <em>Verdadera Destreza</em>, ou l'art de la <em>destrellità</em>, qui s'appuie sur la logique et la raison. C'est une escrime grave, articulée, sûrement considérable par ses détracteurs comme trop austère. L'escrime espagnole se pratique à la rapière et préfère les mouvements du corps lointains et circulaires ; ces mouvements permettent de préparer un avantage en termes de positionnement et de défense. Ses adeptes sont à la recherche de « la parade universelle », une technique susceptible de rendre l'escrimeur invincible. Le désarmement est le but ultime de l'escrime espagnole, cette rôle et tout « une industrie », et le but par certains de ne pas seulement protéger un adversaire de la mort. Sauf, bien sûr, lorsqu'une vie est en jeu…</p>",
+      "feintes": [
+        { "nom": "Parade", "signature": true,
+          "description": "<p>Vous bloquez une attaque grâce à une parade offensive. Posez une carte Griffe, qui devient provisoirement une carte Écaille de même valeur.</p>" },
+        { "nom": "Point faible", "signature": false,
+          "description": "<p>Vous exploitez une faille dans une armure. Vous pouvez pousser votre attaque avec des cartes rouges pour éliminer des points d'armure. Vous pouvez aussi poser des cartes noires pour renforcer les dégâts.</p>" },
+        { "nom": "Cercle magique", "signature": false,
+          "description": "<p>Vos parades font économiser vos forces et préparer la suite du combat. Si vous posez une figure d'Écaille, elle peut être compatible pour la pose d'une botte lors de l'assaut actuel ou suivant, au choix.</p>" },
+        { "nom": "Inenarrabile", "signature": false,
+          "description": "<p>Placement défensif est optimal. En ronde prime, si votre première carte posée est une Écaille, vous bénéficiez immédiatement d'une défense gratuite supplémentaire.</p>" },
+        { "nom": "Remise", "signature": false,
+          "description": "<p>Vous tirez parti du manque de souffle de votre adversaire s'il n'a plus d'attaques disponibles, vous pouvez attaquer avec une carte Écaille et une seule.</p>" }
+      ],
+      "bottes": [
+        { "nom": "Botte de De Torres", "figuresRequises": 2,
+          "description": "<p>Vous placez une parade précise, qui désarçonne votre opposant. Votre adversaire perd F défenses.</p>" },
+        { "nom": "Botte de Narvaes", "figuresRequises": 2,
+          "description": "<p>Votre parade déstabilise vos adversaires, dont les armes s'entrechoquent. Vos opposants perdent F attaques, à répartir entre eux.</p>" },
+        { "nom": "Botte de Cervantes", "figuresRequises": 3,
+          "description": "<p>Vous désarmez immédiatement votre adversaire. Votre opposant est considéré comme non Équipé pour F assauts.</p>" },
+        { "nom": "Botte d'Almades", "figuresRequises": 3,
+          "description": "<p>Vous placez une série de feintes rapides et précises. Infligez F points de dégâts, que vous pouvez répartir comme vous le souhaitez entre vos adversaires à distance Proche.</p>" },
+        { "nom": "Botte de Carranza", "figuresRequises": 4,
+          "description": "<p>Vous placez une forte botte à la tempe. Votre adversaire gît assommé ou décédé.</p>" }
+      ]
+    }
+  },
+  {
+    "name": "École anglaise (Écaille)",
+    "type": "ecole",
+    "img": "icons/weapons/swords/sword-guard-steel-worn.webp",
+    "system": {
+      "cle": "anglaise",
+      "caracteristique": "finesse",
+      "signe": "ecaille",
+      "competence": "escrime",
+      "description": "<p>L'escrime anglaise, moderne et novatrice, n'est née que très récemment formellement. Henry VIII, féru d'escrime, a permis, au début du XVI<sup>e</sup> siècle, la formation de la <em>Company of Masters of the Science of Defence</em> (la compagnie de maîtres de la science et de la défense), dont le rôle était de rédiger les règles de l'Art du <em>Defence</em> ou <em>fencing</em> (l'art de la défense ou escrime). La formation de cette organisation a largement contribué à la création d'une école polyphonique, avec un corpus noble. Celle-ci se pratique à la rapière, au sabre de combat à l'épée à large, aux tactiques de groupe sont donc plus largement ouvertes et ses bretteurs. L'École anglaise a pour caractéristique d'être plus fortement liée à l'art militaire que les autres écoles. C'est une escrime de guerre, ce qui explique également que l'épée large y soit privilégiée. Les tactiques de groupe sont donc plus largement répandues chez les bretteurs.</p>",
+      "feintes": [
+        { "nom": "Placement habile", "signature": true,
+          "description": "<p>Vous vous placez pour optimiser les capacités de vos camarades. La dépense de 1 point d'Unité rapporte deux cartes et 1 point de Ténacité et une carte de l'un de vos compagnons.</p>" },
+        { "nom": "Soutien offensif", "signature": false,
+          "description": "<p>Vous vous exposez pour favoriser vos camarades. Lors d'un assaut, vous pouvez donner à une Lame une carte de plus que ce que permet votre valeur de Lien.</p>" },
+        { "nom": "Frappe précise", "signature": false,
+          "description": "<p>Votre attaque touche un point particulièrement douloureux. Vous pouvez pousser une attaque victorieuse avec une (et une seule) carte Écaille, en plus des éventuelles cartes noires.</p>" },
+        { "nom": "Henry VIII", "signature": false,
+          "description": "<p>Vous vous lancez dans une pose royale. La carte roi d'Écaille vous rapporte 2 attaques en plus des 2 défenses normales.</p>" },
+        { "nom": "Invite", "signature": false,
+          "description": "<p>Vous laissez volontairement une ouverture. Vous laissez la main et posez une défense. Vous portez immédiatement une attaque gratuite (pas de pose de carte) sur votre adversaire pour défendre.</p>" }
+      ],
+      "bottes": [
+        { "nom": "Botte de Titus", "figuresRequises": 2,
+          "description": "<p>Vous gagnez un second souffle bienvenu et répondez à l'assaut. Piochez F cartes.</p>" },
+        { "nom": "Botte de Silver", "figuresRequises": 2,
+          "description": "<p>Vous offrez un répit à vos compagnons. Vous-même et les Lames avec lesquelles vous avez au moins 1 point de Lien reprennent la main, ou l'obtiennent en début d'assaut suivant, au choix du joueur.</p>" },
+        { "nom": "Botte de la Compagnie", "figuresRequises": 3,
+          "description": "<p>Vous forgez un moral d'acier. Vous pouvez même utiliser une Lame avec laquelle vous avez au moins 1 point de Lien pour gagner 1 point d'Unité à dépenser immédiatement.</p>" },
+        { "nom": "Botte de Swetnam", "figuresRequises": 3,
+          "description": "<p>Vous orchestrez le combat comme un ballet. Piochez autant de cartes que de Lames impliquées dans le combat et répartissez ces cartes entre elles comme vous le souhaitez.</p>" },
+        { "nom": "Botte d'Henry VI", "figuresRequises": 4,
+          "description": "<p>Vous transmettez à votre troupe votre science de la défense. Les Écaille procurent une attaque, en plus de leur défense, à toutes les Lames durant tout le combat.</p>" }
+      ]
+    }
+  },
+  {
+    "name": "École soudard (Griffe / Bagarre)",
+    "type": "ecole",
+    "img": "icons/skills/melee/strike-hammer-destructive-orange.webp",
+    "system": {
+      "cle": "soudard",
+      "caracteristique": "puissance",
+      "signe": "griffe",
+      "competence": "bagarre",
+      "description": "<p>Cette école n'en est pas une, en vérité. Elle rassemble les techniques plus ou moins élégantes utilisées par les bagarreurs de taverne, dans la boue des champs de bataille, dans la fièvre des ports louches. Elle se signale par une absence des styles. Cette escrime est utilisée avec la Compétence Bagarre.</p>",
+      "feintes": [
+        { "nom": "Battonies", "signature": true,
+          "description": "<p>Votre science du combat à mains nues vous permet de faire très mal. Vous êtes considéré comme armé même à mains nues (cette feinte est applicable tout le long de l'assaut).</p>" },
+        { "nom": "Mobilier urbain", "signature": false,
+          "description": "<p>Vous arrachez un objet encombrant à son décor et le projetez sur une troupe. Une figure de Griffe vous rapporte 3 attaques réparties sur trois adversaires différents.</p>" },
+        { "nom": "Poigne de fer", "signature": false,
+          "description": "<p>Vous saisissez vigoureusement un membre et empêchez le mouvement. Une attaque de Griffe vous permet d'annuler une attaque du même adversaire en plus des effets normaux de votre attaque.</p>" },
+        { "nom": "L'appétit vient en mangeant", "signature": false,
+          "description": "<p>Quand vous êtes convenablement alimenté, vous étalez des prouesses. Avec des victuailles à portée de goût, vous pouvez dépenser 2 points de Ténacité au lieu d'un durant un assaut, potentiellement pour le même effet.</p>" },
+        { "nom": "Plongeon désordonné", "signature": false,
+          "description": "<p>Votre coordination un peu étrange fait néanmoins des merveilles ! Une carte Sang vous rapporte deux défenses.</p>" }
+      ],
+      "bottes": [
+        { "nom": "Lion de Némésis", "figuresRequises": 2,
+          "description": "<p>Vous savez quoi faire pour que ça craque, même quand c'est gros. Infligez F dégâts sans tenir compte de la Taille ni de l'armure de votre opposant. Note : ne requiert que 2 figures quelle que soit la Taille de l'opposant.</p>" },
+        { "nom": "Compagnon de comptoir", "figuresRequises": 2,
+          "description": "<p>Vous improvisez d'un faire féroce. Toutes les Lames à distance Proche et Moyenne gagnent la main ou conservent une carte.</p>" },
+        { "nom": "Tournée générale", "figuresRequises": 3,
+          "description": "<p>Vous mettez à profit un élément de décor volumineux pour atteindre tous vos adversaires. Infligez 1 point de dégâts à vos adversaires à distance Proche et Contact, sans défense possible.</p>" },
+        { "nom": "Bon camarade", "figuresRequises": 3,
+          "description": "<p>Votre bel enthousiasme au combat fait plaisir à voir. Placez F points d'Unité dans la réserve des Lames.</p>" },
+        { "nom": "Craque la nuque", "figuresRequises": 4,
+          "description": "<p>Vous faites pivoter la nuque de votre adversaire, un peu sèchement. Votre opposant meurt sur le coup.</p>" }
+      ]
+    }
+  }
+]

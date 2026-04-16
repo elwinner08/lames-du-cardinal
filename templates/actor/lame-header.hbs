@@ -1,0 +1,53 @@
+{{!-- HEADER: portrait + nom + épée --}}
+<header class="sheet-header">
+  <img class="profile-img" src="{{actor.img}}" data-edit="img"
+       title="{{actor.name}}" height="100" width="100" />
+  <div class="header-fields">
+    <h1 class="actor-name">{{actor.name}}</h1>
+    <div class="header-details">
+      <span class="header-profils">
+        {{system.profil1}}{{#if system.profil1Variation}} ({{system.profil1Variation}}){{/if}}
+        {{#if system.profil2}} / {{system.profil2}}{{#if system.profil2Variation}} ({{system.profil2Variation}}){{/if}}{{/if}}
+      </span>
+      <span class="header-race">{{localize (concat "LAMES.Races." system.race)}}</span>
+    </div>
+  </div>
+  {{!-- Épée de Vitalité in header --}}
+  <div class="epee-vitalite">
+    <h4>{{localize "LAMES.Epee.titre"}}</h4>
+    <div class="epee-stats">
+      <span class="epee-stat tenacite-stat">
+        {{localize "LAMES.Epee.tenacite"}} : <strong>{{tenacite}}</strong>
+      </span>
+      <span class="epee-stat vitalite-stat">
+        {{localize "LAMES.Epee.vitalite"}} : <strong>{{vitalite}}</strong>
+      </span>
+    </div>
+    <div class="epee-cases">
+      <div class="epee-section epee-faible">
+        <span class="epee-section-label">{{localize "LAMES.Epee.faible"}}</span>
+        {{#each system.epee}}
+          {{#if (gte @index 4)}}
+          <div class="epee-case state-{{this}}" data-action="epeeClick" data-index="{{@index}}"
+               title="{{#if (eq this 'vierge')}}{{localize 'LAMES.Epee.vierge'}}{{else if (eq this 'cochee')}}{{localize 'LAMES.Epee.cochee'}}{{else}}{{localize 'LAMES.Epee.barree'}}{{/if}}">
+            {{#if (eq this "cochee")}}/{{else if (eq this "barree")}}X{{/if}}
+          </div>
+          {{/if}}
+        {{/each}}
+      </div>
+      <div class="epee-section epee-fort">
+        <span class="epee-section-label">{{localize "LAMES.Epee.fort"}}</span>
+        {{#each system.epee}}
+          {{#if (lt @index 4)}}
+          <div class="epee-case state-{{this}}" data-action="epeeClick" data-index="{{@index}}"
+               title="{{#if (eq this 'vierge')}}{{localize 'LAMES.Epee.vierge'}}{{else if (eq this 'cochee')}}{{localize 'LAMES.Epee.cochee'}}{{else}}{{localize 'LAMES.Epee.barree'}}{{/if}}">
+            {{#if (eq this "cochee")}}/{{else if (eq this "barree")}}X{{/if}}
+          </div>
+          {{/if}}
+        {{/each}}
+      </div>
+    </div>
+    {{#if evanoui}}<div class="epee-status evanoui">{{localize "LAMES.Epee.evanoui"}}</div>{{/if}}
+    {{#if mort}}<div class="epee-status mort">{{localize "LAMES.Epee.mort"}}</div>{{/if}}
+  </div>
+</header>

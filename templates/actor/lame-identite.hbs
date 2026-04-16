@@ -1,0 +1,66 @@
+{{!-- TAB: IDENTITE --}}
+<section class="tab {{tab.cssClass}}" data-group="primary" data-tab="identite">
+  <div class="identite-grid">
+    <div class="form-group">
+      <label>{{localize "LAMES.Identite.profil1"}}</label>
+      <input type="text" name="system.profil1" value="{{system.profil1}}" />
+    </div>
+    <div class="form-group">
+      <label>{{localize "LAMES.Identite.profil1Variation"}}</label>
+      <input type="text" name="system.profil1Variation" value="{{system.profil1Variation}}" />
+    </div>
+    <div class="form-group">
+      <label>{{localize "LAMES.Identite.profil2"}}</label>
+      <input type="text" name="system.profil2" value="{{system.profil2}}" />
+    </div>
+    <div class="form-group">
+      <label>{{localize "LAMES.Identite.profil2Variation"}}</label>
+      <input type="text" name="system.profil2Variation" value="{{system.profil2Variation}}" />
+    </div>
+    <div class="form-group">
+      <label>{{localize "LAMES.Identite.origine"}}</label>
+      <input type="text" name="system.origine" value="{{system.origine}}" />
+    </div>
+    <div class="form-group">
+      <label>{{localize "LAMES.Identite.race"}}</label>
+      <select name="system.race">
+        <option value="humain" {{#if (eq system.race "humain")}}selected{{/if}}>{{localize "LAMES.Races.humain"}}</option>
+        <option value="drac" {{#if (eq system.race "drac")}}selected{{/if}}>{{localize "LAMES.Races.drac"}}</option>
+        <option value="sangmele" {{#if (eq system.race "sangmele")}}selected{{/if}}>{{localize "LAMES.Races.sangmele"}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>{{localize "LAMES.Identite.age"}}</label>
+      <input type="number" name="system.age" value="{{system.age}}" min="0" />
+    </div>
+    <div class="form-group">
+      <label>{{localize "LAMES.Identite.sexe"}}</label>
+      <input type="text" name="system.sexe" value="{{system.sexe}}" />
+    </div>
+    <div class="form-group">
+      <label>{{localize "LAMES.Identite.niveauDeVie"}}</label>
+      <input type="number" name="system.niveauDeVie" value="{{system.niveauDeVie}}" min="0" max="6" />
+    </div>
+  </div>
+
+  {{!-- Caractéristiques --}}
+  <div class="caracteristiques-grid">
+    {{> "systems/lames-du-cardinal/templates/partials/caracteristique.hbs"
+        key="puissance" carac=system.caracteristiques.puissance signe="griffe"}}
+    {{> "systems/lames-du-cardinal/templates/partials/caracteristique.hbs"
+        key="vivacite" carac=system.caracteristiques.vivacite signe="souffle"}}
+    {{> "systems/lames-du-cardinal/templates/partials/caracteristique.hbs"
+        key="galanterie" carac=system.caracteristiques.galanterie signe="sang"}}
+    {{> "systems/lames-du-cardinal/templates/partials/caracteristique.hbs"
+        key="finesse" carac=system.caracteristiques.finesse signe="ecaille"}}
+  </div>
+
+  <div class="form-group full-width">
+    <label>{{localize "LAMES.Identite.description"}}</label>
+    <textarea name="system.description" rows="4">{{system.description}}</textarea>
+  </div>
+  <div class="form-group full-width">
+    <label>{{localize "LAMES.Identite.habillement"}}</label>
+    <textarea name="system.habillement" rows="4">{{system.habillement}}</textarea>
+  </div>
+</section>

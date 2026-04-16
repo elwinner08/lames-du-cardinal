@@ -1,0 +1,69 @@
+{{!-- TAB: COMPETENCES --}}
+<section class="tab {{tab.cssClass}}" data-group="primary" data-tab="competences">
+  <div class="competences-grid">
+    {{> "systems/lames-du-cardinal/templates/partials/competences-block.hbs"
+        carac="puissance" comps=competencesGroupees.puissance config=config}}
+    {{> "systems/lames-du-cardinal/templates/partials/competences-block.hbs"
+        carac="vivacite" comps=competencesGroupees.vivacite config=config}}
+    {{> "systems/lames-du-cardinal/templates/partials/competences-block.hbs"
+        carac="galanterie" comps=competencesGroupees.galanterie config=config}}
+    {{> "systems/lames-du-cardinal/templates/partials/competences-block.hbs"
+        carac="finesse" comps=competencesGroupees.finesse config=config}}
+  </div>
+
+  {{!-- Escrime --}}
+  <div class="escrime-section">
+    <h3>
+      <a data-action="testEscrime" title="{{localize 'LAMES.Divers.tester'}} {{localize 'LAMES.Competences.escrime'}}"><i class="fas fa-dice"></i></a>
+      {{localize "LAMES.Competences.escrime"}}
+    </h3>
+    <div class="escrime-row">
+      <select name="system.escrime.ecole">
+        <option value="">—</option>
+        {{#each config.ecoles}}
+        <option value="{{@key}}" {{#if (eq @key ../system.escrime.ecole)}}selected{{/if}}>
+          {{localize this.label}}
+        </option>
+        {{/each}}
+      </select>
+      <input type="number" name="system.competences.escrime.valeur"
+             value="{{system.competences.escrime.valeur}}" min="0" max="10" class="comp-input" />
+      <span class="comp-succes-auto">({{escrimeInfo.succesAuto}})</span>
+    </div>
+  </div>
+
+  {{!-- Occultisme --}}
+  <div class="occultisme-section">
+    <h3>
+      <a data-action="testOccultisme" title="{{localize 'LAMES.Divers.tester'}} {{localize 'LAMES.Competences.occultisme'}}"><i class="fas fa-dice"></i></a>
+      {{localize "LAMES.Competences.occultisme"}}
+    </h3>
+    <div class="comp-row">
+      <input type="number" name="system.competences.occultisme.valeur"
+             value="{{occultisme.valeur}}" min="0" max="10" class="comp-input" />
+      <span class="comp-succes-auto">({{occultisme.succesAuto}})</span>
+    </div>
+  </div>
+
+  {{!-- Compétences inhabituelles --}}
+  <div class="comp-inhabituelles-section">
+    <h3>
+      {{localize "LAMES.Competences.inhabituelles"}}
+      <a data-action="compInhabAdd" title="{{localize 'LAMES.Divers.ajouter'}}"><i class="fas fa-plus"></i></a>
+    </h3>
+    {{#each system.competencesInhabituelles}}
+    <div class="comp-inhab-row" data-index="{{@index}}">
+      <input type="text" name="system.competencesInhabituelles.{{@index}}.nom" value="{{this.nom}}" />
+      <input type="number" name="system.competencesInhabituelles.{{@index}}.valeur"
+             value="{{this.valeur}}" min="0" max="10" class="comp-input" />
+      <select name="system.competencesInhabituelles.{{@index}}.caracteristique">
+        <option value="puissance" {{#if (eq this.caracteristique "puissance")}}selected{{/if}}>{{localize "LAMES.Caracteristiques.puissance"}}</option>
+        <option value="vivacite" {{#if (eq this.caracteristique "vivacite")}}selected{{/if}}>{{localize "LAMES.Caracteristiques.vivacite"}}</option>
+        <option value="galanterie" {{#if (eq this.caracteristique "galanterie")}}selected{{/if}}>{{localize "LAMES.Caracteristiques.galanterie"}}</option>
+        <option value="finesse" {{#if (eq this.caracteristique "finesse")}}selected{{/if}}>{{localize "LAMES.Caracteristiques.finesse"}}</option>
+      </select>
+      <a data-action="compInhabDelete" data-index="{{@index}}"><i class="fas fa-trash"></i></a>
+    </div>
+    {{/each}}
+  </div>
+</section>

@@ -1,0 +1,172 @@
+{{!-- TAB: COMBAT (Figurant) --}}
+<section class="tab {{tab.cssClass}}" data-group="primary" data-tab="combat">
+
+  {{!-- Identité --}}
+  <div class="figurant-identity-grid">
+    <div class="form-group">
+      <label>{{localize "LAMES.Figurant.profil"}}</label>
+      <input type="text" name="system.profil" value="{{system.profil}}" />
+    </div>
+    <div class="form-group">
+      <label>{{localize "LAMES.Figurant.type"}}</label>
+      <select name="system.typeFigurant">
+        <option value="humain" {{#if (eq system.typeFigurant "humain")}}selected{{/if}}>{{localize "LAMES.FigurantTypes.humain"}}</option>
+        <option value="drac" {{#if (eq system.typeFigurant "drac")}}selected{{/if}}>{{localize "LAMES.FigurantTypes.drac"}}</option>
+        <option value="sangmele" {{#if (eq system.typeFigurant "sangmele")}}selected{{/if}}>{{localize "LAMES.FigurantTypes.sangmele"}}</option>
+        <option value="dragon" {{#if (eq system.typeFigurant "dragon")}}selected{{/if}}>{{localize "LAMES.FigurantTypes.dragon"}}</option>
+        <option value="creature" {{#if (eq system.typeFigurant "creature")}}selected{{/if}}>{{localize "LAMES.FigurantTypes.creature"}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>{{localize "LAMES.Figurant.modificateur"}}</label>
+      <select name="system.modificateur">
+        <option value="normal" {{#if (eq system.modificateur "normal")}}selected{{/if}}>{{localize "LAMES.Figurant.normal"}}</option>
+        <option value="competent" {{#if (eq system.modificateur "competent")}}selected{{/if}}>{{localize "LAMES.Figurant.competent"}}</option>
+        <option value="elite" {{#if (eq system.modificateur "elite")}}selected{{/if}}>{{localize "LAMES.Figurant.elite"}}</option>
+      </select>
+    </div>
+  </div>
+
+  {{!-- Stats de combat --}}
+  <div class="figurant-combat-grid">
+    <div class="form-group">
+      <label>{{localize "LAMES.Figurant.difficulte"}}</label>
+      <input type="number" name="system.difficulte" value="{{system.difficulte}}" min="0" max="6" />
+    </div>
+    <div class="form-group">
+      <label>{{localize "LAMES.Figurant.potentielAttaque"}}</label>
+      <input type="number" name="system.potentielAttaque" value="{{system.potentielAttaque}}" min="0" max="20" />
+    </div>
+    <div class="form-group">
+      <label>{{localize "LAMES.Figurant.potentielDefense"}}</label>
+      <input type="number" name="system.potentielDefense" value="{{system.potentielDefense}}" min="0" max="20" />
+    </div>
+    <div class="form-group">
+      <label>{{localize "LAMES.Figurant.taille"}}</label>
+      <input type="number" name="system.taille" value="{{system.taille}}" min="1" max="6" />
+    </div>
+    <div class="form-group">
+      <label>{{localize "LAMES.Figurant.reserve"}}</label>
+      <input type="number" name="system.reserve" value="{{system.reserve}}" min="0" max="10" />
+    </div>
+  </div>
+
+  {{!-- Résistance tracker --}}
+  <div class="resistance-tracker">
+    <label>{{localize "LAMES.Figurant.resistance"}}</label>
+    <div class="resistance-controls">
+      <a data-action="resistanceMinus"><i class="fas fa-minus"></i></a>
+      <span class="resistance-current">{{system.resistanceActuelle}} / {{system.resistance}}</span>
+      <a data-action="resistancePlus"><i class="fas fa-plus"></i></a>
+      <a data-action="resistanceReset" title="{{localize 'LAMES.Divers.reset'}}"><i class="fas fa-undo"></i></a>
+    </div>
+    <input type="number" name="system.resistance" value="{{system.resistance}}" min="0" max="12"
+           class="resistance-max-input" />
+  </div>
+
+  {{!-- Équipement --}}
+  <div class="figurant-equip-grid">
+    <div class="form-group">
+      <label>{{localize "LAMES.Figurant.arme"}}</label>
+      <a class="toggle-btn" data-action="toggleBoolean" data-field="system.arme">
+        <i class="fa-solid {{#if system.arme}}fa-toggle-on toggle-on{{else}}fa-toggle-off toggle-off{{/if}}"></i>
+      </a>
+    </div>
+    <div class="form-group">
+      <label>{{localize "LAMES.Figurant.armure"}}</label>
+      <input type="number" name="system.armure" value="{{system.armure}}" min="0" max="10" />
+    </div>
+    <div class="form-group">
+      <label>{{localize "LAMES.Figurant.armureComplete"}}</label>
+      <a class="toggle-btn" data-action="toggleBoolean" data-field="system.armureComplete">
+        <i class="fa-solid {{#if system.armureComplete}}fa-toggle-on toggle-on{{else}}fa-toggle-off toggle-off{{/if}}"></i>
+      </a>
+    </div>
+  </div>
+
+  {{!-- Escrime --}}
+  <div class="figurant-escrime">
+    <div class="form-group">
+      <label>{{localize "LAMES.Escrime.ecole"}}</label>
+      <select name="system.ecole">
+        <option value="" {{#unless system.ecole}}selected{{/unless}}>—</option>
+        {{#each config.ecoles}}
+        <option value="{{@key}}" {{#if (eq @key ../system.ecole)}}selected{{/if}}>
+          {{localize this.label}}
+        </option>
+        {{/each}}
+      </select>
+    </div>
+  </div>
+
+  {{!-- Armes --}}
+  <h4>{{localize "LAMES.ItemTypes.arme"}}
+    <a data-action="itemCreate" data-type="arme"><i class="fas fa-plus"></i></a>
+  </h4>
+  <div class="item-list">
+    {{#each armes}}
+    <div class="item" data-item-id="{{this._id}}">
+      <span class="item-name">{{this.name}}</span>
+      <div class="item-controls">
+        <a data-action="itemEdit"><i class="fas fa-edit"></i></a>
+        <a data-action="itemDelete"><i class="fas fa-trash"></i></a>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+
+  {{!-- Feintes / Bottes --}}
+  <h4>{{localize "LAMES.Escrime.feintes"}}
+    <a data-action="itemCreate" data-type="feinte"><i class="fas fa-plus"></i></a>
+  </h4>
+  <div class="item-list">
+    {{#each feintes}}
+    <div class="item" data-item-id="{{this._id}}">
+      <span class="item-name">{{this.name}}</span>
+      <div class="item-controls">
+        <a data-action="itemEdit"><i class="fas fa-edit"></i></a>
+        <a data-action="itemDelete"><i class="fas fa-trash"></i></a>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+
+  <h4>{{localize "LAMES.Escrime.bottes"}}
+    <a data-action="itemCreate" data-type="botte"><i class="fas fa-plus"></i></a>
+  </h4>
+  <div class="item-list">
+    {{#each bottes}}
+    <div class="item" data-item-id="{{this._id}}">
+      <span class="item-name">{{this.name}}</span>
+      <span class="item-detail">{{this.system.figuresRequises}} {{localize "LAMES.Divers.figures"}}</span>
+      <div class="item-controls">
+        <a data-action="itemEdit"><i class="fas fa-edit"></i></a>
+        <a data-action="itemDelete"><i class="fas fa-trash"></i></a>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+
+  {{!-- Combat tracker --}}
+  <div class="combat-tracker">
+    <h4>{{localize "LAMES.Figurant.combatTracker"}}
+      <a data-action="combatTrackerReset" title="{{localize 'LAMES.Divers.reset'}}"><i class="fas fa-undo"></i></a>
+    </h4>
+    <div class="combat-tracker-stats">
+      <span>{{localize "LAMES.Figurant.potentielAttaque"}} : {{system.combatTracker.attaquesUtilisees}} / {{system.potentielAttaque}}</span>
+      <span>{{localize "LAMES.Figurant.potentielDefense"}} : {{system.combatTracker.defensesUtilisees}} / {{system.potentielDefense}}</span>
+    </div>
+  </div>
+
+  {{!-- Interactions --}}
+  <div class="figurant-interactions">
+    <div class="form-group">
+      <label>{{localize "LAMES.Figurant.volonte"}}</label>
+      <input type="number" name="system.volonte" value="{{system.volonte}}" min="0" max="8" />
+    </div>
+    <div class="form-group">
+      <label>{{localize "LAMES.Figurant.puissanceMagique"}}</label>
+      <input type="number" name="system.puissanceMagique" value="{{system.puissanceMagique}}" min="0" max="10" />
+    </div>
+  </div>
+</section>

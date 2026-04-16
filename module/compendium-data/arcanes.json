@@ -1,0 +1,288 @@
+[
+  {
+    "name": "0 — L'Astrologue en Prière",
+    "type": "arcane",
+    "img": "icons/magic/symbols/star-rising-purple.webp",
+    "system": {
+      "numero": 0, "valeurDraconique": "Fatalité",
+      "meteorologie": "Recrudescence des peurs superstitieuses",
+      "competenceAssociee": "occultisme", "marque": "Mystique",
+      "descriptionMarque": "<p>Croyant, le personnage est persuadé que des forces supérieures gouvernent la destinée. Il se montre volontiers <strong>Mystique</strong>, superstitieux, et peut se trouver en difficulté lorsqu'il est confronté au surnaturel. Il cherche en permanence les signes qui le renseignent sur le futur.</p>",
+      "description": "<p>Chez les dragons, il est celui qui sait, et qui annonce de sombres présages. Il marque le commencement, et ses augures décrivent le constant déclin de la race draconique.</p>",
+      "arcaneOppose": 21
+    }
+  },
+  {
+    "name": "1 — La Tisserande oubliée",
+    "type": "arcane",
+    "img": "icons/magic/symbols/star-rising-purple.webp",
+    "system": {
+      "numero": 1, "valeurDraconique": "Sacrifice",
+      "meteorologie": "Mouches et vermine",
+      "competenceAssociee": "medecine", "marque": "Dévoué",
+      "descriptionMarque": "<p>Le personnage est <strong>Dévoué</strong> et consacre une grande part de son temps à s'occuper des autres, quitte à sacrifier son propre bien-être. Au sein du groupe, il est celui qui fait face au danger pour ses compagnons, sans rien attendre en retour.</p>",
+      "description": "<p>La Tisserande oubliée est la représentation de la mère disparue, celle qui tisse les liens de la vie en offrant un sang pour sa progéniture. Elle symbolise aussi le sacrifice, qui permit aux dragons de survivre durant de lourdes heures. Elle enseigne un arcane chargé de regret, symbole de la fertilité perdue des grands dragons.</p>",
+      "arcaneOppose": 20
+    }
+  },
+  {
+    "name": "2 — Le Voleur sans Mémoire",
+    "type": "arcane",
+    "img": "icons/magic/symbols/star-rising-purple.webp",
+    "system": {
+      "numero": 2, "valeurDraconique": "Avidité",
+      "meteorologie": "Ambiance de pénurie, de crise, de famine",
+      "competenceAssociee": "negoce", "marque": "Avide",
+      "descriptionMarque": "<p>Le personnage est constamment <strong>Insatiable</strong>. Il est obsédé par les accomplissements futurs, et peine à se souvenir de ses exploits passés. Il ressasse parfois ses échecs, qui restent vivaces dans son esprit.</p>",
+      "description": "<p>Symbole chez les dragons de la soif insatiable de pouvoir, de la volonté de régner sans partage, cet arcane représente l'individualisme des dragons, qui délaissent le bien collectif pour assouvir leur faim.</p>",
+      "arcaneOppose": 19
+    }
+  },
+  {
+    "name": "3 — Le Jongleur indécis",
+    "type": "arcane",
+    "img": "icons/magic/symbols/star-rising-purple.webp",
+    "system": {
+      "numero": 3, "valeurDraconique": "Audace",
+      "meteorologie": "Ambiance d'anarchie, mépris des règles",
+      "competenceAssociee": "strategie", "marque": "Imprévisible",
+      "descriptionMarque": "<p>Le personnage est <strong>Imprévisible</strong>, ivre de liberté. Quand il se conforme aux règles et aux usages, on s'attend à ce qu'il les transgresse. Dans une société très hiérarchisée, son comportement de trublion lui cause bien des soucis.</p>",
+      "description": "<p>Dans la symbolique draconique, cet arcane symbolise la force de la liberté, l'affranchissement vis-à-vis des codes et des lois. Il représente la fin des règnes et les révolutions, le bouleversement de l'ordre établi et la remise en cause des habitudes ancestrales.</p>",
+      "arcaneOppose": 18
+    }
+  },
+  {
+    "name": "4 — La Danseuse à l'Épée",
+    "type": "arcane",
+    "img": "icons/magic/symbols/star-rising-purple.webp",
+    "system": {
+      "numero": 4, "valeurDraconique": "Honneur",
+      "meteorologie": "Températures extrêmes",
+      "competenceAssociee": "athletisme", "marque": "Honorable",
+      "descriptionMarque": "<p>Le personnage est <strong>Honorable</strong> et suit un strict code de conduite. Il peine à recourir à ce qu'il considère comme des vilénies. Son respect des règles, sa rigidité sont parfois un frein aux initiatives hardies.</p>",
+      "description": "<p>Symbole de grandeur d'âme et de noblesse, elle protège les faibles et les créatures inférieures, quelle fascine en retour. Mais elle peut aussi de voie sa propre supériorité. Cet arcane semble occuper une place à part chez les drac.</p>",
+      "arcaneOppose": 17
+    }
+  },
+  {
+    "name": "5 — La Sentinelle silencieuse",
+    "type": "arcane",
+    "img": "icons/magic/symbols/star-rising-purple.webp",
+    "system": {
+      "numero": 5, "valeurDraconique": "Protection",
+      "meteorologie": "Vent sifflant, atmosphère bruyante",
+      "competenceAssociee": "vigilance", "marque": "Anxieux",
+      "descriptionMarque": "<p>Le personnage est <strong>Anxieux</strong>. Il se sent constamment épié, en danger, et ne relâche que rarement son attention. Il ne fait que peu confiance à autrui et peine à interagir, ayant la sensation que chaque mot qu'il prononce peut se retourner contre lui.</p>",
+      "description": "<p>Symbole chez les dragons de l'énergie, de l'instinct de survie et de sauvegarde. Les forces que les vents amènent veillent sur la santé de la race, quitte à lui imposer ses stagnations.</p>",
+      "arcaneOppose": 16
+    }
+  },
+  {
+    "name": "6 — L'Enlumineur aveugle",
+    "type": "arcane",
+    "img": "icons/magic/symbols/star-rising-purple.webp",
+    "system": {
+      "numero": 6, "valeurDraconique": "Impulsivité",
+      "meteorologie": "Agressivité générale, comportements belliqueux",
+      "competenceAssociee": "bagarre", "marque": "Impulsif",
+      "descriptionMarque": "<p>Le personnage est <strong>Impulsif</strong>, et tend à manquer de subtilité et de discernement. Il agit sans prendre en compte tous les paramètres, avec une spontanéité que d'aucuns qualifient d'animale. Il se laisse souvent aller à des instincts primaires.</p>",
+      "description": "<p>Dans la symbolique draconique, cet arcane représente les énergies de l'immédiat, les forces brutes qui se déchaînent, souvent au hasard et sans égard pour les conséquences. On y décèle les instincts primitifs des Archéens.</p>",
+      "arcaneOppose": 15
+    }
+  },
+  {
+    "name": "7 — Le Maître d'armes aux Flambeaux",
+    "type": "arcane",
+    "img": "icons/magic/symbols/star-rising-purple.webp",
+    "system": {
+      "numero": 7, "valeurDraconique": "Maîtrise",
+      "meteorologie": "Luminosité défavorable, reflets aveuglants, ombres mesquines",
+      "competenceAssociee": "escrime", "marque": "Remarquable",
+      "descriptionMarque": "<p>Le personnage est <strong>Remarquable</strong>. Il peine à passer inaperçu, par sa réputation ou son comportement social démonstratif, même quand il cherche à rester dans l'ombre.</p>",
+      "description": "<p>Cet arcane symbolise la grande maîtrise des guides de la race draconique. Son influence est à portée cyclique inspire ceux qui la ressentent et qui, par la suite réussissent de ceux de rechercher sa lumière inspirante.</p>",
+      "arcaneOppose": 14
+    }
+  },
+  {
+    "name": "8 — La Vestale de Pierre",
+    "type": "arcane",
+    "img": "icons/magic/symbols/star-rising-purple.webp",
+    "system": {
+      "numero": 8, "valeurDraconique": "Foi",
+      "meteorologie": "Morosité généralisée",
+      "competenceAssociee": "volonte", "marque": "Froid",
+      "descriptionMarque": "<p>Le personnage est <strong>Froid</strong> et distant. Si rien ne semble l'atteindre, il peine à s'impliquer dans des relations intimes et dans des relations de groupes.</p>",
+      "description": "<p>Dans la symbolique draconique, cet arcane est le symbole de la foi en une grande œuvre cosmique supérieure, qui anime parfois à l'indifférence envers les êtres qui peuplent le monde.</p>",
+      "arcaneOppose": 13
+    }
+  },
+  {
+    "name": "9 — Le Pèlerin immobile",
+    "type": "arcane",
+    "img": "icons/magic/symbols/star-rising-purple.webp",
+    "system": {
+      "numero": 9, "valeurDraconique": "Fermeté",
+      "meteorologie": "Vents tourbillonnants",
+      "competenceAssociee": "tir", "marque": "Terre à terre",
+      "descriptionMarque": "<p>Le personnage est <strong>Terre à terre</strong> et attaché à ses routines. Son humour peut être limité. Il peine à accepter des fonctionnements différents du sien et reste souvent campé sur ses positions, surtout quand il est confronté à des idées faisant la part belle à l'imagination.</p>",
+      "description": "<p>Dans la symbolique draconique, cet arcane représente la fermeté et parfois l'entêtement des dragons face aux épreuves qui jalonnent leur histoire. Selon les points de vue, cet attachement à la constance des valeurs a causé le déclin des dragons ou permis leur survie.</p>",
+      "arcaneOppose": 12
+    }
+  },
+  {
+    "name": "10 — L'Hérésiarque couronné",
+    "type": "arcane",
+    "img": "icons/magic/symbols/star-rising-purple.webp",
+    "system": {
+      "numero": 10, "valeurDraconique": "Autorité",
+      "meteorologie": "Émeutes, indiscipline",
+      "competenceAssociee": "autorite", "marque": "Sollicité",
+      "descriptionMarque": "<p>Le personnage dégage une aura ou possède une solide réputation, une charge ou simplement une nature de bon samaritain. De fait, il est régulièrement <strong>Sollicité</strong>, et tend à être considéré comme une ressource par beaucoup trop de monde, y compris des inconnus.</p>",
+      "description": "<p>Symbole parmi tous de la supériorité draconique sur le monde et de l'autorité qui s'en dégage. Certains y décèlent la sagesse des grands rois, d'autres y suspectent la tyrannie qui s'appuie le pouvoir.</p>",
+      "arcaneOppose": 11
+    }
+  },
+  {
+    "name": "11 — Le Gentilhomme au Corbeau",
+    "type": "arcane",
+    "img": "icons/magic/symbols/star-rising-purple.webp",
+    "system": {
+      "numero": 11, "valeurDraconique": "Modification",
+      "meteorologie": "Secousses sismiques",
+      "competenceAssociee": "technique", "marque": "Triste sire",
+      "descriptionMarque": "<p>Le personnage est considéré comme un <strong>Triste sire</strong>, ce que l'on goûte peu en société, même si lui-même peut souhaiter être ainsi appelé. Il traîne souvent une réputation peu flatteuse, qui n'est pas forcément méritée. Il peine à prendre la tête d'un groupe.</p>",
+      "description": "<p>Symbole de l'adaptation et du changement, cet arcane est parfois considéré comme celui d'une mosaïque des formidables. Néanmoins, sa place et son opposition à l'Hérésiarque l'amènent plus régulièrement au déclin.</p>",
+      "arcaneOppose": 10
+    }
+  },
+  {
+    "name": "12 — L'Architecte des Mondes",
+    "type": "arcane",
+    "img": "icons/magic/symbols/star-rising-purple.webp",
+    "system": {
+      "numero": 12, "valeurDraconique": "Innovation",
+      "meteorologie": "Vague de désespoir, dépression",
+      "competenceAssociee": "creation", "marque": "Rêveur",
+      "descriptionMarque": "<p>Le personnage est <strong>Rêveur</strong>, et peine parfois à se confronter à la réalité du monde. Créatif en diable, il peut facilement sembler farfelu. La recherche du beau reste pour lui plus importante que celle de l'efficace. Il peut aller jusqu'à vivre dans un monde fantasmé, et tendre à se couper régulièrement de la réalité.</p>",
+      "description": "<p>La symbolique draconique associée à cet arcane insiste sur la créativité incroyable de la race des dragons. Cette sensibilité permet d'imaginer des merveilles inégalables, mais peut aussi générer une profonde frustration quand il devient évident qu'il est impossible de se concentrer parfaitement.</p>",
+      "arcaneOppose": 9
+    }
+  },
+  {
+    "name": "13 — La Courtisane amoureuse",
+    "type": "arcane",
+    "img": "icons/magic/symbols/star-rising-purple.webp",
+    "system": {
+      "numero": 13, "valeurDraconique": "Sensualité",
+      "meteorologie": "Climat de discorde, mésententes entre les sexes",
+      "competenceAssociee": "seduction", "marque": "Sensible",
+      "descriptionMarque": "<p>Le personnage est une âme <strong>Sensible</strong>, qui ressent avec une intensité excessive les sentiments et les souffrances. Cela le rend vulnérable face au charme et à la cruauté, et génère parfois de sombres pensées.</p>",
+      "description": "<p>Symbole de sensualité et de procréation chez les dragons, cet arcane porte les regrets de renouveau de la race des dragons, mais incarne également la féminité perdue.</p>",
+      "arcaneOppose": 8
+    }
+  },
+  {
+    "name": "14 — L'Assassin sans Visage",
+    "type": "arcane",
+    "img": "icons/magic/symbols/star-rising-purple.webp",
+    "system": {
+      "numero": 14, "valeurDraconique": "Subtilité",
+      "meteorologie": "Clarté stellaire, pleine lune ou soleil éclatant",
+      "competenceAssociee": "furtivite", "marque": "Anonyme",
+      "descriptionMarque": "<p>Le personnage est obsédé par sa fonction, et peine à exister en tant qu'être humain. Sa personnalité est bien souvent plate. Il se limite à ce qu'il fait, plutôt qu'à ce qu'il est. Il est un <strong>Anonyme</strong> appliqué à sa tâche.</p>",
+      "description": "<p>La symbolique draconique décrit cet arcane comme celui des énergies subtiles qui poussent, dans les temps difficiles, les affiliés à se cacher de leur puissance, avides de pouvoir s'en servir.</p>",
+      "arcaneOppose": 7
+    }
+  },
+  {
+    "name": "15 — L'Horloger des Chimères",
+    "type": "arcane",
+    "img": "icons/magic/symbols/star-rising-purple.webp",
+    "system": {
+      "numero": 15, "valeurDraconique": "Diplomatie",
+      "meteorologie": "Climat d'intolérance ou d'ivrognerie",
+      "competenceAssociee": "intrigue", "marque": "Compliqué",
+      "descriptionMarque": "<p>Le personnage est <strong>Compliqué</strong>, voire incompréhensible dans ses raisonnements. Il peine à faire les choses avec simplicité et échafaude des plans complexes pour résoudre des épreuves qui ne nécessiteraient que des réponses élémentaires.</p>",
+      "description": "<p>Chez les dragons, cet arcane symbolise les énergies sociales positives, celles qui poussent à résoudre les conflits par le dialogue plutôt que par une démonstration de force aveugle. Cet arcane est néanmoins teinté par une tendance à tout compliquer et à poursuivre des buts inatteignables.</p>",
+      "arcaneOppose": 6
+    }
+  },
+  {
+    "name": "16 — La Gardienne derrière le Miroir",
+    "type": "arcane",
+    "img": "icons/magic/symbols/star-rising-purple.webp",
+    "system": {
+      "numero": 16, "valeurDraconique": "Confrontation",
+      "meteorologie": "Climat d'opposition, disputes",
+      "competenceAssociee": "persuasion", "marque": "Présomptueux",
+      "descriptionMarque": "<p>Le personnage est <strong>Présomptueux</strong>, souvent inutilement opiniâtre, voire simpliste, persuadé de détenir la vérité envers et contre tous. Il tâche de convaincre tout le monde tout en restant la plupart du temps sourd aux arguments contraires.</p>",
+      "description": "<p>Chez les dragons, cet arcane est lié à la volonté de confrontation face au déclin et aux us et coutumes qui impliquent une immuabilité du destin. La Gardienne représente la voix discordante, celle de la confiance, qui porte à son paroxysme souvent exagéré.</p>",
+      "arcaneOppose": 5
+    }
+  },
+  {
+    "name": "17 — La Magicienne sous le Voile",
+    "type": "arcane",
+    "img": "icons/magic/symbols/star-rising-purple.webp",
+    "system": {
+      "numero": 17, "valeurDraconique": "Ruse",
+      "meteorologie": "Méfiance générale",
+      "competenceAssociee": "duperie", "marque": "Trompeur",
+      "descriptionMarque": "<p>Le personnage est un <strong>Trompeur</strong> et un tricheur-né, qui peine à se montrer franc, y compris avec ses proches. Il passe pour quelqu'un de peu fiable, dont la loyauté est fluctuante.</p>",
+      "description": "<p>Symbole, chez les dragons, de la division et de la discorde, cet arcane porte les énergies de la manipulation et du cloisonnement de la confiance.</p>",
+      "arcaneOppose": 4
+    }
+  },
+  {
+    "name": "18 — La Demoiselle en la Tour",
+    "type": "arcane",
+    "img": "icons/magic/symbols/star-rising-purple.webp",
+    "system": {
+      "numero": 18, "valeurDraconique": "Ambition",
+      "meteorologie": "Désordre",
+      "competenceAssociee": "investigation", "marque": "Discipliné",
+      "descriptionMarque": "<p>Le personnage est <strong>Discipliné</strong>, respectueux des codes et des traditions. Il peine à transgresser les lois et les interdits. Il a un sens aigu de la hiérarchie et de la justice et évite d'aller à leur encontre. Toutes ses actions sont réfléchies, méthodiques à l'envi.</p>",
+      "description": "<p>Cet arcane symbolise l'ambition. La Demoiselle porte en elle les aspirations de la race, en particulier des Dernières-Nés. Elle cherche les moyens de dépasser les limites de l'âge glorieux tout en restant, assez paradoxalement, inscrite dans la tradition et la hiérarchie.</p>",
+      "arcaneOppose": 3
+    }
+  },
+  {
+    "name": "19 — L'Alchimiste des Ombres",
+    "type": "arcane",
+    "img": "icons/magic/symbols/star-rising-purple.webp",
+    "system": {
+      "numero": 19, "valeurDraconique": "Connaissance",
+      "meteorologie": "Doutes, difficultés de concentration",
+      "competenceAssociee": "erudition", "marque": "Hanté",
+      "descriptionMarque": "<p>Le personnage est <strong>Hanté</strong> par son passé et ne parvient pas à oublier ses erreurs. Cela peut engendrer un état dépressif, voire amener une forme de démence qui voit des victimes de ses fautes revenir le tourmenter en prenant des formes fantasmatiques.</p>",
+      "description": "<p>Symbole de la connaissance et par extension du passé, dont il consiste à extraire les composants d'un futur glorieux. Il est la tradition, le savoir abscons dont on ne saisit pas toujours l'utilité.</p>",
+      "arcaneOppose": 2
+    }
+  },
+  {
+    "name": "20 — Le Guerrier immortel",
+    "type": "arcane",
+    "img": "icons/magic/symbols/star-rising-purple.webp",
+    "system": {
+      "numero": 20, "valeurDraconique": "Héroïsme",
+      "meteorologie": "Climat de méfiance et d'hostilité",
+      "competenceAssociee": "debrouille", "marque": "Téméraire",
+      "descriptionMarque": "<p>Le personnage est profondément <strong>Téméraire</strong>. Il a tendance à tirer la couverture à lui et à prendre des risques inconsidérés pour asseoir sa propre légende. Il veut, plus que tout, marquer le monde de son passage.</p>",
+      "description": "<p>Symbole, chez les dragons, du champion dont les actions marquent le monde en profondeur. Il représente celui qui, survolant de toutes les épreuves, sans se transcender pour faire retrouver à sa race la place qu'elle mérite.</p>",
+      "arcaneOppose": 1
+    }
+  },
+  {
+    "name": "21 — Le Chevalier au Dragon",
+    "type": "arcane",
+    "img": "icons/magic/symbols/star-rising-purple.webp",
+    "system": {
+      "numero": 21, "valeurDraconique": "Domination",
+      "meteorologie": "Orages violents",
+      "competenceAssociee": "equitation", "marque": "Intolérant",
+      "descriptionMarque": "<p>Le personnage est <strong>Intolérant</strong>, en particulier envers tout ce qui touche au mysticisme. Son opposition aux dragons est absolue, proche de l'obsession, et il ne manque pas une occasion de les dominer ou les humilier. Mais son rapport aux religions et croyances humaines est également très compliqué.</p>",
+      "description": "<p>Étrange Chevalier au Dragon, qui annonce, en fonction de celui qui l'interprète, la domination de l'espèce draconique ou, au contraire, sa soumission définitive à une force supérieure.</p>",
+      "arcaneOppose": 0
+    }
+  }
+]

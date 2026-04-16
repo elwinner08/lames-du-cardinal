@@ -1,0 +1,51 @@
+{{!-- ARCANE ITEM SHEET --}}
+<div class="arcane-sheet-body">
+<header class="sheet-header">
+  <img class="item-img" src="{{item.img}}" data-edit="img"
+       title="{{item.name}}" height="40" width="40" />
+  <h1 class="item-name">{{item.name}}</h1>
+</header>
+
+<section class="sheet-body">
+  <div class="arcane-info-grid">
+    <div class="form-group">
+      <label>{{localize "LAMES.Arcanes.numero"}}</label>
+      <select class="arcane-numero-select">
+        {{#each arcanesChoices}}
+        <option value="{{this.numero}}" {{#if (eq this.numero @root.system.numero)}}selected{{/if}}>{{this.numero}} — {{this.nom}}</option>
+        {{/each}}
+      </select>
+    </div>
+    <div class="form-group">
+      <label>{{localize "LAMES.Arcanes.valeurDraconique"}}</label>
+      <span class="arcane-readonly">{{system.valeurDraconique}}</span>
+    </div>
+    <div class="form-group">
+      <label>{{localize "LAMES.Arcanes.meteorologie"}}</label>
+      <input type="text" name="system.meteorologie" value="{{system.meteorologie}}" />
+    </div>
+    <div class="form-group">
+      <label>{{localize "LAMES.Arcanes.competenceAssociee"}}</label>
+      <span class="arcane-readonly">{{system.competenceAssociee}}</span>
+    </div>
+    <div class="form-group">
+      <label>{{localize "LAMES.Arcanes.marque"}}</label>
+      <span class="arcane-readonly">{{system.marque}}</span>
+    </div>
+    <div class="form-group">
+      <label>{{localize "LAMES.Arcanes.oppose"}}</label>
+      <span class="arcane-readonly">{{arcaneOpposeNumero}} — {{arcaneOpposeNom}}</span>
+    </div>
+  </div>
+
+  <div class="form-group full-width">
+    <label>{{localize "LAMES.Divers.description"}}</label>
+    <textarea name="system.description" rows="5" {{#if isFromCompendium}}readonly{{/if}}>{{system.description}}</textarea>
+  </div>
+
+  <div class="form-group full-width">
+    <label>{{localize "LAMES.Arcanes.marque"}} — {{localize "LAMES.Divers.description"}}</label>
+    <textarea name="system.descriptionMarque" rows="5" {{#if isFromCompendium}}readonly{{/if}}>{{system.descriptionMarque}}</textarea>
+  </div>
+</section>
+</div>

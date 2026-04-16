@@ -1,0 +1,83 @@
+{{!-- TAB: RELATIONS --}}
+<section class="tab {{tab.cssClass}}" data-group="primary" data-tab="relations">
+
+  {{!-- Ressources & Contacts --}}
+  <div class="ressources-contacts-section">
+    <div class="rc-block">
+      <label>{{localize "LAMES.ContactsRessources.ressources"}}</label>
+      <div class="rc-pips">
+        {{#each ressourcesPips}}
+        <span class="rc-pip {{#if this.active}}active{{/if}}" data-action="setRessources" data-value="{{this.value}}"></span>
+        {{/each}}
+      </div>
+      <span class="rc-label">{{ressourcesLabel}}</span>
+    </div>
+    <div class="rc-block">
+      <label>{{localize "LAMES.ContactsRessources.contacts"}}</label>
+      <div class="rc-pips">
+        {{#each contactsPips}}
+        <span class="rc-pip {{#if this.active}}active{{/if}}" data-action="setContacts" data-value="{{this.value}}"></span>
+        {{/each}}
+      </div>
+      <span class="rc-label">{{contactsLabel}}</span>
+    </div>
+  </div>
+
+  {{!-- Niveau de vie --}}
+  <div class="ndv-section">
+    <label>{{localize "LAMES.Identite.niveauDeVie"}}</label>
+    <span class="ndv-label">{{niveauDeVieLabel}}</span>
+  </div>
+
+  {{!-- Liens entre Lames --}}
+  <h3><i class="fa-solid fa-handshake"></i> {{localize "LAMES.ContactsRessources.liens"}}
+    <a data-action="lienAdd"><i class="fas fa-plus"></i></a>
+  </h3>
+  <div class="liens-list" data-drop-zone="lien">
+    {{#each liensEnriched}}
+    <div class="lien-row" data-index="{{@index}}">
+      {{#if this.actorImg}}
+      <img src="{{this.actorImg}}" alt="{{this.nom}}" class="lien-portrait" />
+      {{else}}
+      <div class="lien-portrait-placeholder"><i class="fa-solid fa-user"></i></div>
+      {{/if}}
+      <div class="lien-info">
+        <input type="text" name="system.liens.{{@index}}.nom" value="{{this.nom}}"
+               placeholder="{{localize 'LAMES.Divers.nom'}}" class="lien-nom" />
+        <div class="lien-valeur-pips">
+          {{#each this.pips}}
+          <span class="lien-pip {{#if this.active}}active{{/if}}" data-action="setLienValeur" data-index="{{this.lienIndex}}" data-value="{{this.value}}"></span>
+          {{/each}}
+        </div>
+      </div>
+      <input type="hidden" name="system.liens.{{@index}}.actorId" value="{{this.actorId}}" />
+      <a data-action="lienDelete" data-index="{{@index}}" class="lien-delete"><i class="fas fa-trash"></i></a>
+    </div>
+    {{else}}
+    <p class="liens-empty"><em>{{localize "LAMES.Divers.aucunLien"}}</em></p>
+    {{/each}}
+  </div>
+
+  {{!-- Expérience --}}
+  <h3><i class="fa-solid fa-star"></i> {{localize "LAMES.Experience.titre"}}</h3>
+  <div class="experience-section">
+    <div class="xp-block">
+      <label>{{localize "LAMES.Experience.pex"}}</label>
+      <div class="xp-controls">
+        <a data-action="modifyPex" data-delta="-1"><i class="fas fa-minus"></i></a>
+        <span class="xp-value">{{system.experience.pex}}</span>
+        <a data-action="modifyPex" data-delta="1"><i class="fas fa-plus"></i></a>
+      </div>
+    </div>
+    <div class="xp-block xp-block-shared">
+      <label>{{localize "LAMES.Experience.pu"}} <small>({{localize "LAMES.Divers.commun"}})</small></label>
+      <div class="xp-controls">
+        <a data-action="modifyPu" data-delta="-1"><i class="fas fa-minus"></i></a>
+        <span class="xp-value">{{puPool}}</span>
+        <a data-action="modifyPu" data-delta="1"><i class="fas fa-plus"></i></a>
+      </div>
+      <span class="pu-spent">{{localize "LAMES.Divers.totalDepenses"}} : {{puTotalSpent}}</span>
+    </div>
+  </div>
+
+</section>
