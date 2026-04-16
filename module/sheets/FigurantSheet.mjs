@@ -64,6 +64,35 @@ export default class FigurantSheet extends HandlebarsApplicationMixin(ActorSheet
     context.horsComba = system.horsComba;
     context.potentielTotal = system.potentielTotal;
 
+    // Profils disponibles + bonus de compétences depuis le compendium
+    const profilPack = game.packs.get("lames-du-cardinal.profils");
+    const profilBonuses = {};
+    if (profilPack) {
+      const index = await profilPack.getIndex();
+      context.profilsDisponibles = Array.from(index).map(e => e.name).sort((a, b) => a.localeCompare(b, "fr"));
+      if (system.profil) {
+        const entry = Array.from(index).find(e => e.name === system.profil);
+        if (entry) {
+          const doc = await profilPack.getDocument(entry._id);
+          if (doc?.system?.competences) {
+            for (const [key, val] of Object.entries(doc.system.competences)) {
+              profilBonuses[key] = val ?? 0;
+            }
+          }
+        }
+      }
+    } else {
+      context.profilsDisponibles = [];
+    }
+
+    // Compétences avec bonus profil (pour le template)
+    context.competencesAvecBonus = Object.entries(system.competences).map(([key, base]) => ({
+      key,
+      base,
+      bonus: profilBonuses[key] ?? 0,
+      total: base + (profilBonuses[key] ?? 0)
+    }));
+
     context.descriptionEnriched = await foundry.applications.ux.TextEditor.implementation.enrichHTML(system.description, { async: true });
     context.notesEnriched = await foundry.applications.ux.TextEditor.implementation.enrichHTML(system.notes, { async: true });
 

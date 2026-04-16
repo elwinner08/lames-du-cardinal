@@ -12,7 +12,8 @@
     <span class="comp-label">{{this.label}}</span>
     <span class="comp-succes-auto">({{this.succesAuto}})</span>
     <input type="number" name="system.competences.{{this.key}}.valeur"
-           value="{{this.valeur}}" min="0" max="10" class="comp-input" />
+           value="{{this.valeurBase}}" min="0" max="10" class="comp-input" />
+    {{#if this.bonusProfil}}<span class="comp-profil-bonus" title="Bonus profil">+{{this.bonusProfil}}</span>{{/if}}
   </div>
   {{/each}}
 </div>

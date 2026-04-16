@@ -5,7 +5,12 @@
   <div class="figurant-identity-grid">
     <div class="form-group">
       <label>{{localize "LAMES.Figurant.profil"}}</label>
-      <input type="text" name="system.profil" value="{{system.profil}}" />
+      <select name="system.profil">
+        <option value="">—</option>
+        {{#each profilsDisponibles}}
+        <option value="{{this}}" {{#if (eq this ../system.profil)}}selected{{/if}}>{{this}}</option>
+        {{/each}}
+      </select>
     </div>
     <div class="form-group">
       <label>{{localize "LAMES.Figurant.type"}}</label>

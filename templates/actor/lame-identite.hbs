@@ -3,7 +3,12 @@
   <div class="identite-grid">
     <div class="form-group">
       <label>{{localize "LAMES.Identite.profil1"}}</label>
-      <input type="text" name="system.profil1" value="{{system.profil1}}" />
+      <select name="system.profil1">
+        <option value="">—</option>
+        {{#each profilsDisponibles}}
+        <option value="{{this}}" {{#if (eq this ../system.profil1)}}selected{{/if}}>{{this}}</option>
+        {{/each}}
+      </select>
     </div>
     <div class="form-group">
       <label>{{localize "LAMES.Identite.profil1Variation"}}</label>
@@ -11,7 +16,12 @@
     </div>
     <div class="form-group">
       <label>{{localize "LAMES.Identite.profil2"}}</label>
-      <input type="text" name="system.profil2" value="{{system.profil2}}" />
+      <select name="system.profil2">
+        <option value="">—</option>
+        {{#each profilsDisponibles}}
+        <option value="{{this}}" {{#if (eq this ../system.profil2)}}selected{{/if}}>{{this}}</option>
+        {{/each}}
+      </select>
     </div>
     <div class="form-group">
       <label>{{localize "LAMES.Identite.profil2Variation"}}</label>

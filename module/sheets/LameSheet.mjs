@@ -42,7 +42,8 @@ export default class LameSheet extends HandlebarsApplicationMixin(ActorSheetV2) 
       setContacts: LameSheet.#onSetContacts,
       setLienValeur: LameSheet.#onSetLienValeur,
       modifyPex: LameSheet.#onModifyPex,
-      modifyPu: LameSheet.#onModifyPu
+      modifyPu: LameSheet.#onModifyPu,
+      resetPu: LameSheet.#onResetPu
     }
   };
 
@@ -88,33 +89,70 @@ export default class LameSheet extends HandlebarsApplicationMixin(ActorSheetV2) 
     context.evanoui = system.evanoui;
     context.mort = system.mort;
 
+    // Profils disponibles + bonus de compétences depuis le compendium
+    const profilPack = game.packs.get("lames-du-cardinal.profils");
+    const profilBonuses = {};
+    if (profilPack) {
+      const index = await profilPack.getIndex();
+      context.profilsDisponibles = Array.from(index).map(e => e.name).sort((a, b) => a.localeCompare(b, "fr"));
+      for (const profilName of [system.profil1, system.profil2]) {
+        if (!profilName) continue;
+        const entry = Array.from(index).find(e => e.name === profilName);
+        if (!entry) continue;
+        const doc = await profilPack.getDocument(entry._id);
+        if (!doc?.system?.competences) continue;
+        for (const [key, val] of Object.entries(doc.system.competences)) {
+          profilBonuses[key] = (profilBonuses[key] ?? 0) + (val ?? 0);
+        }
+      }
+    } else {
+      context.profilsDisponibles = [];
+    }
+
     // Competences grouped by characteristic
     context.competencesGroupees = {};
     for (const [carac, comps] of Object.entries(LAMES.competences)) {
-      context.competencesGroupees[carac] = comps.map(key => ({
-        key,
-        label: game.i18n.localize(`LAMES.Competences.${key}`),
-        valeur: system.competences[key]?.valeur ?? 0,
-        succesAuto: Math.floor((system.competences[key]?.valeur ?? 0) / 2),
-        signe: LAMES.competenceMap[key]?.signe,
-        couleur: LAMES.competenceMap[key]?.couleur
-      }));
+      context.competencesGroupees[carac] = comps.map(key => {
+        const base = system.competences[key]?.valeur ?? 0;
+        const bonus = profilBonuses[key] ?? 0;
+        const total = base + bonus;
+        return {
+          key,
+          label: game.i18n.localize(`LAMES.Competences.${key}`),
+          valeur: total,
+          valeurBase: base,
+          bonusProfil: bonus,
+          succesAuto: Math.floor(total / 2),
+          signe: LAMES.competenceMap[key]?.signe,
+          couleur: LAMES.competenceMap[key]?.couleur
+        };
+      });
     }
 
     // Escrime info
     const ecole = system.escrime?.ecole;
+    const escrimeBase = system.competences.escrime?.valeur ?? 0;
+    const escrimeBonus = profilBonuses.escrime ?? 0;
+    const escrimeTotal = escrimeBase + escrimeBonus;
     if (ecole && LAMES.ecoles[ecole]) {
       context.escrimeInfo = {
         ...LAMES.ecoles[ecole],
-        valeur: system.competences.escrime?.valeur ?? 0,
-        succesAuto: Math.floor((system.competences.escrime?.valeur ?? 0) / 2)
+        valeur: escrimeTotal,
+        valeurBase: escrimeBase,
+        bonusProfil: escrimeBonus,
+        succesAuto: Math.floor(escrimeTotal / 2)
       };
     }
 
     // Occultisme
+    const occBase = system.competences.occultisme?.valeur ?? 0;
+    const occBonus = profilBonuses.occultisme ?? 0;
+    const occTotal = occBase + occBonus;
     context.occultisme = {
-      valeur: system.competences.occultisme?.valeur ?? 0,
-      succesAuto: Math.floor((system.competences.occultisme?.valeur ?? 0) / 2)
+      valeur: occTotal,
+      valeurBase: occBase,
+      bonusProfil: occBonus,
+      succesAuto: Math.floor(occTotal / 2)
     };
 
     // Items grouped by type
@@ -175,6 +213,7 @@ export default class LameSheet extends HandlebarsApplicationMixin(ActorSheetV2) 
     // PU shared pool
     context.puPool = game.settings.get("lames-du-cardinal", "puPool") ?? 0;
     context.puTotalSpent = game.settings.get("lames-du-cardinal", "puTotalSpent") ?? 0;
+    context.isGM = game.user.isGM;
 
     // Enriched HTML
     context.descriptionEnriched = await foundry.applications.ux.TextEditor.implementation.enrichHTML(system.description, { async: true });
@@ -468,6 +507,15 @@ export default class LameSheet extends HandlebarsApplicationMixin(ActorSheetV2) 
     }
 
     // Broadcast PU change to other clients
+    game.socket.emit("system.lames-du-cardinal", { type: "pu-refresh" });
+  }
+
+  static async #onResetPu(event, target) {
+    await game.settings.set("lames-du-cardinal", "puPool", 0);
+    await game.settings.set("lames-du-cardinal", "puTotalSpent", 0);
+    for (const actor of game.actors) {
+      if (actor.type === "lame" && actor.sheet?.rendered) actor.sheet.render();
+    }
     game.socket.emit("system.lames-du-cardinal", { type: "pu-refresh" });
   }
 

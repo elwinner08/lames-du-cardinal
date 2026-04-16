@@ -72,11 +72,16 @@
     <div class="xp-block xp-block-shared">
       <label>{{localize "LAMES.Experience.pu"}} <small>({{localize "LAMES.Divers.commun"}})</small></label>
       <div class="xp-controls">
-        <a data-action="modifyPu" data-delta="-1"><i class="fas fa-minus"></i></a>
+        {{#if isGM}}<a data-action="modifyPu" data-delta="-1"><i class="fas fa-minus"></i></a>{{/if}}
         <span class="xp-value">{{puPool}}</span>
-        <a data-action="modifyPu" data-delta="1"><i class="fas fa-plus"></i></a>
+        {{#if isGM}}<a data-action="modifyPu" data-delta="1"><i class="fas fa-plus"></i></a>{{/if}}
       </div>
-      <span class="pu-spent">{{localize "LAMES.Divers.totalDepenses"}} : {{puTotalSpent}}</span>
+      {{#if isGM}}
+      <div class="pu-gm-controls">
+        <span class="pu-spent">{{localize "LAMES.Divers.totalDepenses"}} : {{puTotalSpent}}</span>
+        <a data-action="resetPu" title="{{localize 'LAMES.Divers.reset'}}"><i class="fas fa-undo"></i></a>
+      </div>
+      {{/if}}
     </div>
   </div>
 

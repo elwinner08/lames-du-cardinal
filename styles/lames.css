@@ -513,6 +513,14 @@
   text-align: center;
 }
 
+.lames-du-cardinal .comp-profil-bonus {
+  font-size: 0.75em;
+  font-weight: bold;
+  color: #7a5c9e;
+  min-width: 20px;
+  text-align: center;
+}
+
 .lames-du-cardinal .comp-input {
   width: 36px !important;
   text-align: center;

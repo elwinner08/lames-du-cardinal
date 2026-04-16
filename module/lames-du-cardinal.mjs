@@ -132,6 +132,32 @@ Hooks.once("init", function () {
   // ---- Preload Handlebars Templates ----
   _preloadTemplates();
 
+  // ---- Allow players to drag their owned PJ from the Actors sidebar ----
+  const ActorDir = CONFIG.ui.actors;
+  if (ActorDir) {
+    ActorDir.prototype._canDragStart = function (selector) { return true; };
+  }
+
+  // ---- Keybinding DELETE pour supprimer son propre token (joueurs) ----
+  game.keybindings.register("lames-du-cardinal", "supprimerToken", {
+    name: "Supprimer son token",
+    onDown: () => {
+      if (game.user.isGM) return false;
+      const owned = (canvas?.tokens?.controlled ?? []).filter(t => t.actor?.isOwner);
+      if (!owned.length) return false;
+      for (const t of owned) {
+        game.socket.emit("system.lames-du-cardinal", {
+          type: "lame-delete-token",
+          tokenId: t.id,
+          sceneId: canvas.scene.id,
+          userId: game.user.id
+        });
+      }
+      return true;
+    },
+    editable: [{ key: "Delete" }]
+  });
+
   console.log("Lames du Cardinal | Système initialisé");
 });
 
@@ -166,6 +192,52 @@ Hooks.once("ready", async function () {
         }
       }
     }
+    // Player requests token placement — only GM can create tokens
+    if (data.type === "lame-place-token" && game.user.isGM) {
+      const actor = game.actors.get(data.actorId);
+      const scene = game.scenes.get(data.sceneId);
+      if (!actor || !scene) return;
+      const td = await actor.getTokenDocument({ x: data.x, y: data.y });
+      await scene.createEmbeddedDocuments("Token", [td.toObject()]);
+    }
+    // Player requests token deletion
+    if (data.type === "lame-delete-token" && game.user.isGM) {
+      const scene = game.scenes.get(data.sceneId);
+      const token = scene?.tokens.get(data.tokenId);
+      if (!token) return;
+      const player = game.users.get(data.userId);
+      if (token.actor?.testUserPermission(player, "OWNER")) {
+        await token.delete();
+      }
+    }
+  });
+
+  // Allow players to drag their owned PJ to the canvas (token creation via GM socket).
+  // MUST be synchronous — Hooks.call does not await async functions,
+  // so an async handler's "return false" would be ignored (Promise is truthy).
+  Hooks.on("dropCanvasData", (canvas, data) => {
+    if (data.type !== "Actor" || game.user.isGM) return;
+    const actorId = data.id ?? data.uuid?.replace(/^Actor\./, "");
+    const actor = actorId ? game.actors.get(actorId) : null;
+    if (!actor?.isOwner || actor.type !== "lame") return false;
+    let x = data.x ?? 0;
+    let y = data.y ?? 0;
+    try {
+      const snapped = canvas.grid.getSnappedPoint(
+        { x, y },
+        { mode: CONST.GRID_SNAPPING_MODES.TOP_LEFT_CORNER }
+      );
+      x = snapped.x;
+      y = snapped.y;
+    } catch (e) { /* grid snap unavailable */ }
+    game.socket.emit("system.lames-du-cardinal", {
+      type: "lame-place-token",
+      actorId: actor.id,
+      sceneId: canvas.scene.id,
+      x,
+      y
+    });
+    return false;
   });
 
   // ---- Initialize HUD overlays ----
@@ -175,8 +247,24 @@ Hooks.once("ready", async function () {
 
   console.log("Lames du Cardinal | Tarot des Ombres initialisé");
 
-  // Only GMs populate compendiums
+  // Only GMs run the following
   if (!game.user.isGM) return;
+
+  // Configure TOKEN permissions so players can move and interact with their own tokens
+  try {
+    const perms = foundry.utils.deepClone(game.settings.get("core", "permissions") ?? {});
+    const playerRoles = [CONST.USER_ROLES.PLAYER, CONST.USER_ROLES.TRUSTED, CONST.USER_ROLES.ASSISTANT];
+    let dirty = false;
+    for (const key of ["TOKEN_CREATE", "TOKEN_CONFIGURE"]) {
+      if (!Array.isArray(perms[key])) perms[key] = [CONST.USER_ROLES.GAMEMASTER];
+      for (const role of playerRoles) {
+        if (!perms[key].includes(role)) { perms[key].push(role); dirty = true; }
+      }
+    }
+    if (dirty) await game.settings.set("core", "permissions", perms);
+  } catch(e) {
+    console.warn("Lames du Cardinal | Impossible de configurer les permissions token.", e);
+  }
 
   await _populateCompendiumIfEmpty("lames-du-cardinal.profils",
     "module/compendium-data/profils.json");
@@ -184,6 +272,7 @@ Hooks.once("ready", async function () {
     "module/compendium-data/arcanes.json");
   await _populateCompendiumIfEmpty("lames-du-cardinal.ecoles",
     "module/compendium-data/ecoles.json");
+  await _fixArcanesSort();
 });
 
 /* -------------------------------------------- */
@@ -265,6 +354,10 @@ Hooks.on("hoverToken", (token, hovered) => {
     tooltip.style.left = `${screenPos.x}px`;
     tooltip.style.top = `${screenPos.y - 10}px`;
   }
+});
+
+Hooks.on("deleteToken", () => {
+  document.getElementById("lames-token-tooltip")?.remove();
 });
 
 /* -------------------------------------------- */
@@ -349,6 +442,26 @@ async function _preloadTemplates() {
 /* -------------------------------------------- */
 /*  Compendium Population                       */
 /* -------------------------------------------- */
+
+/**
+ * Fix the sort order of the arcanes compendium so entries appear in numeric order.
+ * Runs once on every GM ready — cheap (22 items).
+ */
+async function _fixArcanesSort() {
+  const pack = game.packs.get("lames-du-cardinal.arcanes");
+  if (!pack) return;
+  const docs = await pack.getDocuments();
+  const needsFix = docs.some(d => d.sort !== (d.system.numero ?? 0) * 100);
+  if (!needsFix) return;
+  const wasLocked = pack.locked;
+  if (wasLocked) await pack.configure({ locked: false });
+  const updates = docs
+    .filter(d => d.system?.numero != null)
+    .map(d => ({ _id: d.id, sort: d.system.numero * 100 }));
+  await Item.updateDocuments(updates, { pack: "lames-du-cardinal.arcanes" });
+  if (wasLocked) await pack.configure({ locked: true });
+  console.log("Lames du Cardinal | Tri du compendium arcanes corrigé.");
+}
 
 /**
  * Populate a compendium pack from a JSON data file if the pack is empty.

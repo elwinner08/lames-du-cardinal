@@ -249,7 +249,8 @@ export default class HandOverlay {
     const loc = (key) => game.i18n.localize(key);
 
     // Check the player has a character with ténacité available
-    const actor = game.user.character;
+    const actor = game.user.character
+      ?? game.actors.find(a => a.type === "lame" && a.isOwner);
     if (!actor) {
       ui.notifications.warn(loc("LAMES.Tarot.pasDePersonnage"));
       return;
@@ -260,15 +261,18 @@ export default class HandOverlay {
       return;
     }
 
-    const confirmed = await Dialog.wait({
-      title: loc("LAMES.Tarot.jouer"),
-      content: `<p>${loc("LAMES.Tarot.jouerConfirm")} <strong>${card.label}</strong> ?</p>
-                <p class="tenacite-cost">-1 ${loc("LAMES.Epee.tenacite")}</p>`,
-      buttons: {
-        ok: { label: loc("LAMES.Divers.oui"), callback: () => true },
-        cancel: { label: loc("LAMES.Divers.non"), callback: () => false }
-      },
-      default: "ok"
+    const arcInfo = LAMES.arcaneParNumero.get(card.valeur);
+    const arcName = arcInfo ? `${arcInfo.numero} — ${arcInfo.nom}` : card.label;
+
+    const confirmed = await foundry.applications.api.DialogV2.confirm({
+      window: { title: loc("LAMES.Tarot.jouer") },
+      content: `<p>${loc("LAMES.Tarot.jouerConfirm")} <strong>${arcName}</strong> ?</p>
+                <p class="tenacite-cost" style="color:#8b0000;font-weight:bold;">
+                  ⚠ ${loc("LAMES.Tarot.coutTenacite")}
+                </p>`,
+      yes: { label: loc("LAMES.Divers.oui") },
+      no: { label: loc("LAMES.Divers.non") },
+      rejectClose: false
     });
     if (!confirmed) return;
 
@@ -284,8 +288,6 @@ export default class HandOverlay {
     await mgr.retirerArcaneEphemere(game.user.id, cardId);
 
     // Post to chat
-    const arcInfo = LAMES.arcaneParNumero.get(card.valeur);
-    const arcName = arcInfo ? `${arcInfo.numero} — ${arcInfo.nom}` : card.label;
     await ChatMessage.create({
       content: `
         <div class="lames-roll lames-feinte">

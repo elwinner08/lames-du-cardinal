@@ -28,6 +28,7 @@
       </select>
       <input type="number" name="system.competences.escrime.valeur"
              value="{{system.competences.escrime.valeur}}" min="0" max="10" class="comp-input" />
+      {{#if escrimeInfo.bonusProfil}}<span class="comp-profil-bonus" title="Bonus profil">+{{escrimeInfo.bonusProfil}}</span>{{/if}}
       <span class="comp-succes-auto">({{escrimeInfo.succesAuto}})</span>
     </div>
   </div>
@@ -40,7 +41,8 @@
     </h3>
     <div class="comp-row">
       <input type="number" name="system.competences.occultisme.valeur"
-             value="{{occultisme.valeur}}" min="0" max="10" class="comp-input" />
+             value="{{occultisme.valeurBase}}" min="0" max="10" class="comp-input" />
+      {{#if occultisme.bonusProfil}}<span class="comp-profil-bonus" title="Bonus profil">+{{occultisme.bonusProfil}}</span>{{/if}}
       <span class="comp-succes-auto">({{occultisme.succesAuto}})</span>
     </div>
   </div>

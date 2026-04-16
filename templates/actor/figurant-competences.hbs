@@ -1,10 +1,11 @@
 {{!-- TAB: COMPETENCES (Figurant - pour figurants importants) --}}
 <section class="tab {{tab.cssClass}}" data-group="primary" data-tab="competences">
   <div class="figurant-competences-grid">
-    {{#each system.competences}}
+    {{#each competencesAvecBonus}}
     <div class="form-group comp-row">
-      <label>{{localize (concat "LAMES.Competences." @key)}}</label>
-      <input type="number" name="system.competences.{{@key}}" value="{{this}}" min="0" max="10" class="comp-input" />
+      <label>{{localize (concat "LAMES.Competences." this.key)}}</label>
+      <input type="number" name="system.competences.{{this.key}}" value="{{this.base}}" min="0" max="10" class="comp-input" />
+      {{#if this.bonus}}<span class="comp-profil-bonus" title="Bonus profil">+{{this.bonus}}</span>{{/if}}
     </div>
     {{/each}}
   </div>
