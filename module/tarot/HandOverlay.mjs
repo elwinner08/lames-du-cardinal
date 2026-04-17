@@ -293,6 +293,9 @@ export default class HandOverlay {
         <div class="lames-roll lames-feinte">
           <h3><i class="fa-solid fa-star"></i> ${loc("LAMES.Tarot.arcaneEphemere")}</h3>
           <p><strong>${actor.name}</strong> ${loc("LAMES.Tarot.joueArcaneEph")} <strong>${arcName}</strong></p>
+          <div class="tarot-drawn-cards">
+            <img src="${card.img}" alt="${card.label}" class="tarot-card-img-small" />
+          </div>
           <p class="tenacite-cost">-1 ${loc("LAMES.Epee.tenacite")} (${loc("LAMES.Tarot.reste")} : ${system.tenacite - 1})</p>
         </div>`,
       speaker: ChatMessage.getSpeaker({ actor })

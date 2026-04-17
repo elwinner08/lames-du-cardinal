@@ -255,7 +255,7 @@ Hooks.once("ready", async function () {
     const perms = foundry.utils.deepClone(game.settings.get("core", "permissions") ?? {});
     const playerRoles = [CONST.USER_ROLES.PLAYER, CONST.USER_ROLES.TRUSTED, CONST.USER_ROLES.ASSISTANT];
     let dirty = false;
-    for (const key of ["TOKEN_CREATE", "TOKEN_CONFIGURE"]) {
+    for (const key of ["TOKEN_CREATE", "TOKEN_CONFIGURE", "FILES_UPLOAD"]) {
       if (!Array.isArray(perms[key])) perms[key] = [CONST.USER_ROLES.GAMEMASTER];
       for (const role of playerRoles) {
         if (!perms[key].includes(role)) { perms[key].push(role); dirty = true; }
@@ -273,6 +273,10 @@ Hooks.once("ready", async function () {
   await _populateCompendiumIfEmpty("lames-du-cardinal.ecoles",
     "module/compendium-data/ecoles.json");
   await _fixArcanesSort();
+  await _stripOuterParagraphs("lames-du-cardinal.profils");
+  await _syncCompendiumImgFromJson("lames-du-cardinal.arcanes", "module/compendium-data/arcanes.json");
+  await _syncCompendiumImgFromJson("lames-du-cardinal.ecoles", "module/compendium-data/ecoles.json");
+  await _syncCompendiumImgFromJson("lames-du-cardinal.profils", "module/compendium-data/profils.json");
 });
 
 /* -------------------------------------------- */
@@ -461,6 +465,61 @@ async function _fixArcanesSort() {
   await Item.updateDocuments(updates, { pack: "lames-du-cardinal.arcanes" });
   if (wasLocked) await pack.configure({ locked: true });
   console.log("Lames du Cardinal | Tri du compendium arcanes corrigé.");
+}
+
+/**
+ * Re-apply `img` from a JSON source file onto an already-populated compendium,
+ * matching entries by `name`. Idempotent: only writes when the img differs.
+ */
+async function _syncCompendiumImgFromJson(packId, jsonPath) {
+  const pack = game.packs.get(packId);
+  if (!pack) return;
+  let data;
+  try {
+    const response = await fetch(`systems/lames-du-cardinal/${jsonPath}`);
+    data = await response.json();
+  } catch (err) {
+    console.warn(`Lames du Cardinal | Impossible de lire "${jsonPath}":`, err);
+    return;
+  }
+  const byName = new Map(data.map(d => [d.name, d.img]));
+  const docs = await pack.getDocuments();
+  const updates = [];
+  for (const doc of docs) {
+    const newImg = byName.get(doc.name);
+    if (newImg && doc.img !== newImg) updates.push({ _id: doc.id, img: newImg });
+  }
+  if (!updates.length) return;
+  const wasLocked = pack.locked;
+  if (wasLocked) await pack.configure({ locked: false });
+  await Item.updateDocuments(updates, { pack: packId });
+  if (wasLocked) await pack.configure({ locked: true });
+  console.log(`Lames du Cardinal | ${updates.length} image(s) mise(s) à jour dans "${packId}".`);
+}
+
+/**
+ * Strip a single outer <p>...</p> wrapper from `system.description` of all
+ * entries in the given compendium. Idempotent: skips entries that don't match
+ * or contain nested <p> blocks.
+ */
+async function _stripOuterParagraphs(packId) {
+  const pack = game.packs.get(packId);
+  if (!pack) return;
+  const docs = await pack.getDocuments();
+  const updates = [];
+  for (const doc of docs) {
+    const desc = doc.system?.description ?? "";
+    if (!desc.startsWith("<p>") || !desc.endsWith("</p>")) continue;
+    const inner = desc.slice(3, -4);
+    if (inner.includes("<p>") || inner.includes("</p>")) continue;
+    updates.push({ _id: doc.id, "system.description": inner });
+  }
+  if (!updates.length) return;
+  const wasLocked = pack.locked;
+  if (wasLocked) await pack.configure({ locked: false });
+  await Item.updateDocuments(updates, { pack: packId });
+  if (wasLocked) await pack.configure({ locked: true });
+  console.log(`Lames du Cardinal | ${updates.length} description(s) nettoyée(s) dans "${packId}".`);
 }
 
 /**

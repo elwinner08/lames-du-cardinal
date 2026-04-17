@@ -177,6 +177,13 @@
   cursor: pointer;
 }
 
+.lames-du-cardinal .profile-img {
+  flex: 0 0 auto;
+  width: 100px;
+  height: 100px;
+  background: rgba(0, 0, 0, 0.15);
+}
+
 .lames-du-cardinal .header-fields {
   flex: 1;
   min-width: 0;
@@ -988,6 +995,30 @@
 /*  PROFIL SHEET                                 */
 /* ============================================= */
 
+.lames-du-cardinal .profil-sheet-body .sheet-header {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.lames-du-cardinal .profil-portrait-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: contain;
+  background: rgba(44, 24, 16, 0.08);
+  border: 2px solid var(--lames-gold);
+  border-radius: 4px;
+}
+
+.lames-du-cardinal .profil-sheet-body .item-name {
+  text-align: center;
+  margin: 0;
+}
+
 .lames-du-cardinal .profil-info-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -1101,13 +1132,35 @@
 
 .lames-du-cardinal .ecole-sheet-body .sheet-header {
   display: flex;
-  align-items: center;
-  gap: 10px;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
   margin-bottom: 10px;
 }
 
+.lames-du-cardinal .ecole-sword-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: contain;
+  background: rgba(44, 24, 16, 0.08);
+  border: 2px solid var(--lames-gold);
+  border-radius: 4px;
+  padding: 4px;
+}
+
 .lames-du-cardinal .ecole-sheet-body .header-info {
-  flex: 1;
+  width: 100%;
+  text-align: center;
+}
+
+.lames-du-cardinal .ecole-sheet-body .header-info .item-name {
+  margin: 0 0 4px 0;
+}
+
+.lames-du-cardinal .ecole-sheet-body .ecole-meta {
+  justify-content: center;
 }
 
 .lames-du-cardinal .ecole-meta {
@@ -2763,4 +2816,133 @@
   border-radius: 3px;
   pointer-events: none;
   user-select: none;
+}
+
+/* ============================================= */
+/*  Avatar picker dialog                          */
+/* ============================================= */
+.lames-avatar-picker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 8px;
+}
+
+.lames-avatar-picker .avatar-current img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border: 2px solid var(--lames-gold);
+  border-radius: 4px;
+  box-shadow: 0 2px 6px var(--lames-shadow);
+}
+
+.lames-avatar-picker .avatar-dropzone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  min-height: 140px;
+  padding: 20px;
+  border: 2px dashed var(--lames-gold);
+  border-radius: 6px;
+  background: rgba(201, 168, 76, 0.06);
+  color: var(--lames-text);
+  text-align: center;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.lames-avatar-picker .avatar-dropzone.drag-over {
+  background: rgba(201, 168, 76, 0.18);
+  border-color: var(--lames-crimson);
+  border-style: solid;
+}
+
+.lames-avatar-picker .avatar-dropzone i {
+  font-size: 1.8em;
+  color: var(--lames-gold-dark);
+}
+
+.lames-avatar-picker .avatar-dropzone .dz-main {
+  margin: 0;
+  font-family: "Cinzel", Georgia, serif;
+  font-weight: 600;
+}
+
+.lames-avatar-picker .avatar-dropzone .dz-sub {
+  margin: 0;
+  color: var(--lames-text-muted);
+  font-style: italic;
+  font-size: 0.9em;
+}
+
+.lames-avatar-picker .avatar-browse {
+  padding: 6px 14px;
+  font-family: "Cinzel", Georgia, serif;
+  background: var(--lames-crimson);
+  color: var(--lames-text-light);
+  border: 1px solid var(--lames-gold-dark);
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.lames-avatar-picker .avatar-browse:hover {
+  background: var(--lames-crimson-light);
+}
+
+/* ============================================= */
+/*  ARCANE ITEM SHEET                            */
+/* ============================================= */
+
+.lames-du-cardinal .arcane-sheet-body {
+  padding: 8px;
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+}
+
+.lames-du-cardinal .arcane-sheet-body .sheet-header {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.lames-du-cardinal .arcane-full-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: contain;
+  background: rgba(44, 24, 16, 0.08);
+  border: 2px solid var(--lames-gold);
+  border-radius: 4px;
+}
+
+.lames-du-cardinal .arcane-sheet-body .item-name {
+  text-align: center;
+  margin: 0;
+}
+
+.lames-du-cardinal .arcane-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 12px;
+  margin-bottom: 12px;
+}
+
+/* ============================================= */
+/*  COMPENDIUM LIST — hide thumbnails for écoles  */
+/* ============================================= */
+
+[data-pack="lames-du-cardinal.ecoles"] .directory-item img,
+[data-pack="lames-du-cardinal.ecoles"] .directory-list img,
+.compendium[data-pack="lames-du-cardinal.ecoles"] .thumbnail,
+.compendium[data-pack="lames-du-cardinal.ecoles"] img.thumbnail {
+  display: none !important;
 }

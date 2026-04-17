@@ -334,6 +334,16 @@
       "tresEloignee": "Très éloignée"
     },
 
+    "Avatar": {
+      "titre": "Changer le portrait",
+      "deposez": "Déposez une image ici",
+      "ou": "ou",
+      "parcourir": "Parcourir...",
+      "fichierInvalide": "Fichier invalide : veuillez sélectionner une image.",
+      "pasDePermission": "Vous n'avez pas la permission d'uploader des fichiers.",
+      "erreurUpload": "Erreur lors de l'upload de l'image.",
+      "miseAJour": "Portrait mis à jour."
+    },
     "Divers": {
       "ajouter": "Ajouter",
       "supprimer": "Supprimer",

@@ -1,4 +1,5 @@
 import { LAMES } from "../helpers/config.mjs";
+import { openAvatarPicker } from "../helpers/avatar-picker.mjs";
 
 const { ActorSheetV2 } = foundry.applications.sheets;
 const { HandlebarsApplicationMixin } = foundry.applications.api;
@@ -79,6 +80,8 @@ export default class LameSheet extends HandlebarsApplicationMixin(ActorSheetV2) 
     const context = await super._prepareContext(options);
     const system = this.actor.system;
 
+    context.actor = this.actor;
+    context.actorImg = this.actor.img || "icons/svg/mystery-man.svg";
     context.system = system;
     context.config = LAMES;
     context.tabs = this._prepareTabs("primary");
@@ -753,6 +756,15 @@ export default class LameSheet extends HandlebarsApplicationMixin(ActorSheetV2) 
   /** Handle events that need native DOM listeners (right-click, select change) */
   async _onRender(context, options) {
     await super._onRender(context, options);
+
+    // Click on avatar → open avatar picker
+    const avatar = this.element.querySelector(".profile-img");
+    if (avatar) {
+      avatar.addEventListener("click", (event) => {
+        event.preventDefault();
+        openAvatarPicker(this.actor);
+      });
+    }
 
     // Right-click on épée cases
     this.element.querySelectorAll(".epee-case").forEach(el => {

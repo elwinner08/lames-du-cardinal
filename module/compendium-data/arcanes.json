@@ -2,7 +2,7 @@
   {
     "name": "0 — L'Astrologue en Prière",
     "type": "arcane",
-    "img": "icons/magic/symbols/star-rising-purple.webp",
+    "img": "systems/lames-du-cardinal/assets/tarot/arcane-00.webp",
     "system": {
       "numero": 0,
       "valeurDraconique": "Fatalité",
@@ -18,7 +18,7 @@
   {
     "name": "1 — La Tisserande oubliée",
     "type": "arcane",
-    "img": "icons/magic/symbols/star-rising-purple.webp",
+    "img": "systems/lames-du-cardinal/assets/tarot/arcane-01.webp",
     "system": {
       "numero": 1,
       "valeurDraconique": "Sacrifice",
@@ -34,7 +34,7 @@
   {
     "name": "2 — Le Voleur sans Mémoire",
     "type": "arcane",
-    "img": "icons/magic/symbols/star-rising-purple.webp",
+    "img": "systems/lames-du-cardinal/assets/tarot/arcane-02.webp",
     "system": {
       "numero": 2,
       "valeurDraconique": "Avidité",
@@ -50,7 +50,7 @@
   {
     "name": "3 — Le Jongleur indécis",
     "type": "arcane",
-    "img": "icons/magic/symbols/star-rising-purple.webp",
+    "img": "systems/lames-du-cardinal/assets/tarot/arcane-03.webp",
     "system": {
       "numero": 3,
       "valeurDraconique": "Audace",
@@ -66,7 +66,7 @@
   {
     "name": "4 — La Danseuse à l'Épée",
     "type": "arcane",
-    "img": "icons/magic/symbols/star-rising-purple.webp",
+    "img": "systems/lames-du-cardinal/assets/tarot/arcane-04.webp",
     "system": {
       "numero": 4,
       "valeurDraconique": "Honneur",
@@ -82,7 +82,7 @@
   {
     "name": "5 — La Sentinelle silencieuse",
     "type": "arcane",
-    "img": "icons/magic/symbols/star-rising-purple.webp",
+    "img": "systems/lames-du-cardinal/assets/tarot/arcane-05.webp",
     "system": {
       "numero": 5,
       "valeurDraconique": "Protection",
@@ -98,7 +98,7 @@
   {
     "name": "6 — L'Enlumineur aveugle",
     "type": "arcane",
-    "img": "icons/magic/symbols/star-rising-purple.webp",
+    "img": "systems/lames-du-cardinal/assets/tarot/arcane-06.webp",
     "system": {
       "numero": 6,
       "valeurDraconique": "Impulsivité",
@@ -114,7 +114,7 @@
   {
     "name": "7 — Le Maître d'armes aux Flambeaux",
     "type": "arcane",
-    "img": "icons/magic/symbols/star-rising-purple.webp",
+    "img": "systems/lames-du-cardinal/assets/tarot/arcane-07.webp",
     "system": {
       "numero": 7,
       "valeurDraconique": "Maîtrise",
@@ -130,7 +130,7 @@
   {
     "name": "8 — La Vestale de Pierre",
     "type": "arcane",
-    "img": "icons/magic/symbols/star-rising-purple.webp",
+    "img": "systems/lames-du-cardinal/assets/tarot/arcane-08.webp",
     "system": {
       "numero": 8,
       "valeurDraconique": "Foi",
@@ -146,7 +146,7 @@
   {
     "name": "9 — Le Pèlerin immobile",
     "type": "arcane",
-    "img": "icons/magic/symbols/star-rising-purple.webp",
+    "img": "systems/lames-du-cardinal/assets/tarot/arcane-09.webp",
     "system": {
       "numero": 9,
       "valeurDraconique": "Fermeté",
@@ -162,7 +162,7 @@
   {
     "name": "10 — L'Hérésiarque couronné",
     "type": "arcane",
-    "img": "icons/magic/symbols/star-rising-purple.webp",
+    "img": "systems/lames-du-cardinal/assets/tarot/arcane-10.webp",
     "system": {
       "numero": 10,
       "valeurDraconique": "Autorité",
@@ -178,7 +178,7 @@
   {
     "name": "11 — Le Gentilhomme au Corbeau",
     "type": "arcane",
-    "img": "icons/magic/symbols/star-rising-purple.webp",
+    "img": "systems/lames-du-cardinal/assets/tarot/arcane-11.webp",
     "system": {
       "numero": 11,
       "valeurDraconique": "Modification",
@@ -194,7 +194,7 @@
   {
     "name": "12 — L'Architecte des Mondes",
     "type": "arcane",
-    "img": "icons/magic/symbols/star-rising-purple.webp",
+    "img": "systems/lames-du-cardinal/assets/tarot/arcane-12.webp",
     "system": {
       "numero": 12,
       "valeurDraconique": "Innovation",
@@ -210,7 +210,7 @@
   {
     "name": "13 — La Courtisane amoureuse",
     "type": "arcane",
-    "img": "icons/magic/symbols/star-rising-purple.webp",
+    "img": "systems/lames-du-cardinal/assets/tarot/arcane-13.webp",
     "system": {
       "numero": 13,
       "valeurDraconique": "Sensualité",
@@ -226,7 +226,7 @@
   {
     "name": "14 — L'Assassin sans Visage",
     "type": "arcane",
-    "img": "icons/magic/symbols/star-rising-purple.webp",
+    "img": "systems/lames-du-cardinal/assets/tarot/arcane-14.webp",
     "system": {
       "numero": 14,
       "valeurDraconique": "Subtilité",
@@ -242,7 +242,7 @@
   {
     "name": "15 — L'Horloger des Chimères",
     "type": "arcane",
-    "img": "icons/magic/symbols/star-rising-purple.webp",
+    "img": "systems/lames-du-cardinal/assets/tarot/arcane-15.webp",
     "system": {
       "numero": 15,
       "valeurDraconique": "Diplomatie",
@@ -258,7 +258,7 @@
   {
     "name": "16 — La Gardienne derrière le Miroir",
     "type": "arcane",
-    "img": "icons/magic/symbols/star-rising-purple.webp",
+    "img": "systems/lames-du-cardinal/assets/tarot/arcane-16.webp",
     "system": {
       "numero": 16,
       "valeurDraconique": "Confrontation",
@@ -274,7 +274,7 @@
   {
     "name": "17 — La Magicienne sous le Voile",
     "type": "arcane",
-    "img": "icons/magic/symbols/star-rising-purple.webp",
+    "img": "systems/lames-du-cardinal/assets/tarot/arcane-17.webp",
     "system": {
       "numero": 17,
       "valeurDraconique": "Ruse",
@@ -290,7 +290,7 @@
   {
     "name": "18 — La Demoiselle en la Tour",
     "type": "arcane",
-    "img": "icons/magic/symbols/star-rising-purple.webp",
+    "img": "systems/lames-du-cardinal/assets/tarot/arcane-18.webp",
     "system": {
       "numero": 18,
       "valeurDraconique": "Ambition",
@@ -306,7 +306,7 @@
   {
     "name": "19 — L'Alchimiste des Ombres",
     "type": "arcane",
-    "img": "icons/magic/symbols/star-rising-purple.webp",
+    "img": "systems/lames-du-cardinal/assets/tarot/arcane-19.webp",
     "system": {
       "numero": 19,
       "valeurDraconique": "Connaissance",
@@ -322,7 +322,7 @@
   {
     "name": "20 — Le Guerrier immortel",
     "type": "arcane",
-    "img": "icons/magic/symbols/star-rising-purple.webp",
+    "img": "systems/lames-du-cardinal/assets/tarot/arcane-20.webp",
     "system": {
       "numero": 20,
       "valeurDraconique": "Héroïsme",
@@ -338,7 +338,7 @@
   {
     "name": "21 — Le Chevalier au Dragon",
     "type": "arcane",
-    "img": "icons/magic/symbols/star-rising-purple.webp",
+    "img": "systems/lames-du-cardinal/assets/tarot/arcane-21.webp",
     "system": {
       "numero": 21,
       "valeurDraconique": "Domination",

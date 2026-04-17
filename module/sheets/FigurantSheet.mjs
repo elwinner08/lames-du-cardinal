@@ -1,4 +1,5 @@
 import { LAMES } from "../helpers/config.mjs";
+import { openAvatarPicker } from "../helpers/avatar-picker.mjs";
 
 const { ActorSheetV2 } = foundry.applications.sheets;
 const { HandlebarsApplicationMixin } = foundry.applications.api;
@@ -56,6 +57,8 @@ export default class FigurantSheet extends HandlebarsApplicationMixin(ActorSheet
     const context = await super._prepareContext(options);
     const system = this.actor.system;
 
+    context.actor = this.actor;
+    context.actorImg = this.actor.img || "icons/svg/mystery-man.svg";
     context.system = system;
     context.config = LAMES;
     context.tabs = this._prepareTabs("primary");
@@ -160,5 +163,18 @@ export default class FigurantSheet extends HandlebarsApplicationMixin(ActorSheet
     const field = target.dataset.field;
     const current = foundry.utils.getProperty(this.actor, field);
     await this.actor.update({ [field]: !current });
+  }
+
+  /** @override */
+  async _onRender(context, options) {
+    await super._onRender(context, options);
+
+    const avatar = this.element.querySelector(".profile-img");
+    if (avatar) {
+      avatar.addEventListener("click", (event) => {
+        event.preventDefault();
+        openAvatarPicker(this.actor);
+      });
+    }
   }
 }
