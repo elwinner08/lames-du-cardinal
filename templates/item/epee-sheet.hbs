@@ -1,0 +1,23 @@
+{{!-- ÉPÉE ITEM SHEET --}}
+<div class="epee-sheet-body">
+  <img class="epee-sword-img" src="{{item.img}}" alt="{{item.name}}" title="{{item.name}}" />
+  <div class="epee-content-col">
+    <h1 class="item-name">{{item.name}}</h1>
+
+    {{#if descriptionEnriched}}
+    <div class="epee-description">
+      {{{descriptionEnriched}}}
+    </div>
+    {{/if}}
+
+    <div class="epee-section">
+      <h2><i class="fas fa-hand-sparkles"></i> {{localize "LAMES.EpeeItem.capacites"}}</h2>
+      {{#each capacitesEnriched}}
+      <div class="epee-capacite">
+        <h3>{{this.nom}}</h3>
+        <div class="capacite-description">{{{this.descriptionEnriched}}}</div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</div>

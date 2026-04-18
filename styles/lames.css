@@ -2937,12 +2937,110 @@
 }
 
 /* ============================================= */
+/*  ÉPÉE SHEET                                   */
+/* ============================================= */
+
+.lames-du-cardinal .epee-sheet-body {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  padding: 10px;
+  align-items: flex-start;
+}
+
+.lames-du-cardinal .epee-sword-img {
+  flex: 0 0 150px;
+  width: 150px;
+  max-width: 150px;
+  height: auto;
+  max-height: 520px;
+  object-fit: contain;
+  object-position: top center;
+  background: rgba(44, 24, 16, 0.08);
+  border: 2px solid var(--lames-gold);
+  border-radius: 4px;
+  padding: 4px;
+  position: sticky;
+  top: 10px;
+}
+
+.lames-du-cardinal .epee-content-col {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.lames-du-cardinal .epee-content-col .item-name {
+  margin: 0 0 4px 0;
+  font-family: "Cinzel", Georgia, serif;
+  color: var(--lames-crimson);
+  border-bottom: 2px solid var(--lames-gold);
+  padding-bottom: 4px;
+  font-size: 1.4em;
+}
+
+.lames-du-cardinal .epee-description {
+  padding: 8px;
+  background: var(--lames-crimson-bg);
+  border-left: 3px solid var(--lames-crimson);
+  border-radius: 3px;
+  font-style: italic;
+  text-align: justify;
+}
+
+.lames-du-cardinal .epee-description p {
+  margin: 0 0 6px 0;
+}
+
+.lames-du-cardinal .epee-description p:last-child {
+  margin-bottom: 0;
+}
+
+.lames-du-cardinal .epee-section h2 {
+  color: var(--lames-crimson);
+  border-bottom: 2px solid var(--lames-gold);
+  padding-bottom: 4px;
+  margin: 6px 0 6px 0;
+  font-size: 1.1em;
+}
+
+.lames-du-cardinal .epee-capacite {
+  margin-bottom: 8px;
+  padding: 6px 8px;
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid var(--lames-border);
+  border-radius: 4px;
+}
+
+.lames-du-cardinal .epee-capacite h3 {
+  margin: 0 0 4px 0;
+  font-size: 0.95em;
+  color: var(--lames-text);
+}
+
+.lames-du-cardinal .capacite-description {
+  font-size: 0.9em;
+  line-height: 1.4;
+}
+
+.lames-du-cardinal .capacite-description p {
+  margin: 0;
+}
+
+/* ============================================= */
 /*  COMPENDIUM LIST — hide thumbnails for écoles  */
 /* ============================================= */
 
 [data-pack="lames-du-cardinal.ecoles"] .directory-item img,
 [data-pack="lames-du-cardinal.ecoles"] .directory-list img,
-.compendium[data-pack="lames-du-cardinal.ecoles"] .thumbnail,
-.compendium[data-pack="lames-du-cardinal.ecoles"] img.thumbnail {
+[data-pack="lames-du-cardinal.ecoles"] ol.directory-list img,
+[data-pack="lames-du-cardinal.ecoles"] li.directory-item img,
+[data-pack="lames-du-cardinal.ecoles"] .thumbnail,
+[data-pack="lames-du-cardinal.ecoles"] img.thumbnail,
+[data-pack="lames-du-cardinal.ecoles"] .document-image,
+.compendium[data-pack="lames-du-cardinal.ecoles"] img,
+.compendium-directory[data-pack="lames-du-cardinal.ecoles"] img {
   display: none !important;
 }

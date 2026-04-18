@@ -15,7 +15,8 @@
       "profil": "Profil",
       "possession": "Possession",
       "equipement": "Équipement",
-      "ecole": "École d'escrime"
+      "ecole": "École d'escrime",
+      "epee": "Épée"
     },
 
     "Tabs": {
@@ -140,6 +141,10 @@
       "feintes": "Feintes",
       "bottes": "Bottes",
       "signature": "Feinte signature"
+    },
+
+    "EpeeItem": {
+      "capacites": "Capacités"
     },
 
     "Arcanes": {

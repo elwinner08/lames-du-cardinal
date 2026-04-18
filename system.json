@@ -116,6 +116,9 @@
       },
       "ecole": {
         "htmlFields": ["description"]
+      },
+      "epee": {
+        "htmlFields": ["description"]
       }
     }
   },

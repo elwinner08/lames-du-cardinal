@@ -20,6 +20,7 @@ import ProfilData from "./documents/ProfilData.mjs";
 import PossessionData from "./documents/PossessionData.mjs";
 import EquipementData from "./documents/EquipementData.mjs";
 import EcoleData from "./documents/EcoleData.mjs";
+import EpeeData from "./documents/EpeeData.mjs";
 
 // Sheets (ApplicationV2)
 import LameSheet from "./sheets/LameSheet.mjs";
@@ -29,6 +30,7 @@ import ArcaneSheet from "./sheets/ArcaneSheet.mjs";
 import ProfilSheet from "./sheets/ProfilSheet.mjs";
 import GenericItemSheet from "./sheets/GenericItemSheet.mjs";
 import EcoleSheet from "./sheets/EcoleSheet.mjs";
+import EpeeSheet from "./sheets/EpeeSheet.mjs";
 
 // Tarot des Ombres
 import TarotManager from "./tarot/TarotManager.mjs";
@@ -62,6 +64,7 @@ Hooks.once("init", function () {
   CONFIG.Item.dataModels.possession = PossessionData;
   CONFIG.Item.dataModels.equipement = EquipementData;
   CONFIG.Item.dataModels.ecole = EcoleData;
+  CONFIG.Item.dataModels.epee = EpeeData;
 
   // ---- Register Actor Sheets (ApplicationV2) ----
   DocumentSheetConfig.registerSheet(Actor, "lames-du-cardinal", LameSheet, {
@@ -99,6 +102,12 @@ Hooks.once("init", function () {
     types: ["ecole"],
     makeDefault: true,
     label: "LAMES.ItemTypes.ecole"
+  });
+
+  DocumentSheetConfig.registerSheet(Item, "lames-du-cardinal", EpeeSheet, {
+    types: ["epee"],
+    makeDefault: true,
+    label: "LAMES.ItemTypes.epee"
   });
 
   DocumentSheetConfig.registerSheet(Item, "lames-du-cardinal", GenericItemSheet, {
@@ -272,11 +281,14 @@ Hooks.once("ready", async function () {
     "module/compendium-data/arcanes.json");
   await _populateCompendiumIfEmpty("lames-du-cardinal.ecoles",
     "module/compendium-data/ecoles.json");
+  await _populateCompendiumIfEmpty("lames-du-cardinal.epees",
+    "module/compendium-data/epees.json");
   await _fixArcanesSort();
   await _stripOuterParagraphs("lames-du-cardinal.profils");
   await _syncCompendiumImgFromJson("lames-du-cardinal.arcanes", "module/compendium-data/arcanes.json");
   await _syncCompendiumImgFromJson("lames-du-cardinal.ecoles", "module/compendium-data/ecoles.json");
   await _syncCompendiumImgFromJson("lames-du-cardinal.profils", "module/compendium-data/profils.json");
+  await _syncCompendiumImgFromJson("lames-du-cardinal.epees", "module/compendium-data/epees.json");
 });
 
 /* -------------------------------------------- */
@@ -436,6 +448,7 @@ async function _preloadTemplates() {
     "systems/lames-du-cardinal/templates/item/profil-sheet.hbs",
     "systems/lames-du-cardinal/templates/item/generic-item-sheet.hbs",
     "systems/lames-du-cardinal/templates/item/ecole-sheet.hbs",
+    "systems/lames-du-cardinal/templates/item/epee-sheet.hbs",
     // Tarot
     "systems/lames-du-cardinal/templates/tarot/tarot-app.hbs",
     "systems/lames-du-cardinal/templates/tarot/tarot-catalogue.hbs"

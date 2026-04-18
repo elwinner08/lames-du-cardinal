@@ -1,0 +1,287 @@
+[
+  {
+    "name": "La forte épée",
+    "type": "epee",
+    "img": "systems/lames-du-cardinal/assets/epees/forte-epee.png",
+    "system": {
+      "cle": "forte-epee",
+      "description": "<p>Cette arme large à deux tranchants est lourde et solide, et fort appréciée des Anglais. Taillée pour la guerre, elle frappe fort et net. Son maniement nécessite une certaine force physique. Les mousquetaires sont friands de cette arme dévastatrice.</p>",
+      "capacites": [
+        {
+          "nom": "Impact",
+          "description": "<p>Si vous poussez une attaque uniquement avec des cartes Griffe, vous infligez 2 points de dégât par carte utilisée pour pousser.</p>"
+        },
+        {
+          "nom": "Arme lourde",
+          "description": "<p>Vous reprenez la main après avoir joué une carte Écaille d'une valeur inférieure ou égale à 7.</p>"
+        }
+      ]
+    }
+  },
+  {
+    "name": "La schiavone",
+    "type": "epee",
+    "img": "systems/lames-du-cardinal/assets/epees/schiavone.png",
+    "system": {
+      "cle": "schiavone",
+      "description": "<p>Le nom de cette épée vénitienne proviendrait de l'italien <em>schiavo</em> signifiant esclave — c'est ainsi que sont surnommés les gardes dalmates de la garde du doge de Venise. La <em>schiavone</em> fait partie de la famille des sabres courts, très utiles dans une mêlée. Leur panier rond protège très bien la main.</p>",
+      "capacites": [
+        {
+          "nom": "Lame de mêlée",
+          "description": "<p>Si vous placez un enchaînement de défenses, vous gagnez une contre-attaque gratuite (équivalente à un 1 de Griffe).</p>"
+        },
+        {
+          "nom": "Panier renforcé",
+          "description": "<p>Si vous subissez une blessure au corps-à-corps, piochez une carte. Si c'est une carte rouge, votre panier réduit la blessure de 1 point.</p>"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Le sabre",
+    "type": "epee",
+    "img": "systems/lames-du-cardinal/assets/epees/sabre.png",
+    "system": {
+      "cle": "sabre",
+      "description": "<p>Cette arme ne dispose que d'un seul tranchant, ce qui permet d'appuyer le mouvement de la lame avec sa main libre pour infliger des dégâts supplémentaires. Plus rigide que l'épée, elle est par contre moins maniable. Son avantage le plus intéressant est lié à l'inertie toute particulière de sa lame asymétrique, qui permet de trancher plutôt que de frapper comme le fait l'épée. Très efficace face à un adversaire sans protection corporelle, cette arme est sans effet sur les armures.</p>",
+      "capacites": [
+        {
+          "nom": "Tranchant",
+          "description": "<p>Si vous poussez une attaque uniquement avec des cartes Souffle, vous infligez 2 points de dégât supplémentaires par carte utilisée pour pousser.</p>"
+        },
+        {
+          "nom": "Mobilité défensive",
+          "description": "<p>Vous pouvez modifier de 1 ou 2 points la valeur d'une carte Sang.</p>"
+        }
+      ]
+    }
+  },
+  {
+    "name": "L'épée wallonne",
+    "type": "epee",
+    "img": "systems/lames-du-cardinal/assets/epees/wallonne.png",
+    "system": {
+      "cle": "wallonne",
+      "description": "<p>Cette épée de guerre est notamment utilisée par la cavalerie française et l'infanterie. Large, dotée de deux tranchants, elle est très populaire dans les pays du nord de l'Europe (Saint Empire, Pays-Bas, Suède). Son usage est principalement militaire et peu approprié au duel.</p>",
+      "capacites": [
+        {
+          "nom": "Réplique",
+          "description": "<p>Vous pouvez modifier de 1 ou 2 points la valeur d'une carte Écaille.</p>"
+        },
+        {
+          "nom": "Frappe contondante",
+          "description": "<p>Une figure de Griffe rapporte une attaque supplémentaire.</p>"
+        }
+      ]
+    }
+  },
+  {
+    "name": "L'espada ropera",
+    "type": "epee",
+    "img": "systems/lames-du-cardinal/assets/epees/espada-ropera.png",
+    "system": {
+      "cle": "espada-ropera",
+      "description": "<p>Cette épée de taille et d'estoc, apparue en Espagne au XV<sup>e</sup> siècle, est l'ancêtre de la rapière. Il s'agit de la première épée dite « civile », par opposition aux épées purement militaires. Plus raffinée, plus légère, plus sophistiquée que la classique épée large, elle se porte en apparat aussi bien que pour le duel ou la guerre. C'est de là que vient son nom, qui signifie « épée qui se porte avec des vêtements ». Autour de cette arme se développent les prémices de l'école espagnole. Les meilleurs fabricants de lames du monde se trouvent depuis à Tolède.</p>",
+      "capacites": [
+        {
+          "nom": "Couronné",
+          "description": "<p>Une carte Souffle d'une valeur de 7 ou moins vous rapporte une attaque supplémentaire. Vous perdez quand même la main.</p>"
+        },
+        {
+          "nom": "Acier de Tolède",
+          "description": "<p>Si vous posez deux cartes Écaille consécutives, vous obtenez une attaque gratuite à jouer immédiatement. Puis vous perdez la main.</p>"
+        }
+      ]
+    }
+  },
+  {
+    "name": "La spada da lato",
+    "type": "epee",
+    "img": "systems/lames-du-cardinal/assets/epees/spada-da-lato.png",
+    "system": {
+      "cle": "spada-da-lato",
+      "description": "<p>À la fin du XV<sup>e</sup> siècle, l'<em>espada ropera</em> apparaît en Italie. Comme les techniques espagnoles sont tenues secrètes, les Italiens développent leur propre école à partir du combat médiéval. Ils modifient alors peu à peu l'épée espagnole, notamment en intégrant un <em>ricasso</em>, un espace entre la poignée et la lame pour laisser passer l'index, et créent la <em>spada da lato</em>, à lame large, de section hexagonale, quoique déjà fortement affinée et moins lourde que ses ancêtres médiévales.</p>",
+      "capacites": [
+        {
+          "nom": "Élégance",
+          "description": "<p>Une figure de Sang vous rapporte une défense supplémentaire.</p>"
+        },
+        {
+          "nom": "Estoc",
+          "description": "<p>Si vous réussissez une attaque grâce à une carte Souffle, vous infligez 1 point de dégât supplémentaire.</p>"
+        }
+      ]
+    }
+  },
+  {
+    "name": "La rapière",
+    "type": "epee",
+    "img": "systems/lames-du-cardinal/assets/epees/rapiere.png",
+    "system": {
+      "cle": "rapiere",
+      "description": "<p>C'est l'arme de l'âge d'or de l'école italienne. Il s'agit d'une évolution de la <em>spada da lato</em> qui date de la seconde moitié du XVI<sup>e</sup> siècle. La lame, qui acquiert une section losangique, est encore affinée et s'allonge jusqu'à près d'un mètre. La main du bretteur est entièrement protégée par un panier. La taille est abandonnée et l'estoc devient la norme. Les Italiens inventent la main-gauche à la même époque et les deux armes deviennent rapidement inséparables. L'esthétique et le style étant capitaux pour les Italiens, la rapière se dote de gardes baroques et spectaculaires, comme celle de la rapière dite « en squelette ».</p>",
+      "capacites": [
+        {
+          "nom": "Allonge",
+          "description": "<p>Une carte Griffe d'une valeur de 7 ou moins vous rapporte 2 attaques au lieu d'une. Vous perdez la main.</p>"
+        },
+        {
+          "nom": "Liement",
+          "description": "<p>Jouez une carte Sang qui n'est pas une figure. Vous obtenez un mouvement spécial.</p>"
+        }
+      ]
+    }
+  },
+  {
+    "name": "La pappenheimer",
+    "type": "epee",
+    "img": "systems/lames-du-cardinal/assets/epees/pappenheimer.png",
+    "system": {
+      "cle": "pappenheimer",
+      "description": "<p>Imaginée par les Allemands à la fin du XVI<sup>e</sup> siècle, cette rapière voit sa garde se garnir de plaques protectrices. Lourde, mais plus défensive, cette épée devient rapidement populaire, en particulier dans le milieu militaire où l'on apprécie son efficacité.</p>",
+      "capacites": [
+        {
+          "nom": "Garde défensive",
+          "description": "<p>Si vous posez une carte Écaille de valeur égale ou inférieure à 7, elle vous rapporte une défense supplémentaire. Vous perdez la main.</p>"
+        },
+        {
+          "nom": "Coup de pommeau",
+          "description": "<p>Même si vous n'avez pas la main, vous pouvez poser une attaque en plus d'une éventuelle défense.</p>"
+        }
+      ]
+    }
+  },
+  {
+    "name": "La taza ou cazoleta",
+    "type": "epee",
+    "img": "systems/lames-du-cardinal/assets/epees/taza.png",
+    "system": {
+      "cle": "taza",
+      "description": "<p>Les Espagnols, de leur côté, créent la garde en bol, très simple et épurée en comparaison des complexes paniers italiens. Cette coupe protège la main avec plus d'efficacité encore que la <em>pappenheimer</em>.</p>",
+      "capacites": [
+        {
+          "nom": "Contre-attaque",
+          "description": "<p>Une carte Écaille devient une carte Souffle de même valeur.</p>"
+        },
+        {
+          "nom": "Coup de garde",
+          "description": "<p>Si la première carte que vous posez en ronde prime est une figure d'Écaille, les cartes de valeur 6 et 7 vous permettent de garder ou prendre la main durant le reste de l'assaut.</p>"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Le fleuret",
+    "type": "epee",
+    "img": "systems/lames-du-cardinal/assets/epees/fleuret.png",
+    "system": {
+      "cle": "fleuret",
+      "description": "<p>Il s'agit au départ d'une arme de salle destinée à l'entraînement. Extrêmement léger, le fleuret permet une escrime plus sportive. Subtil et élégant, raffiné, moins guerrier, il est particulièrement apprécié à la cour de France où les hommes rivalisent de délicatesse. Rapide, mais fragile et pliable, il est peu propice à un usage militaire, mais apprécié en duel pour son agressivité.</p>",
+      "capacites": [
+        {
+          "nom": "Légèreté",
+          "description": "<p>Vous pouvez renoncer à attaquer pour piocher une carte. Votre adversaire ne peut vous attaquer. Vous ne posez pas de carte.</p>"
+        },
+        {
+          "nom": "Précision",
+          "description": "<p>Ignorez un point d'armure de votre adversaire.</p>"
+        }
+      ]
+    }
+  },
+  {
+    "name": "L'épée drac",
+    "type": "epee",
+    "img": "systems/lames-du-cardinal/assets/epees/drac.png",
+    "system": {
+      "cle": "drac",
+      "description": "<p>Les dracs, qui ne connaissent pas le secret de la forge, fabriquent leurs épées dans les os de leurs adversaires, hommes, dracs ou dragons (ces dernières armes sont légendaires, ou plutôt de l'ordre de la rumeur). La magie des <em>saaskir</em> contribue à augmenter leur solidité et leur tranchant. Ces armes grossières sont très meurtrières et certaines, vibrantes de magie, peuvent donner la ranse.</p>",
+      "capacites": [
+        {
+          "nom": "Brutalité",
+          "description": "<p>Si vous réussissez une attaque avec une carte Griffe, infligez 1 point de dégât supplémentaire.</p>"
+        },
+        {
+          "nom": "Sang des vaincus",
+          "description": "<p>Vous pouvez pousser votre attaque avec une carte Sang, et une seule, en plus des cartes noires éventuelles.</p>"
+        }
+      ]
+    }
+  },
+  {
+    "name": "L'épée en draconite",
+    "type": "epee",
+    "img": "systems/lames-du-cardinal/assets/epees/draconite.png",
+    "system": {
+      "cle": "draconite",
+      "description": "<p>Cette arme alchimique est fabriquée à partir d'une roche rare et difficile à travailler. Elle a l'avantage d'être très efficace contre les êtres draconiques.</p>",
+      "capacites": [
+        {
+          "nom": "Estafilade",
+          "description": "<p>Si vous touchez un adversaire draconique, il subit 1 point de dégât sans considération de Taille, indépendamment des autres dommages.</p>"
+        },
+        {
+          "nom": "Double catégorie",
+          "description": "<p>L'épée en draconite appartient, en plus de sa propre catégorie, à une autre catégorie d'armes au choix (rapière, forte épée, <em>espada ropera</em>, etc.).</p>"
+        }
+      ]
+    }
+  },
+  {
+    "name": "La Griffe",
+    "type": "epee",
+    "img": "systems/lames-du-cardinal/assets/epees/griffe.png",
+    "system": {
+      "cle": "griffe",
+      "description": "<p>Cette arme draconique, très rare, fut forgée, selon la légende, au feu d'un Archéen. Chargée de jusquiame, elle donne la ranse, mais son efficacité est indéniable.</p>",
+      "capacites": [
+        {
+          "nom": "Fléau",
+          "description": "<p>Si vous blessez votre adversaire, piochez une carte. Si c'est une figure noire, cet adversaire est contaminé par la ranse. Défaussez alors la carte. Sinon, conservez-la.</p>"
+        },
+        {
+          "nom": "Souffles draconiques",
+          "description": "<p>Une figure de Souffle rapporte une attaque supplémentaire.</p>"
+        }
+      ]
+    }
+  },
+  {
+    "name": "La reine Christine",
+    "type": "epee",
+    "img": "systems/lames-du-cardinal/assets/epees/reine-christine.png",
+    "system": {
+      "cle": "reine-christine",
+      "description": "<p>Cette arme suédoise, inventée récemment à la cour de Suède et difficile à obtenir, est marquée du sceau des Naos. Si quelques-unes sont magiques, la plupart sont simplement des joyaux de technique et d'équilibre. Le savoir des dragons au service de la forge a su faire des miracles.</p>",
+      "capacites": [
+        {
+          "nom": "Technique",
+          "description": "<p>Modifier la valeur d'une carte Sang de 1 ou 2 points.</p>"
+        },
+        {
+          "nom": "Perfection",
+          "description": "<p>Une dame vous rapporte une attaque ou une défense supplémentaire.</p>"
+        }
+      ]
+    }
+  },
+  {
+    "name": "La flamberge",
+    "type": "epee",
+    "img": "systems/lames-du-cardinal/assets/epees/flamberge.png",
+    "system": {
+      "cle": "flamberge",
+      "description": "<p>Cette arme de duel très fine et à quillons spiralés est taillée pour le duel. Créée en 1640, elle est encore rare. Elle doit son nom à Renaud de Montauban, un héros de la littérature médiévale. La lame de la flamberge était à l'origine une lame ondulée, mais elle a progressivement perdu cette particularité.</p>",
+      "capacites": [
+        {
+          "nom": "Pointe vive",
+          "description": "<p>Défaussez une figure de n'importe quel signe. Elle devient une carte Souffle de valeur inférieure à vyverne, au choix.</p>"
+        },
+        {
+          "nom": "Finesse",
+          "description": "<p>Une carte Griffe devient une carte Écaille de même valeur.</p>"
+        }
+      ]
+    }
+  }
+]

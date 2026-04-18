@@ -28,6 +28,8 @@ export default class EcoleSheet extends HandlebarsApplicationMixin(ItemSheetV2) 
   async _prepareContext(options) {
     const context = await super._prepareContext(options);
     context.system = this.item.system;
+    context.item = this.item;
+    context.isFromCompendium = !!(this.item.pack || this.item._stats?.compendiumSource);
     context.descriptionEnriched = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
       this.item.system.description ?? "", { async: true }
     );
