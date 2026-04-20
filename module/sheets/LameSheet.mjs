@@ -767,8 +767,8 @@ export default class LameSheet extends HandlebarsApplicationMixin(ActorSheetV2) 
       });
     }
 
-    // Right-click on épée cases
-    this.element.querySelectorAll(".epee-case").forEach(el => {
+    // Right-click on épée cases / pips
+    this.element.querySelectorAll(".epee-case, .epee-pip").forEach(el => {
       el.addEventListener("contextmenu", (event) => {
         LameSheet.#onEpeeRightClick.call(this, event, el);
       });
