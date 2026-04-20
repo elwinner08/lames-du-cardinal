@@ -2951,7 +2951,7 @@
 /*  ÉPÉE EN MARGE GAUCHE                         */
 /* ============================================= */
 
-.lames-du-cardinal.sheet.lame form {
+.lames-du-cardinal.sheet.lame {
   position: relative;
   padding-left: 130px;
 }
