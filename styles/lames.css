@@ -2953,7 +2953,10 @@
 
 .lames-du-cardinal.sheet.lame {
   position: relative;
-  padding-left: 130px;
+}
+
+.lames-du-cardinal.sheet.lame > :not(.lame-epee-margin) {
+  margin-left: 130px;
 }
 
 .lame-epee-margin {
