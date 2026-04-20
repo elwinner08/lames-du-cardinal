@@ -49,6 +49,7 @@ export default class LameSheet extends HandlebarsApplicationMixin(ActorSheetV2) 
   };
 
   static PARTS = {
+    epee: { template: "systems/lames-du-cardinal/templates/actor/lame-epee-margin.hbs" },
     header: { template: "systems/lames-du-cardinal/templates/actor/lame-header.hbs" },
     tabs: { template: "templates/generic/tab-navigation.hbs" },
     identite: { template: "systems/lames-du-cardinal/templates/actor/lame-identite.hbs" },
