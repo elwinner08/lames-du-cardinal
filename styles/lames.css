@@ -3044,3 +3044,112 @@
 .compendium-directory[data-pack="lames-du-cardinal.ecoles"] img {
   display: none !important;
 }
+
+/* ============================================= */
+/*  ÉPÉE EN MARGE GAUCHE                         */
+/* ============================================= */
+
+.lames-du-cardinal.sheet.lame form {
+  position: relative;
+  padding-left: 130px;
+}
+
+.lame-epee-margin {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 120px;
+  pointer-events: none;
+  user-select: none;
+}
+
+.lame-epee-wrapper {
+  position: relative;
+  width: 120px;
+}
+
+.lame-epee-img {
+  width: 120px;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4));
+}
+
+.lame-epee-count {
+  position: absolute;
+  font-family: "Cinzel", Georgia, serif;
+  font-weight: bold;
+  color: var(--lames-gold);
+  font-size: 1.1em;
+  text-shadow: 0 0 4px rgba(0,0,0,0.8);
+  pointer-events: none;
+}
+.lame-epee-count-v { top: 18%; right: -4px; }
+.lame-epee-count-t { top: 78%; right: -4px; }
+
+.epee-pip {
+  position: absolute;
+  left: 50%;
+  width: 22px;
+  height: 22px;
+  margin-left: -11px;
+  border-radius: 50%;
+  border: 2px solid rgba(139, 116, 84, 0.6);
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.1s;
+  pointer-events: auto;
+}
+.epee-pip:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 8px var(--lames-gold);
+}
+
+.epee-pip[data-index="0"] { top: 18%; }
+.epee-pip[data-index="1"] { top: 27%; }
+.epee-pip[data-index="2"] { top: 36%; }
+.epee-pip[data-index="3"] { top: 45%; }
+.epee-pip[data-index="4"] { top: 54%; }
+.epee-pip[data-index="5"] { top: 63%; }
+.epee-pip[data-index="6"] { top: 72%; }
+.epee-pip[data-index="7"] { top: 80%; }
+
+.epee-pip.state-vierge {
+  background: rgba(255, 255, 255, 0.92);
+}
+.epee-pip.state-cochee {
+  background: var(--lames-gold);
+  box-shadow: 0 0 10px var(--lames-gold), inset 0 0 4px rgba(255,255,255,0.6);
+}
+.epee-pip.state-barree {
+  background: var(--lames-crimson);
+}
+.epee-pip.state-barree::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  background:
+    linear-gradient(45deg,
+      transparent calc(50% - 2px),
+      rgba(0,0,0,0.85) calc(50% - 2px),
+      rgba(0,0,0,0.85) calc(50% + 2px),
+      transparent calc(50% + 2px)),
+    linear-gradient(-45deg,
+      transparent calc(50% - 2px),
+      rgba(0,0,0,0.85) calc(50% - 2px),
+      rgba(0,0,0,0.85) calc(50% + 2px),
+      transparent calc(50% + 2px));
+}
+
+.lame-epee-status {
+  position: absolute;
+  left: 0; right: 0;
+  top: 100%;
+  margin-top: 6px;
+  text-align: center;
+  font-family: "Cinzel", Georgia, serif;
+  font-size: 0.8em;
+  pointer-events: none;
+}
+.lame-epee-status.evanoui { color: var(--lames-warning); }
+.lame-epee-status.mort    { color: var(--lames-crimson); font-weight: bold; }
+
