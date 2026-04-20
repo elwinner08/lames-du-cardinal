@@ -2951,18 +2951,14 @@
 /*  ÉPÉE EN MARGE GAUCHE                         */
 /* ============================================= */
 
-.lames-du-cardinal.sheet.lame {
-  position: relative;
-}
-
-.lames-du-cardinal.sheet.lame > :not(.lame-epee-margin) {
+.lames-du-cardinal.sheet.lame .tab {
   margin-left: 130px;
 }
 
 .lame-epee-margin {
   position: absolute;
   left: 0;
-  top: 0;
+  top: 180px;
   width: 120px;
   pointer-events: none;
   user-select: none;
@@ -2989,8 +2985,8 @@
   text-shadow: 0 0 4px rgba(0,0,0,0.8);
   pointer-events: none;
 }
-.lame-epee-count-v { top: 18%; right: -4px; }
-.lame-epee-count-t { top: 78%; right: -4px; }
+.lame-epee-count-v { top: 28%; right: -4px; }
+.lame-epee-count-t { top: 80%; right: -4px; }
 
 .epee-pip {
   position: absolute;
@@ -3009,13 +3005,13 @@
   box-shadow: 0 0 8px var(--lames-gold);
 }
 
-.epee-pip[data-index="0"] { top: 18%; }
-.epee-pip[data-index="1"] { top: 27%; }
-.epee-pip[data-index="2"] { top: 36%; }
-.epee-pip[data-index="3"] { top: 45%; }
-.epee-pip[data-index="4"] { top: 54%; }
-.epee-pip[data-index="5"] { top: 63%; }
-.epee-pip[data-index="6"] { top: 72%; }
+.epee-pip[data-index="0"] { top: 28%; }
+.epee-pip[data-index="1"] { top: 35.4%; }
+.epee-pip[data-index="2"] { top: 42.7%; }
+.epee-pip[data-index="3"] { top: 50.1%; }
+.epee-pip[data-index="4"] { top: 57.7%; }
+.epee-pip[data-index="5"] { top: 65%; }
+.epee-pip[data-index="6"] { top: 72.4%; }
 .epee-pip[data-index="7"] { top: 80%; }
 
 .epee-pip.state-vierge {
