@@ -1,0 +1,17 @@
+{{!-- Épée de Vitalité/Ténacité en marge gauche - image + 8 pips cliquables --}}
+<aside class="lame-epee-margin">
+  <div class="lame-epee-wrapper">
+    <img class="lame-epee-img" src="systems/lames-du-cardinal/assets/Vita-tena.png" alt="" />
+    <span class="lame-epee-count lame-epee-count-v">{{vitalite}}</span>
+    <span class="lame-epee-count lame-epee-count-t">{{tenacite}}</span>
+    {{#each system.epee}}
+      <div class="epee-pip state-{{this}}"
+           data-action="epeeClick"
+           data-index="{{@index}}"
+           title="{{#if (eq this 'vierge')}}{{localize 'LAMES.Epee.vierge'}}{{else if (eq this 'cochee')}}{{localize 'LAMES.Epee.cochee'}}{{else}}{{localize 'LAMES.Epee.barree'}}{{/if}}">
+      </div>
+    {{/each}}
+    {{#if evanoui}}<div class="lame-epee-status evanoui">{{localize "LAMES.Epee.evanoui"}}</div>{{/if}}
+    {{#if mort}}<div class="lame-epee-status mort">{{localize "LAMES.Epee.mort"}}</div>{{/if}}
+  </div>
+</aside>
