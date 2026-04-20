@@ -541,111 +541,13 @@
 }
 
 /* ============================================= */
-/*  ÉPÉE DE VITALITÉ                             */
+/*  ÉPÉE — STYLES PARTAGÉS ITEM SHEET            */
 /* ============================================= */
-
-.lames-du-cardinal .epee-vitalite {
-  text-align: center;
-  min-width: 180px;
-}
-
-.lames-du-cardinal .epee-vitalite h4 {
-  font-family: "Cinzel", Georgia, serif;
-  margin: 0 0 4px 0;
-  font-size: 0.75em;
-  color: var(--lames-text-light);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.lames-du-cardinal .epee-stats {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  font-size: 0.8em;
-  margin-bottom: 4px;
-}
-
-.lames-du-cardinal .tenacite-stat {
-  color: var(--lames-gold);
-}
-
-.lames-du-cardinal .vitalite-stat {
-  color: var(--lames-danger-light);
-}
-
-.lames-du-cardinal .epee-cases {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  align-items: center;
-}
 
 .lames-du-cardinal .epee-section {
   display: flex;
   align-items: center;
   gap: 4px;
-}
-
-.lames-du-cardinal .epee-section-label {
-  font-size: 0.65em;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  width: 36px;
-  text-align: right;
-  color: var(--lames-gold);
-  opacity: 0.7;
-}
-
-.lames-du-cardinal .epee-case {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-  border: 2px solid var(--lames-gold);
-  border-radius: 2px;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 0.9em;
-  transition: all 0.15s;
-  user-select: none;
-}
-
-.lames-du-cardinal .epee-case:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 6px var(--lames-gold);
-}
-
-.lames-du-cardinal .epee-case.state-vierge {
-  background: rgba(255, 255, 255, 0.3);
-  color: transparent;
-}
-
-.lames-du-cardinal .epee-case.state-cochee {
-  background: var(--lames-gold);
-  color: var(--lames-bg-header);
-}
-
-.lames-du-cardinal .epee-case.state-barree {
-  background: var(--lames-crimson);
-  color: var(--lames-text-light);
-}
-
-.lames-du-cardinal .epee-status {
-  margin-top: 4px;
-  font-size: 0.75em;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.lames-du-cardinal .epee-status.evanoui {
-  color: var(--lames-gold);
-}
-
-.lames-du-cardinal .epee-status.mort {
-  color: var(--lames-danger-light);
 }
 
 /* ============================================= */
