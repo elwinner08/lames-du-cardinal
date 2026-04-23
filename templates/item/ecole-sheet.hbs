@@ -5,7 +5,7 @@
     <img class="ecole-sword-img" src="{{item.img}}" alt="{{item.name}}" title="{{item.name}}" />
     {{/unless}}
     <div class="header-info">
-      <h1 class="item-name">{{item.name}}</h1>
+      <h1 class="item-name"><input type="text" name="name" value="{{item.name}}" {{#if isFromCompendium}}readonly{{/if}} /></h1>
       <div class="ecole-meta">
         <span class="ecole-tag"><i class="fas fa-fist-raised"></i> {{localize (concat "LAMES.Caracteristiques." system.caracteristique)}}</span>
         <span class="ecole-tag"><i class="fas fa-star"></i> {{localize (concat "LAMES.Signes." system.signe)}}</span>

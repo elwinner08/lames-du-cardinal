@@ -192,7 +192,6 @@
 .lames-du-cardinal .actor-name input,
 .lames-du-cardinal .item-name input {
   font-family: "Cinzel", Georgia, serif;
-  font-size: 1.4em;
   font-weight: bold;
   color: var(--lames-text-light);
   background: transparent;
@@ -202,10 +201,26 @@
   padding: 2px 0;
 }
 
+.lames-du-cardinal .actor-name input {
+  font-size: inherit;
+}
+
+.lames-du-cardinal .item-name input {
+  font-size: 1.4em;
+}
+
 .lames-du-cardinal .actor-name input:focus,
 .lames-du-cardinal .item-name input:focus {
   border-bottom-color: var(--lames-gold);
   box-shadow: none;
+}
+
+.lames-du-cardinal .actor-name input[readonly],
+.lames-du-cardinal .item-name input[readonly],
+.lames-du-cardinal .actor-name input[readonly]:focus,
+.lames-du-cardinal .item-name input[readonly]:focus {
+  border-bottom-color: rgba(139, 116, 84, 0.25);
+  cursor: default;
 }
 
 .lames-du-cardinal .header-details {

@@ -2,7 +2,7 @@
 <div class="epee-sheet-body">
   <img class="epee-sword-img" src="{{item.img}}" alt="{{item.name}}" title="{{item.name}}" />
   <div class="epee-content-col">
-    <h1 class="item-name">{{item.name}}</h1>
+    <h1 class="item-name"><input type="text" name="name" value="{{item.name}}" {{#if isFromCompendium}}readonly{{/if}} /></h1>
 
     {{#if descriptionEnriched}}
     <div class="epee-description">

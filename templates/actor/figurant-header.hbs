@@ -3,7 +3,7 @@
   <img class="profile-img" src="{{actorImg}}"
        alt="{{actor.name}}" title="{{actor.name}}" />
   <div class="header-fields">
-    <h1 class="actor-name">{{actor.name}}</h1>
+    <h1 class="actor-name"><input type="text" name="name" value="{{actor.name}}" /></h1>
     <div class="header-details">
       <span class="figurant-profil">{{system.profil}}</span>
       <span class="figurant-type">{{localize (concat "LAMES.FigurantTypes." system.typeFigurant)}}</span>

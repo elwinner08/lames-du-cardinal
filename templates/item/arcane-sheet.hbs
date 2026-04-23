@@ -2,7 +2,7 @@
 <div class="arcane-sheet-body">
 <header class="sheet-header arcane-header">
   <img class="arcane-full-img" src="{{item.img}}" alt="{{item.name}}" title="{{item.name}}" />
-  <h1 class="item-name">{{item.name}}</h1>
+  <h1 class="item-name"><input type="text" name="name" value="{{item.name}}" {{#if isFromCompendium}}readonly{{/if}} /></h1>
 </header>
 
 <section class="sheet-body">
