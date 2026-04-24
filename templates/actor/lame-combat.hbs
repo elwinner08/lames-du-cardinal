@@ -4,8 +4,17 @@
     <h3>{{localize "LAMES.Escrime.titre"}}</h3>
     {{#if escrimeInfo}}
     <p>{{localize "LAMES.Escrime.ecole"}} : <strong>{{localize escrimeInfo.label}}</strong></p>
-    <p>{{localize "LAMES.Escrime.epee"}} :
-      <input type="text" name="system.escrime.epee" value="{{system.escrime.epee}}" />
+    <p class="escrime-epee-row">
+      <label>{{localize "LAMES.Escrime.epee"}} :</label>
+      <select name="system.escrime.epee">
+        <option value="" {{#unless system.escrime.epee}}selected{{/unless}}>—</option>
+        {{#each epeesDisponibles}}
+        <option value="{{this}}" {{#if (eq this ../system.escrime.epee)}}selected{{/if}}>{{this}}</option>
+        {{/each}}
+        {{#if epeeHorsCompendium}}
+        <option value="{{epeeHorsCompendium}}" selected>{{epeeHorsCompendium}}</option>
+        {{/if}}
+      </select>
     </p>
     {{/if}}
 

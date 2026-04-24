@@ -148,6 +148,19 @@ export default class LameSheet extends HandlebarsApplicationMixin(ActorSheetV2) 
       };
     }
 
+    // Épées disponibles depuis le compendium (liste déroulante de l'onglet Combat)
+    const epeePack = game.packs.get("lames-du-cardinal.epees");
+    context.epeesDisponibles = [];
+    context.epeeHorsCompendium = null;
+    if (epeePack) {
+      const epeeIndex = await epeePack.getIndex();
+      context.epeesDisponibles = Array.from(epeeIndex).map(e => e.name).sort((a, b) => a.localeCompare(b, "fr"));
+      const selectedName = system.escrime?.epee;
+      if (selectedName && !context.epeesDisponibles.includes(selectedName)) {
+        context.epeeHorsCompendium = selectedName;
+      }
+    }
+
     // Occultisme
     const occBase = system.competences.occultisme?.valeur ?? 0;
     const occBonus = profilBonuses.occultisme ?? 0;

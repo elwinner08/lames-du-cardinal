@@ -1947,6 +1947,13 @@
   display: block;
 }
 
+/* Épée : ligne select (onglet Combat) */
+.escrime-epee-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 /* ============================================= */
 /*  PHASE 6 — Relations, Liens, XP              */
 /* ============================================= */
