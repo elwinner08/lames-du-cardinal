@@ -23,6 +23,10 @@ export default class GenericItemSheet extends HandlebarsApplicationMixin(ItemShe
     }
   };
 
+  get title() {
+    return this.document.name;
+  }
+
   static PARTS = {
     body: { template: "systems/lames-du-cardinal/templates/item/generic-item-sheet.hbs" }
   };

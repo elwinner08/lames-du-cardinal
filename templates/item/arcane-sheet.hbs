@@ -39,12 +39,20 @@
 
   <div class="form-group full-width">
     <label>{{localize "LAMES.Divers.description"}}</label>
-    <textarea name="system.description" rows="5" {{#if isFromCompendium}}readonly{{/if}}>{{system.description}}</textarea>
+    {{#if isFromCompendium}}
+      <div class="arcane-description-readonly">{{{descriptionEnriched}}}</div>
+    {{else}}
+      <textarea name="system.description" rows="5">{{system.description}}</textarea>
+    {{/if}}
   </div>
 
   <div class="form-group full-width">
     <label>{{localize "LAMES.Arcanes.marque"}} — {{localize "LAMES.Divers.description"}}</label>
-    <textarea name="system.descriptionMarque" rows="5" {{#if isFromCompendium}}readonly{{/if}}>{{system.descriptionMarque}}</textarea>
+    {{#if isFromCompendium}}
+      <div class="arcane-description-readonly">{{{descriptionMarqueEnriched}}}</div>
+    {{else}}
+      <textarea name="system.descriptionMarque" rows="5">{{system.descriptionMarque}}</textarea>
+    {{/if}}
   </div>
 </section>
 </div>

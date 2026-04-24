@@ -23,6 +23,10 @@ export default class ArmeSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     }
   };
 
+  get title() {
+    return this.document.name;
+  }
+
   static PARTS = {
     body: { template: "systems/lames-du-cardinal/templates/item/arme-sheet.hbs" }
   };

@@ -48,6 +48,10 @@ export default class LameSheet extends HandlebarsApplicationMixin(ActorSheetV2) 
     }
   };
 
+  get title() {
+    return this.document.name;
+  }
+
   static PARTS = {
     epee: { template: "systems/lames-du-cardinal/templates/actor/lame-epee-margin.hbs" },
     header: { template: "systems/lames-du-cardinal/templates/actor/lame-header.hbs" },

@@ -189,6 +189,11 @@
   min-width: 0;
 }
 
+.lames-du-cardinal .actor-name {
+  font-size: 1.8em;
+  margin: 0;
+}
+
 .lames-du-cardinal .actor-name input,
 .lames-du-cardinal .item-name input {
   font-family: "Cinzel", Georgia, serif;
@@ -213,6 +218,28 @@
 .lames-du-cardinal .item-name input:focus {
   border-bottom-color: var(--lames-gold);
   box-shadow: none;
+}
+
+.lames-du-cardinal input[readonly],
+.lames-du-cardinal textarea[readonly] {
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+/* Keep all text in our sheets selectable, even when Foundry locks the sheet
+   (e.g. items from a compendium). Cards in hand/overlays override this
+   explicitly where needed. */
+.lames-du-cardinal,
+.lames-du-cardinal * {
+  user-select: text;
+  -webkit-user-select: text;
+}
+.lames-du-cardinal .hand-card,
+.lames-du-cardinal .hand-card *,
+.lames-du-cardinal .eph-card,
+.lames-du-cardinal .eph-card * {
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .lames-du-cardinal .actor-name input[readonly],
@@ -774,6 +801,27 @@
   border-radius: 3px;
 }
 
+.lames-du-cardinal .arcane-description-readonly {
+  padding: 6px 8px;
+  background: rgba(139, 116, 84, 0.08);
+  border: 1px solid rgba(139, 116, 84, 0.3);
+  border-radius: 3px;
+  line-height: 1.4;
+  min-height: 60px;
+}
+
+.lames-du-cardinal .arcane-description-readonly p {
+  margin: 0 0 6px 0;
+}
+
+.lames-du-cardinal .arcane-description-readonly p:last-child {
+  margin-bottom: 0;
+}
+
+.lames-du-cardinal .arcane-description-readonly strong {
+  font-weight: bold;
+}
+
 /* ============================================= */
 /*  RESISTANCE TRACKER (Figurant)                */
 /* ============================================= */
@@ -941,6 +989,17 @@
   grid-template-columns: 1fr 1fr 1fr;
   gap: 4px 12px;
   margin-bottom: 12px;
+}
+
+.lames-du-cardinal .profil-categorie {
+  padding: 2px 4px;
+  font-size: 0.85em;
+  font-weight: 600;
+  color: var(--lames-text);
+}
+
+.lames-du-cardinal .form-group:has(> .profil-categorie) label {
+  min-width: auto;
 }
 
 /* ============================================= */

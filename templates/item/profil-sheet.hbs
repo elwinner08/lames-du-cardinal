@@ -9,12 +9,7 @@
   <div class="profil-info-grid">
     <div class="form-group">
       <label>{{localize "LAMES.Profil.categorie"}}</label>
-      <select name="system.categorie">
-        <option value="combattant" {{#if (eq system.categorie "combattant")}}selected{{/if}}>{{localize "LAMES.Categories.combattant"}}</option>
-        <option value="courtisan" {{#if (eq system.categorie "courtisan")}}selected{{/if}}>{{localize "LAMES.Categories.courtisan"}}</option>
-        <option value="lettre" {{#if (eq system.categorie "lettre")}}selected{{/if}}>{{localize "LAMES.Categories.lettre"}}</option>
-        <option value="roturier" {{#if (eq system.categorie "roturier")}}selected{{/if}}>{{localize "LAMES.Categories.roturier"}}</option>
-      </select>
+      <span class="profil-categorie">{{localize (concat "LAMES.Categories." system.categorie)}}</span>
     </div>
     <div class="form-group">
       <label>{{localize "LAMES.Profil.niveauDeVie"}} (min)</label>

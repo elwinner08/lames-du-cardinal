@@ -33,6 +33,10 @@ export default class FigurantSheet extends HandlebarsApplicationMixin(ActorSheet
     }
   };
 
+  get title() {
+    return this.document.name;
+  }
+
   static PARTS = {
     header: { template: "systems/lames-du-cardinal/templates/actor/figurant-header.hbs" },
     tabs: { template: "templates/generic/tab-navigation.hbs" },

@@ -7,6 +7,7 @@
 
 // Configuration
 import { LAMES } from "./helpers/config.mjs";
+import { setProfilCategories } from "./helpers/set-profil-categories.mjs";
 
 // Data Models
 import LameData from "./documents/LameData.mjs";
@@ -49,6 +50,7 @@ Hooks.once("init", function () {
 
   // Expose config globally
   CONFIG.LAMES = LAMES;
+  CONFIG.LAMES.setProfilCategories = setProfilCategories;
 
   // ---- Register Actor Data Models ----
   CONFIG.Actor.dataModels.lame = LameData;
@@ -374,6 +376,23 @@ Hooks.on("hoverToken", (token, hovered) => {
 
 Hooks.on("deleteToken", () => {
   document.getElementById("lames-token-tooltip")?.remove();
+});
+
+/* -------------------------------------------- */
+/*  Keep text selectable on locked sheets       */
+/* -------------------------------------------- */
+// Foundry applies `disabled` on all form controls when a sheet is not editable
+// (e.g. items from a locked compendium). `disabled` prevents text selection in
+// Chrome, so we swap it for `readonly` on text-bearing fields: same "no edit"
+// behavior, but selection and copy-paste keep working.
+Hooks.on("renderApplicationV2", (app, element) => {
+  if (!element?.classList?.contains?.("lames-du-cardinal")) return;
+  element.querySelectorAll(
+    "input[type='text']:disabled, input[type='number']:disabled, textarea:disabled"
+  ).forEach(el => {
+    el.disabled = false;
+    el.setAttribute("readonly", "");
+  });
 });
 
 /* -------------------------------------------- */
