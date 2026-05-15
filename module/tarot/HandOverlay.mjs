@@ -171,7 +171,7 @@ export default class HandOverlay {
     const speakerName = actor?.name ?? game.user.name;
     await ChatMessage.create({
       content: `
-        <div class="lames-roll lames-tarot-draw">
+        <div class="lames-roll">
           <h3><i class="fa-solid fa-cards"></i> ${speakerName} ${loc("LAMES.Tarot.joueUneCarte")}</h3>
           <div class="tarot-card-display">
             <img src="${card.img}" alt="${card.label}" class="tarot-card-img" />

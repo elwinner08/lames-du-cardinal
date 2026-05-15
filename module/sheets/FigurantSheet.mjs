@@ -68,7 +68,7 @@ export default class FigurantSheet extends HandlebarsApplicationMixin(ActorSheet
     context.tabs = this._prepareTabs("primary");
 
     context.resumeCombat = system.resumeCombat;
-    context.horsComba = system.horsComba;
+    context.horsCombat = system.horsCombat;
     context.potentielTotal = system.potentielTotal;
 
     // Profils disponibles + bonus de compétences depuis le compendium

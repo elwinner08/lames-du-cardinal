@@ -62,46 +62,46 @@ LAMES.ecoles = {
  * The four signs of the Tarot.
  */
 LAMES.signes = {
-  griffe: { couleur: "noir", label: "LAMES.Signes.griffe", icon: "systems/lames-du-cardinal/assets/signes/griffe.svg" },
-  souffle: { couleur: "noir", label: "LAMES.Signes.souffle", icon: "systems/lames-du-cardinal/assets/signes/souffle.svg" },
-  sang: { couleur: "rouge", label: "LAMES.Signes.sang", icon: "systems/lames-du-cardinal/assets/signes/sang.svg" },
-  ecaille: { couleur: "rouge", label: "LAMES.Signes.ecaille", icon: "systems/lames-du-cardinal/assets/signes/ecaille.svg" }
+  griffe: { couleur: "noir", label: "LAMES.Signes.griffe", icon: "systems/lames-du-cardinal/assets/signes/griffe.png" },
+  souffle: { couleur: "noir", label: "LAMES.Signes.souffle", icon: "systems/lames-du-cardinal/assets/signes/souffle.png" },
+  sang: { couleur: "rouge", label: "LAMES.Signes.sang", icon: "systems/lames-du-cardinal/assets/signes/sang.png" },
+  ecaille: { couleur: "rouge", label: "LAMES.Signes.ecaille", icon: "systems/lames-du-cardinal/assets/signes/ecaille.png" }
 };
 
 /**
  * Difficulty scale.
  */
 LAMES.difficultes = {
-  1: "Moyenne",
-  2: "Difficile",
-  3: "Très difficile",
-  4: "Extrêmement difficile",
-  5: "Insensée",
-  6: "Chimérique"
+  1: "LAMES.Difficultes.1",
+  2: "LAMES.Difficultes.2",
+  3: "LAMES.Difficultes.3",
+  4: "LAMES.Difficultes.4",
+  5: "LAMES.Difficultes.5",
+  6: "LAMES.Difficultes.6"
 };
 
 /**
  * Opposition scale for figurants.
  */
 LAMES.oppositions = {
-  1: "Piètre antagoniste",
-  2: "Opposant qualifié",
-  3: "Adversaire de premier ordre",
-  4: "Maître en son art",
-  5: "Ennemi emblématique",
-  6: "Grand maître / Monstre de légende"
+  1: "LAMES.Oppositions.1",
+  2: "LAMES.Oppositions.2",
+  3: "LAMES.Oppositions.3",
+  4: "LAMES.Oppositions.4",
+  5: "LAMES.Oppositions.5",
+  6: "LAMES.Oppositions.6"
 };
 
 /**
  * Resistance scale.
  */
 LAMES.resistances = {
-  1: "Vilain / Fragile",
-  3: "Déterminé / Solide",
-  5: "Coriace / Résistant",
-  7: "Inflexible / Minéral",
-  9: "Dragon réveillé",
-  12: "Archéen mécontent"
+  1: "LAMES.Resistances.1",
+  3: "LAMES.Resistances.3",
+  5: "LAMES.Resistances.5",
+  7: "LAMES.Resistances.7",
+  9: "LAMES.Resistances.9",
+  12: "LAMES.Resistances.12"
 };
 
 /**
@@ -236,11 +236,11 @@ LAMES.arcaneParNumero = new Map(LAMES.arcanes.map(a => [a.numero, a]));
  * Wealth scale.
  */
 LAMES.niveauxDeVie = {
-  0: "Miséreux",
-  1: "Très pauvre",
-  2: "Modeste",
-  3: "Correct",
-  4: "Aisé",
-  5: "Riche",
-  6: "Très riche"
+  0: "LAMES.NiveauxDeVie.0",
+  1: "LAMES.NiveauxDeVie.1",
+  2: "LAMES.NiveauxDeVie.2",
+  3: "LAMES.NiveauxDeVie.3",
+  4: "LAMES.NiveauxDeVie.4",
+  5: "LAMES.NiveauxDeVie.5",
+  6: "LAMES.NiveauxDeVie.6"
 };

@@ -214,11 +214,13 @@ export default class LameSheet extends HandlebarsApplicationMixin(ActorSheetV2) 
     const makePips = (val, max) => Array.from({ length: max + 1 }, (_, i) => ({ value: i, active: i <= val }));
     context.ressourcesPips = makePips(system.ressources, 6);
     context.contactsPips = makePips(system.contacts, 6);
-    context.ressourcesLabel = LAMES.niveauxDeVie[system.ressources] ?? "";
+    const ndvKey = LAMES.niveauxDeVie[system.ressources];
+    context.ressourcesLabel = ndvKey ? game.i18n.localize(ndvKey) : "";
     context.contactsLabel = `${system.contacts} contact(s)`;
 
     // Niveau de vie label
-    context.niveauDeVieLabel = `${system.niveauDeVie} — ${LAMES.niveauxDeVie[system.niveauDeVie] ?? ""}`;
+    const ndvKey2 = LAMES.niveauxDeVie[system.niveauDeVie];
+    context.niveauDeVieLabel = `${system.niveauDeVie} — ${ndvKey2 ? game.i18n.localize(ndvKey2) : ""}`;
 
     // Liens enriched with actor portraits
     context.liensEnriched = (system.liens ?? []).map((lien, index) => {
@@ -293,7 +295,7 @@ export default class LameSheet extends HandlebarsApplicationMixin(ActorSheetV2) 
 
     // Difficulty selector
     const diffOptions = Object.entries(LAMES.difficultes)
-      .map(([val, lbl]) => `<option value="${val}">${val} — ${lbl}</option>`)
+      .map(([val, lbl]) => `<option value="${val}">${val} — ${game.i18n.localize(lbl)}</option>`)
       .join("");
 
     const dialogContent = `
@@ -419,7 +421,7 @@ export default class LameSheet extends HandlebarsApplicationMixin(ActorSheetV2) 
     }
 
     const diffOptions = Object.entries(LAMES.difficultes)
-      .map(([val, lbl]) => `<option value="${val}">${val} — ${lbl}</option>`)
+      .map(([val, lbl]) => `<option value="${val}">${val} — ${game.i18n.localize(lbl)}</option>`)
       .join("");
     const typeOptions = `<option value="eclair">Test éclair</option><option value="dramatique">Test dramatique</option>`;
 
@@ -454,7 +456,7 @@ export default class LameSheet extends HandlebarsApplicationMixin(ActorSheetV2) 
       .map(([key, info]) => `<option value="${key}">${game.i18n.localize(info.label)}</option>`)
       .join("");
     const diffOptions = Object.entries(LAMES.difficultes)
-      .map(([val, lbl]) => `<option value="${val}">${val} — ${lbl}</option>`)
+      .map(([val, lbl]) => `<option value="${val}">${val} — ${game.i18n.localize(lbl)}</option>`)
       .join("");
     const typeOptions = `<option value="eclair">Test éclair</option><option value="dramatique">Test dramatique</option>`;
 

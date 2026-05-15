@@ -357,19 +357,6 @@ export default class TarotManager {
     return card;
   }
 
-  /** Remove an arcane from hand and shuffle it back into lames pioche. */
-  async retirerArcaneDeMain(userId, cardId) {
-    this._ensureMains();
-    const hand = this._state.mains[userId] ?? [];
-    const idx = hand.indexOf(cardId);
-    if (idx < 0) return null;
-    hand.splice(idx, 1);
-    this._state.lames.pioche.push(cardId);
-    this._state.lames.pioche = this._shuffle(this._state.lames.pioche);
-    await this._broadcast();
-    return this.getCard(cardId);
-  }
-
   /** Transfer a card from one player's hand to another player's hand. */
   async transfererCarte(fromUserId, toUserId, cardId) {
     this._ensureMains();
@@ -404,24 +391,6 @@ export default class TarotManager {
     this._state.arcanesEphemeres[userId].push(id);
     await this._broadcast();
     return this.getCard(id);
-  }
-
-  /** Give a specific arcane card as ephemeral to a player (GM action, from pioche/defausse). */
-  async donnerArcaneEphemere(cardId, userId) {
-    this._ensureMains();
-    if (!this._state.arcanesEphemeres[userId]) this._state.arcanesEphemeres[userId] = [];
-    if (this._state.arcanesEphemeres[userId].length >= 2) return null;
-    // Remove from arcanes pioche or defausse
-    const pools = [this._state.arcanes.pioche, this._state.arcanes.defausse];
-    let found = false;
-    for (const pool of pools) {
-      const idx = pool.indexOf(cardId);
-      if (idx >= 0) { pool.splice(idx, 1); found = true; break; }
-    }
-    if (!found) return null;
-    this._state.arcanesEphemeres[userId].push(cardId);
-    await this._broadcast();
-    return this.getCard(cardId);
   }
 
   /** Play or discard an ephemeral arcane → shuffled back into LAMES pioche. */

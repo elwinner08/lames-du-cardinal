@@ -355,7 +355,7 @@ export default class TarotApp extends HandlebarsApplicationMixin(ApplicationV2) 
 
     if (showDifficulte) {
       const diffOptions = Object.entries(LAMES.difficultes)
-        .map(([val, label]) => `<option value="${val}">${val} — ${label}</option>`)
+        .map(([val, label]) => `<option value="${val}">${val} — ${game.i18n.localize(label)}</option>`)
         .join("");
       html += `
         <div class="form-group">
@@ -751,7 +751,7 @@ export default class TarotApp extends HandlebarsApplicationMixin(ApplicationV2) 
   static async _postCardToChat(card, title) {
     const signeLabel = card.signe ? game.i18n.localize(`LAMES.Signes.${card.signe}`) : "Arcane";
     const chatContent = `
-      <div class="lames-roll lames-tarot-draw">
+      <div class="lames-roll">
         <h3><i class="fa-solid fa-cards"></i> ${title}</h3>
         <div class="tarot-card-display">
           <img src="${card.img}" alt="${card.label}" class="tarot-card-img" />

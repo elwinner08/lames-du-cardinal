@@ -57,14 +57,12 @@
     },
 
     "Caracteristiques": {
-      "titre": "Caractéristiques",
       "puissance": "Puissance",
       "vivacite": "Vivacité",
       "galanterie": "Galanterie",
       "finesse": "Finesse",
       "qualificatif": "Qualificatif",
-      "consommes": "Consommés",
-      "valeur": "Valeur"
+      "consommes": "Consommés"
     },
 
     "Signes": {
@@ -197,7 +195,7 @@
       "reserve": "Réserve",
       "puissanceMagique": "Puissance magique",
       "volonte": "Volonté",
-      "horsComba": "Hors combat",
+      "horsCombat": "Hors combat",
       "resumeCombat": "Résumé combat",
       "type": "Type",
       "combatTracker": "Suivi de combat"
@@ -209,6 +207,43 @@
       "sangmele": "Sang-mêlé",
       "dragon": "Dragon",
       "creature": "Créature"
+    },
+
+    "Difficultes": {
+      "1": "Moyenne",
+      "2": "Difficile",
+      "3": "Très difficile",
+      "4": "Extrêmement difficile",
+      "5": "Insensée",
+      "6": "Chimérique"
+    },
+
+    "Oppositions": {
+      "1": "Piètre antagoniste",
+      "2": "Opposant qualifié",
+      "3": "Adversaire de premier ordre",
+      "4": "Maître en son art",
+      "5": "Ennemi emblématique",
+      "6": "Grand maître / Monstre de légende"
+    },
+
+    "Resistances": {
+      "1": "Vilain / Fragile",
+      "3": "Déterminé / Solide",
+      "5": "Coriace / Résistant",
+      "7": "Inflexible / Minéral",
+      "9": "Dragon réveillé",
+      "12": "Archéen mécontent"
+    },
+
+    "NiveauxDeVie": {
+      "0": "Miséreux",
+      "1": "Très pauvre",
+      "2": "Modeste",
+      "3": "Correct",
+      "4": "Aisé",
+      "5": "Riche",
+      "6": "Très riche"
     },
 
     "Arme": {
@@ -287,10 +322,7 @@
       "donnerA": "Donner à",
       "carteIndisponible": "Cette carte n'est pas disponible (déjà en main ou dans la rivière).",
       "carteDonnee": "Carte donnée",
-      "jusquiame": "Jusquiame",
       "ouvrir": "Ouvrir le Tarot des Ombres",
-      "cartesTirees": "Cartes tirées",
-      "continuer": "Continuer à tirer ?",
       "maMain": "Ma Main",
       "mainVide": "Aucune carte en main. Piochez !",
       "jouer": "Jouer une carte",
@@ -305,7 +337,6 @@
       "defaussee": "défaussée",
       "envoyerA": "Envoyer à",
       "envoyee": "envoyée à",
-      "meteo": "Météo",
       "arcaneEphemere": "Arcane éphémère",
       "ephMaxAtteint": "Ce joueur a déjà 2 arcanes éphémères (maximum).",
       "pasDePersonnage": "Aucun personnage assigné.",
@@ -323,20 +354,6 @@
     "Token": {
       "pj": "Personnage Joueur",
       "pnj": "Personnage Non-Joueur"
-    },
-
-    "Combat": {
-      "assaut": "Assaut",
-      "ronde": "Ronde",
-      "attaque": "Attaque",
-      "defense": "Défense",
-      "main": "A la main",
-      "distance": "Distance",
-      "contact": "Contact",
-      "proche": "Proche",
-      "moyenneDist": "Moyenne",
-      "eloignee": "Éloignée",
-      "tresEloignee": "Très éloignée"
     },
 
     "Avatar": {

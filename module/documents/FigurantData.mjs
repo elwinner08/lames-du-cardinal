@@ -88,7 +88,7 @@ export default class FigurantData extends foundry.abstract.TypeDataModel {
   }
 
   /** Le figurant est hors combat */
-  get horsComba() {
+  get horsCombat() {
     return this.resistanceActuelle <= 0;
   }
 

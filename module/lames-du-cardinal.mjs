@@ -402,15 +402,8 @@ Hooks.on("renderApplicationV2", (app, element) => {
 function _registerHandlebarsHelpers() {
   Handlebars.registerHelper("eq", (a, b) => a === b);
   Handlebars.registerHelper("ne", (a, b) => a !== b);
-  Handlebars.registerHelper("gt", (a, b) => a > b);
   Handlebars.registerHelper("gte", (a, b) => a >= b);
   Handlebars.registerHelper("lt", (a, b) => a < b);
-  Handlebars.registerHelper("lte", (a, b) => a <= b);
-
-  Handlebars.registerHelper("add", (a, b) => a + b);
-  Handlebars.registerHelper("sub", (a, b) => a - b);
-  Handlebars.registerHelper("floor", (a) => Math.floor(a));
-  Handlebars.registerHelper("half", (a) => Math.floor(a / 2));
 
   Handlebars.registerHelper("times", function (n, block) {
     let result = "";
@@ -419,17 +412,6 @@ function _registerHandlebarsHelpers() {
   });
 
   Handlebars.registerHelper("localize", (key) => game.i18n.localize(key));
-
-  Handlebars.registerHelper("compSigne", function (key) {
-    const info = CONFIG.LAMES.competenceMap[key];
-    return info ? info.signe : "";
-  });
-  Handlebars.registerHelper("compCouleur", function (key) {
-    const info = CONFIG.LAMES.competenceMap[key];
-    return info ? info.couleur : "";
-  });
-
-  Handlebars.registerHelper("succesAuto", (val) => Math.floor(val / 2));
 
   Handlebars.registerHelper("concat", (...args) => {
     args.pop();
@@ -459,7 +441,6 @@ async function _preloadTemplates() {
     "systems/lames-du-cardinal/templates/actor/figurant-notes.hbs",
     // Partials
     "systems/lames-du-cardinal/templates/partials/competences-block.hbs",
-    "systems/lames-du-cardinal/templates/partials/epee-vitalite.hbs",
     "systems/lames-du-cardinal/templates/partials/caracteristique.hbs",
     // Items
     "systems/lames-du-cardinal/templates/item/arme-sheet.hbs",
