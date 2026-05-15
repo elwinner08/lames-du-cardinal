@@ -1,13 +1,11 @@
 import { LAMES } from "../helpers/config.mjs";
-import { openAvatarPicker } from "../helpers/avatar-picker.mjs";
-
-const { ActorSheetV2 } = foundry.applications.sheets;
-const { HandlebarsApplicationMixin } = foundry.applications.api;
+import { LamesActorSheet } from "./base.mjs";
+import { enrich } from "../helpers/enrich.mjs";
 
 /**
  * Actor sheet for "Figurant" (NPC) characters — ApplicationV2.
  */
-export default class FigurantSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
+export default class FigurantSheet extends LamesActorSheet {
 
   static DEFAULT_OPTIONS = {
     tag: "form",
@@ -32,10 +30,6 @@ export default class FigurantSheet extends HandlebarsApplicationMixin(ActorSheet
       toggleBoolean: FigurantSheet.#onToggleBoolean
     }
   };
-
-  get title() {
-    return this.document.name;
-  }
 
   static PARTS = {
     header: { template: "systems/lames-du-cardinal/templates/actor/figurant-header.hbs" },
@@ -100,8 +94,8 @@ export default class FigurantSheet extends HandlebarsApplicationMixin(ActorSheet
       total: base + (profilBonuses[key] ?? 0)
     }));
 
-    context.descriptionEnriched = await foundry.applications.ux.TextEditor.implementation.enrichHTML(system.description, { async: true });
-    context.notesEnriched = await foundry.applications.ux.TextEditor.implementation.enrichHTML(system.notes, { async: true });
+    context.descriptionEnriched = await enrich(system.description);
+    context.notesEnriched = await enrich(system.notes);
 
     context.armes = this.actor.items.filter(i => i.type === "arme");
     context.feintes = this.actor.items.filter(i => i.type === "feinte");
@@ -167,18 +161,5 @@ export default class FigurantSheet extends HandlebarsApplicationMixin(ActorSheet
     const field = target.dataset.field;
     const current = foundry.utils.getProperty(this.actor, field);
     await this.actor.update({ [field]: !current });
-  }
-
-  /** @override */
-  async _onRender(context, options) {
-    await super._onRender(context, options);
-
-    const avatar = this.element.querySelector(".profile-img");
-    if (avatar) {
-      avatar.addEventListener("click", (event) => {
-        event.preventDefault();
-        openAvatarPicker(this.actor);
-      });
-    }
   }
 }

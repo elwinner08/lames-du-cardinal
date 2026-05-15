@@ -1,10 +1,10 @@
-const { ItemSheetV2 } = foundry.applications.sheets;
-const { HandlebarsApplicationMixin } = foundry.applications.api;
+import { LamesItemSheet } from "./base.mjs";
+import { enrich } from "../helpers/enrich.mjs";
 
 /**
  * Generic item sheet for armure, feinte, botte, possession, equipement — ApplicationV2.
  */
-export default class GenericItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
+export default class GenericItemSheet extends LamesItemSheet {
 
   static DEFAULT_OPTIONS = {
     tag: "form",
@@ -23,10 +23,6 @@ export default class GenericItemSheet extends HandlebarsApplicationMixin(ItemShe
     }
   };
 
-  get title() {
-    return this.document.name;
-  }
-
   static PARTS = {
     body: { template: "systems/lames-du-cardinal/templates/item/generic-item-sheet.hbs" }
   };
@@ -34,15 +30,8 @@ export default class GenericItemSheet extends HandlebarsApplicationMixin(ItemShe
   /** @override */
   async _prepareContext(options) {
     const context = await super._prepareContext(options);
-    context.system = this.item.system;
-    context.item = this.item;
-    // Item is from a compendium if it was either imported from one, or still lives in one
-    context.isFromCompendium = !!(this.item.pack || this.item._stats?.compendiumSource);
-    context.descriptionEnriched = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
-      this.item.system.description ?? "", { async: true }
-    );
     if (this.item.system.effets) {
-      context.effetsEnriched = await foundry.applications.ux.TextEditor.implementation.enrichHTML(this.item.system.effets, { async: true });
+      context.effetsEnriched = await enrich(this.item.system.effets);
     }
     return context;
   }

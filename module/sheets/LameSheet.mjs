@@ -1,13 +1,11 @@
 import { LAMES } from "../helpers/config.mjs";
-import { openAvatarPicker } from "../helpers/avatar-picker.mjs";
-
-const { ActorSheetV2 } = foundry.applications.sheets;
-const { HandlebarsApplicationMixin } = foundry.applications.api;
+import { LamesActorSheet } from "./base.mjs";
+import { enrich } from "../helpers/enrich.mjs";
 
 /**
  * Actor sheet for "Lame" (PC) characters — ApplicationV2.
  */
-export default class LameSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
+export default class LameSheet extends LamesActorSheet {
 
   static DEFAULT_OPTIONS = {
     tag: "form",
@@ -47,10 +45,6 @@ export default class LameSheet extends HandlebarsApplicationMixin(ActorSheetV2) 
       resetPu: LameSheet.#onResetPu
     }
   };
-
-  get title() {
-    return this.document.name;
-  }
 
   static PARTS = {
     epee: { template: "systems/lames-du-cardinal/templates/actor/lame-epee-margin.hbs" },
@@ -185,8 +179,8 @@ export default class LameSheet extends HandlebarsApplicationMixin(ActorSheetV2) 
     context.possessions = await Promise.all(
       this.actor.items.filter(i => i.type === "possession").map(async (i) => {
         const obj = i.toObject();
-        obj.enrichedDescription = await foundry.applications.ux.TextEditor.implementation.enrichHTML(i.system.description ?? "", { async: true });
-        obj.enrichedEffets = await foundry.applications.ux.TextEditor.implementation.enrichHTML(i.system.effets ?? "", { async: true });
+        obj.enrichedDescription = await enrich(i.system.description);
+        obj.enrichedEffets = await enrich(i.system.effets);
         return obj;
       })
     );
@@ -195,14 +189,14 @@ export default class LameSheet extends HandlebarsApplicationMixin(ActorSheetV2) 
     context.feintes = await Promise.all(
       this.actor.items.filter(i => i.type === "feinte").map(async (i) => {
         const obj = i.toObject();
-        obj.enrichedDescription = await foundry.applications.ux.TextEditor.implementation.enrichHTML(i.system.description ?? "", { async: true });
+        obj.enrichedDescription = await enrich(i.system.description);
         return obj;
       })
     );
     context.bottes = await Promise.all(
       this.actor.items.filter(i => i.type === "botte").map(async (i) => {
         const obj = i.toObject();
-        obj.enrichedDescription = await foundry.applications.ux.TextEditor.implementation.enrichHTML(i.system.description ?? "", { async: true });
+        obj.enrichedDescription = await enrich(i.system.description);
         return obj;
       })
     );
@@ -239,9 +233,9 @@ export default class LameSheet extends HandlebarsApplicationMixin(ActorSheetV2) 
     context.isGM = game.user.isGM;
 
     // Enriched HTML
-    context.descriptionEnriched = await foundry.applications.ux.TextEditor.implementation.enrichHTML(system.description, { async: true });
-    context.habillementEnriched = await foundry.applications.ux.TextEditor.implementation.enrichHTML(system.habillement, { async: true });
-    context.notesEnriched = await foundry.applications.ux.TextEditor.implementation.enrichHTML(system.notes, { async: true });
+    context.descriptionEnriched = await enrich(system.description);
+    context.habillementEnriched = await enrich(system.habillement);
+    context.notesEnriched = await enrich(system.notes);
 
     return context;
   }
@@ -674,7 +668,7 @@ export default class LameSheet extends HandlebarsApplicationMixin(ActorSheetV2) 
     }
 
     // Post to chat
-    const desc = await foundry.applications.ux.TextEditor.implementation.enrichHTML(item.system.description, { async: true });
+    const desc = await enrich(item.system.description);
     const sourceLabel = item.system.source === "ecole"
       ? `École : ${item.system.ecole}`
       : `Épée : ${item.system.epee}`;
@@ -752,7 +746,7 @@ export default class LameSheet extends HandlebarsApplicationMixin(ActorSheetV2) 
     }
 
     // Post to chat
-    const desc = await foundry.applications.ux.TextEditor.implementation.enrichHTML(item.system.description, { async: true });
+    const desc = await enrich(item.system.description);
     const spentCards = spent.map(id => mgr.getCard(id)).filter(Boolean);
     const spentHtml = spentCards.map(c =>
       `<img src="${c.img}" alt="${c.label}" class="tarot-card-img-small" title="${c.label}" />`
@@ -776,15 +770,6 @@ export default class LameSheet extends HandlebarsApplicationMixin(ActorSheetV2) 
   /** Handle events that need native DOM listeners (right-click, select change) */
   async _onRender(context, options) {
     await super._onRender(context, options);
-
-    // Click on avatar → open avatar picker
-    const avatar = this.element.querySelector(".profile-img");
-    if (avatar) {
-      avatar.addEventListener("click", (event) => {
-        event.preventDefault();
-        openAvatarPicker(this.actor);
-      });
-    }
 
     // Right-click on épée cases / pips
     this.element.querySelectorAll(".epee-case, .epee-pip").forEach(el => {

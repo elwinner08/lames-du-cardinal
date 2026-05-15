@@ -1,10 +1,10 @@
-const { ItemSheetV2 } = foundry.applications.sheets;
-const { HandlebarsApplicationMixin } = foundry.applications.api;
+import { LamesItemSheet } from "./base.mjs";
+import { enrich } from "../helpers/enrich.mjs";
 
 /**
  * Item sheet for weapons (arme) — ApplicationV2.
  */
-export default class ArmeSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
+export default class ArmeSheet extends LamesItemSheet {
 
   static DEFAULT_OPTIONS = {
     tag: "form",
@@ -23,10 +23,6 @@ export default class ArmeSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     }
   };
 
-  get title() {
-    return this.document.name;
-  }
-
   static PARTS = {
     body: { template: "systems/lames-du-cardinal/templates/item/arme-sheet.hbs" }
   };
@@ -34,11 +30,7 @@ export default class ArmeSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
   /** @override */
   async _prepareContext(options) {
     const context = await super._prepareContext(options);
-    context.system = this.item.system;
-    context.item = this.item;
-    context.isFromCompendium = !!(this.item.pack || this.item._stats?.compendiumSource);
-    context.descriptionEnriched = await foundry.applications.ux.TextEditor.implementation.enrichHTML(this.item.system.description, { async: true });
-    context.notesEnriched = await foundry.applications.ux.TextEditor.implementation.enrichHTML(this.item.system.notes, { async: true });
+    context.notesEnriched = await enrich(this.item.system.notes);
     return context;
   }
 

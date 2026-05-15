@@ -1,10 +1,10 @@
-const { ItemSheetV2 } = foundry.applications.sheets;
-const { HandlebarsApplicationMixin } = foundry.applications.api;
+import { LamesItemSheet } from "./base.mjs";
+import { enrich } from "../helpers/enrich.mjs";
 
 /**
  * Item sheet for Épées — ApplicationV2.
  */
-export default class EpeeSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
+export default class EpeeSheet extends LamesItemSheet {
 
   static DEFAULT_OPTIONS = {
     tag: "form",
@@ -20,10 +20,6 @@ export default class EpeeSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     }
   };
 
-  get title() {
-    return this.document.name;
-  }
-
   static PARTS = {
     body: { template: "systems/lames-du-cardinal/templates/item/epee-sheet.hbs" }
   };
@@ -31,18 +27,9 @@ export default class EpeeSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
   /** @override */
   async _prepareContext(options) {
     const context = await super._prepareContext(options);
-    context.system = this.item.system;
-    context.item = this.item;
-    context.isFromCompendium = !!(this.item.pack || this.item._stats?.compendiumSource);
-    context.descriptionEnriched = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
-      this.item.system.description ?? "", { async: true }
-    );
     context.capacitesEnriched = [];
     for (const c of this.item.system.capacites ?? []) {
-      context.capacitesEnriched.push({
-        ...c,
-        descriptionEnriched: await foundry.applications.ux.TextEditor.implementation.enrichHTML(c.description ?? "", { async: true })
-      });
+      context.capacitesEnriched.push({ ...c, descriptionEnriched: await enrich(c.description) });
     }
     return context;
   }

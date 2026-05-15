@@ -1,12 +1,11 @@
 import { LAMES } from "../helpers/config.mjs";
-
-const { ItemSheetV2 } = foundry.applications.sheets;
-const { HandlebarsApplicationMixin } = foundry.applications.api;
+import { LamesItemSheet } from "./base.mjs";
+import { enrich } from "../helpers/enrich.mjs";
 
 /**
  * Item sheet for arcanes — ApplicationV2.
  */
-export default class ArcaneSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
+export default class ArcaneSheet extends LamesItemSheet {
 
   static DEFAULT_OPTIONS = {
     tag: "form",
@@ -22,10 +21,6 @@ export default class ArcaneSheet extends HandlebarsApplicationMixin(ItemSheetV2)
     }
   };
 
-  get title() {
-    return this.document.name;
-  }
-
   static PARTS = {
     body: { template: "systems/lames-du-cardinal/templates/item/arcane-sheet.hbs" }
   };
@@ -33,9 +28,6 @@ export default class ArcaneSheet extends HandlebarsApplicationMixin(ItemSheetV2)
   /** @override */
   async _prepareContext(options) {
     const context = await super._prepareContext(options);
-    context.system = this.item.system;
-    context.item = this.item;
-    context.isFromCompendium = !!(this.item.pack || this.item._stats?.compendiumSource);
     context.arcanesChoices = LAMES.arcanes;
 
     // Arcane opposé calculé
@@ -44,8 +36,7 @@ export default class ArcaneSheet extends HandlebarsApplicationMixin(ItemSheetV2)
     context.arcaneOpposeNumero = oppNum;
     context.arcaneOpposeNom = opp?.nom ?? "?";
 
-    context.descriptionEnriched = await foundry.applications.ux.TextEditor.implementation.enrichHTML(this.item.system.description, { async: true });
-    context.descriptionMarqueEnriched = await foundry.applications.ux.TextEditor.implementation.enrichHTML(this.item.system.descriptionMarque, { async: true });
+    context.descriptionMarqueEnriched = await enrich(this.item.system.descriptionMarque);
     return context;
   }
 

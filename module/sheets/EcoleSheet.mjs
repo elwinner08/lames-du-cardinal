@@ -1,10 +1,10 @@
-const { ItemSheetV2 } = foundry.applications.sheets;
-const { HandlebarsApplicationMixin } = foundry.applications.api;
+import { LamesItemSheet } from "./base.mjs";
+import { enrich } from "../helpers/enrich.mjs";
 
 /**
  * Item sheet for Écoles d'escrime — ApplicationV2.
  */
-export default class EcoleSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
+export default class EcoleSheet extends LamesItemSheet {
 
   static DEFAULT_OPTIONS = {
     tag: "form",
@@ -20,10 +20,6 @@ export default class EcoleSheet extends HandlebarsApplicationMixin(ItemSheetV2) 
     }
   };
 
-  get title() {
-    return this.document.name;
-  }
-
   static PARTS = {
     body: { template: "systems/lames-du-cardinal/templates/item/ecole-sheet.hbs" }
   };
@@ -31,27 +27,15 @@ export default class EcoleSheet extends HandlebarsApplicationMixin(ItemSheetV2) 
   /** @override */
   async _prepareContext(options) {
     const context = await super._prepareContext(options);
-    context.system = this.item.system;
-    context.item = this.item;
-    context.isFromCompendium = !!(this.item.pack || this.item._stats?.compendiumSource);
-    context.descriptionEnriched = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
-      this.item.system.description ?? "", { async: true }
-    );
 
     // Enrich feinte and botte descriptions
     context.feintesEnriched = [];
     for (const f of this.item.system.feintes) {
-      context.feintesEnriched.push({
-        ...f,
-        descriptionEnriched: await foundry.applications.ux.TextEditor.implementation.enrichHTML(f.description ?? "", { async: true })
-      });
+      context.feintesEnriched.push({ ...f, descriptionEnriched: await enrich(f.description) });
     }
     context.bottesEnriched = [];
     for (const b of this.item.system.bottes) {
-      context.bottesEnriched.push({
-        ...b,
-        descriptionEnriched: await foundry.applications.ux.TextEditor.implementation.enrichHTML(b.description ?? "", { async: true })
-      });
+      context.bottesEnriched.push({ ...b, descriptionEnriched: await enrich(b.description) });
     }
     return context;
   }
